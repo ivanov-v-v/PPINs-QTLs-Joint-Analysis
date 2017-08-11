@@ -47,3 +47,10 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+.ipynb_checkpoints
+
+# R auxiliary files
+.Rhistory
+img/
+src/.ipynb_checkpoints/
