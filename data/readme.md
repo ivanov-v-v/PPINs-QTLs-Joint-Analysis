@@ -10,6 +10,7 @@ Processed and cleaned up data used in the original paper.
 - Columns 2-7: BY parent.
 - Columns 8-19: RM parent.
 - Columns 20-132: progeny values.
+
 Compiled from GDS1115 and GDS1116 data in the following way:
 * For each gene, for each strain, average the measurements obtained from two microarrays
 	- If both values are available, average them
