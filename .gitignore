@@ -26,7 +26,7 @@
 .idea/**/libraries
 
 # Mongo Explorer plugin:
-.idea/**/mongoSettings.xml
+.idea/**/mongoSettings.xmls
 
 ## File-based project format:
 *.iws
@@ -54,3 +54,6 @@ fabric.properties
 .Rhistory
 img/
 src/.ipynb_checkpoints/
+/docs/Joshua_Bloom_email_Re_ genetic markers for yeast segregants.rtfd.zip
+/docs/GEO_parse official documentation.pdf
+/docs/Joshua_Bloom_email_Re_ genetic markers for yeast segregants.rtfd/

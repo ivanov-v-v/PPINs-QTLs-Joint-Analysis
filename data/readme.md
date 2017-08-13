@@ -3,7 +3,7 @@ Names of strains used in a series of papers from Kruglyak's lab:
 - [Genetic Dissection of Transcriptional Regulation in Budding Yeast](http://science.sciencemag.org/content/296/5568/752)
 - [The landscape of genetic complexity across 5,700 gene expression traits in yeast, 2005](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC547855/)
 
-## brem2005_expression_data
+## brem2005_RNA_expression
 Processed and cleaned up data used in the original paper.
 - Column 0: indices.
 - Column 1: gene names.
