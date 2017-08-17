@@ -53,7 +53,7 @@ fabric.properties
 # R auxiliary files
 .Rhistory
 src/.ipynb_checkpoints/
-/docs/Joshua_Bloom_email_Re_ genetic markers for yeast segregants.rtfd.zip
-/docs/GEO_parse official documentation.pdf
-/docs/Joshua_Bloom_email_Re_ genetic markers for yeast segregants.rtfd/
-/docs/Zia_Khan_email_Re_ 2d protein QTL LOD plots_.rtf
+docs/Joshua_Bloom_email_Re_ genetic markers for yeast segregants.rtfd.zip
+docs/GEO_parse official documentation.pdf
+docs/Joshua_Bloom_email_Re_ genetic markers for yeast segregants.rtfd/
+docs/Zia_Khan_email_Re_ 2d protein QTL LOD plots_.rtf
