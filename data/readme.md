@@ -27,24 +27,15 @@ The same as rna_expression_full.csv, with parent strains averaged.
 - Column 2-3: averaged expression of parent strains, BY and RM
 - Column 4-128: progeny expression values
 
-## genotypes.csv:
-Genome annotation with 2820 genetic markers for budding yeast strains BY and RM and their progeny, 124 genotypes in total. Covers all the strains mentioned in brem2005_strains.csv and also some extra ones.
+## protein_expression_avg.csv
 
-## genotypes_annotation.csv
-Additional data about the markers: name, chromosome, position, sequence	rec_fractions, _affyID
+## genotypes_full.csv:
+Genome annotation with 2820 genetic markers for budding yeast strains BY and RM and their progeny, 124 genotypes in total. Covers all the strains mentioned in the original Brem paper and also some extra ones.
 
-## linkage_graph.txt
-Bipartite graph of linkages between markers and expressed genes, saved manually in plain text (so far; I am still learning how to preserve the bipartite structure of the graph while writing it to file using built-in methods)
+## rna_genotypes
 
-## Foss2007_protein_expression.txt:
-A file from Zia Khan (June 2010) with protein abundance data, 574 columns. 
-- Line 0: column names. 
-- Columns 0-16: additional data for a line. 
-	- Column 1: protein name. 
-- Columns 17-464: values from 2 parents and 107 progeny, 10 replicates for each parent and 4 replicates for each progeny. 
-- Columns 17-444: progeny values. 
-- Columns 445-454: BY parent. 
-- Columns 455-464: RM parents. 
-- Columns 465-574: median values, for each progeny and for each parent. 
-- Columns 465-571: progeny median values. 
-- Column 572: BY median value. Column 573: RM median value.
+## protein_genotypes.csv
+
+## eQTLs.csv
+
+## pQTLs.csv
