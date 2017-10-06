@@ -68,3 +68,4 @@ docs/Zia_Khan_email_Re_ 2d protein QTL LOD plots_.rtf
 /src/CLUSTER_data_analysis.py
 /src/initial_data_cleanup.ipynb
 /data/BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-3.4.152.mitab.txt
+/.gitignore
