@@ -56,7 +56,7 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
     verbose = TRUE,
     pvalue.hist = TRUE,
     min.pv.by.genesnp = FALSE,
-    noFDRsaveMemory = TRUE);
+    noFDRsaveMemory = FALSE);
   
   ## Results:
   
