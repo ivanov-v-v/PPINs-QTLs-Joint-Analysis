@@ -5,1562 +5,1562 @@
       <attribute id="0" title="networkx_key" type="long" />
     </attributes>
     <nodes>
-      <node id="ECM33" label="ECM33" />
+      <node id="NIP7" label="NIP7" />
+      <node id="SSA4" label="SSA4" />
+      <node id="FRE1" label="FRE1" />
       <node id="CTK1" label="CTK1" />
-      <node id="BTN2" label="BTN2" />
-      <node id="HSF1" label="HSF1" />
-      <node id="RSC8" label="RSC8" />
-      <node id="GAL4" label="GAL4" />
-      <node id="RHO1" label="RHO1" />
-      <node id="SLU7" label="SLU7" />
-      <node id="RNR1" label="RNR1" />
-      <node id="ABP1" label="ABP1" />
-      <node id="IKI3" label="IKI3" />
-      <node id="ERG7" label="ERG7" />
-      <node id="PEX1" label="PEX1" />
-      <node id="APC1" label="APC1" />
-      <node id="RER1" label="RER1" />
-      <node id="CDC15" label="CDC15" />
-      <node id="UMP1" label="UMP1" />
       <node id="ALG7" label="ALG7" />
-      <node id="YCK3" label="YCK3" />
-      <node id="HXT3" label="HXT3" />
-      <node id="RNA14" label="RNA14" />
-      <node id="FAA1" label="FAA1" />
-      <node id="LST8" label="LST8" />
-      <node id="FAP1" label="FAP1" />
-      <node id="TOM20" label="TOM20" />
-      <node id="ERV14" label="ERV14" />
-      <node id="CNS1" label="CNS1" />
-      <node id="YKT6" label="YKT6" />
-      <node id="LSP1" label="LSP1" />
-      <node id="GCD1" label="GCD1" />
-      <node id="RTT106" label="RTT106" />
-      <node id="RPN12" label="RPN12" />
-      <node id="HSP104" label="HSP104" />
-      <node id="CDC34" label="CDC34" />
-      <node id="VAM3" label="VAM3" />
-      <node id="GET3" label="GET3" />
-      <node id="PRE2" label="PRE2" />
-      <node id="SER33" label="SER33" />
-      <node id="CBF1" label="CBF1" />
-      <node id="BAP2" label="BAP2" />
-      <node id="SSA2" label="SSA2" />
-      <node id="ERV29" label="ERV29" />
-      <node id="VPS35" label="VPS35" />
-      <node id="MCM3" label="MCM3" />
-      <node id="PNC1" label="PNC1" />
-      <node id="MSH2" label="MSH2" />
-      <node id="TIF5" label="TIF5" />
-      <node id="WTM1" label="WTM1" />
-      <node id="COF1" label="COF1" />
-      <node id="TGL1" label="TGL1" />
-      <node id="SHM2" label="SHM2" />
-      <node id="YFH1" label="YFH1" />
-      <node id="MAD3" label="MAD3" />
-      <node id="LAS1" label="LAS1" />
-      <node id="TPD3" label="TPD3" />
-      <node id="VMA2" label="VMA2" />
-      <node id="SFP1" label="SFP1" />
-      <node id="ENA1" label="ENA1" />
-      <node id="NCE102" label="NCE102" />
-      <node id="PEP8" label="PEP8" />
-      <node id="UPC2" label="UPC2" />
-      <node id="UTR2" label="UTR2" />
-      <node id="KAP95" label="KAP95" />
-      <node id="MRH1" label="MRH1" />
-      <node id="SAM2" label="SAM2" />
-      <node id="MSN5" label="MSN5" />
-      <node id="UBI4" label="UBI4" />
-      <node id="BRE1" label="BRE1" />
-      <node id="SSE1" label="SSE1" />
-      <node id="VMA10" label="VMA10" />
-      <node id="GCD11" label="GCD11" />
-      <node id="INO4" label="INO4" />
-      <node id="VMA5" label="VMA5" />
-      <node id="DNM1" label="DNM1" />
-      <node id="DCP2" label="DCP2" />
-      <node id="SGS1" label="SGS1" />
-      <node id="ALG14" label="ALG14" />
-      <node id="VAM7" label="VAM7" />
-      <node id="HXT2" label="HXT2" />
-      <node id="PMR1" label="PMR1" />
-      <node id="MSN4" label="MSN4" />
-      <node id="TSR1" label="TSR1" />
-      <node id="ERP2" label="ERP2" />
-      <node id="URA8" label="URA8" />
-      <node id="POC4" label="POC4" />
-      <node id="ATP11" label="ATP11" />
-      <node id="HHF2" label="HHF2" />
-      <node id="PRM3" label="PRM3" />
-      <node id="CPR7" label="CPR7" />
-      <node id="RPN10" label="RPN10" />
-      <node id="HFI1" label="HFI1" />
-      <node id="ERF2" label="ERF2" />
-      <node id="SKO1" label="SKO1" />
-      <node id="IMH1" label="IMH1" />
-      <node id="NOG1" label="NOG1" />
-      <node id="SLI15" label="SLI15" />
-      <node id="NAT4" label="NAT4" />
-      <node id="TIF35" label="TIF35" />
-      <node id="CHS1" label="CHS1" />
-      <node id="PTR2" label="PTR2" />
-      <node id="ERP1" label="ERP1" />
-      <node id="NSL1" label="NSL1" />
+      <node id="ENA5" label="ENA5" />
       <node id="IST2" label="IST2" />
-      <node id="TRA1" label="TRA1" />
-      <node id="OAF1" label="OAF1" />
-      <node id="INP52" label="INP52" />
-      <node id="VMA4" label="VMA4" />
+      <node id="CBF1" label="CBF1" />
+      <node id="WTM2" label="WTM2" />
+      <node id="SAM2" label="SAM2" />
+      <node id="TMA46" label="TMA46" />
+      <node id="CDC48" label="CDC48" />
+      <node id="HHF1" label="HHF1" />
+      <node id="TIF35" label="TIF35" />
+      <node id="MCM6" label="MCM6" />
+      <node id="UTP8" label="UTP8" />
+      <node id="RNA15" label="RNA15" />
+      <node id="LIP1" label="LIP1" />
+      <node id="CIC1" label="CIC1" />
+      <node id="BRR2" label="BRR2" />
       <node id="SSA1" label="SSA1" />
-      <node id="PMA1" label="PMA1" />
       <node id="PEX5" label="PEX5" />
-      <node id="ZWF1" label="ZWF1" />
-      <node id="DPB4" label="DPB4" />
+      <node id="ARC18" label="ARC18" />
+      <node id="ORC5" label="ORC5" />
+      <node id="TOR2" label="TOR2" />
+      <node id="ORC6" label="ORC6" />
+      <node id="CDC15" label="CDC15" />
+      <node id="TIF5" label="TIF5" />
+      <node id="UGA3" label="UGA3" />
+      <node id="MAD3" label="MAD3" />
+      <node id="RTT106" label="RTT106" />
+      <node id="ORC2" label="ORC2" />
+      <node id="YIM1" label="YIM1" />
+      <node id="FAA1" label="FAA1" />
+      <node id="SGS1" label="SGS1" />
+      <node id="DNF2" label="DNF2" />
       <node id="VPH1" label="VPH1" />
-      <node id="BEM2" label="BEM2" />
-      <node id="YPK1" label="YPK1" />
+      <node id="NFU1" label="NFU1" />
+      <node id="PNC1" label="PNC1" />
+      <node id="YAP1801" label="YAP1801" />
+      <node id="SSA2" label="SSA2" />
+      <node id="FAP1" label="FAP1" />
+      <node id="PRM3" label="PRM3" />
+      <node id="RAD52" label="RAD52" />
+      <node id="ABP1" label="ABP1" />
+      <node id="RHO1" label="RHO1" />
+      <node id="ERP2" label="ERP2" />
+      <node id="POR1" label="POR1" />
+      <node id="RBG1" label="RBG1" />
+      <node id="TRA1" label="TRA1" />
+      <node id="UTR2" label="UTR2" />
+      <node id="EDE1" label="EDE1" />
+      <node id="KAP122" label="KAP122" />
+      <node id="PRP18" label="PRP18" />
+      <node id="VMA6" label="VMA6" />
+      <node id="FAT1" label="FAT1" />
+      <node id="LGE1" label="LGE1" />
+      <node id="ATP4" label="ATP4" />
+      <node id="GSC2" label="GSC2" />
+      <node id="CCR4" label="CCR4" />
+      <node id="FUR4" label="FUR4" />
+      <node id="NSP1" label="NSP1" />
+      <node id="MSH2" label="MSH2" />
+      <node id="TOP3" label="TOP3" />
+      <node id="SIR2" label="SIR2" />
+      <node id="BUD20" label="BUD20" />
+      <node id="ECM22" label="ECM22" />
+      <node id="CBF2" label="CBF2" />
+      <node id="PRE2" label="PRE2" />
+      <node id="CPR7" label="CPR7" />
+      <node id="SLU7" label="SLU7" />
+      <node id="ELP3" label="ELP3" />
+      <node id="RPN4" label="RPN4" />
+      <node id="ENT1" label="ENT1" />
+      <node id="POL2" label="POL2" />
+      <node id="TSR1" label="TSR1" />
+      <node id="POP2" label="POP2" />
+      <node id="GCD6" label="GCD6" />
+      <node id="GEA1" label="GEA1" />
+      <node id="DDI1" label="DDI1" />
+      <node id="BUD6" label="BUD6" />
+      <node id="RMI1" label="RMI1" />
+      <node id="NAN1" label="NAN1" />
+      <node id="CHC1" label="CHC1" />
+      <node id="ERG1" label="ERG1" />
+      <node id="NNF1" label="NNF1" />
+      <node id="CDC33" label="CDC33" />
+      <node id="CAN1" label="CAN1" />
+      <node id="INO4" label="INO4" />
+      <node id="NUM1" label="NUM1" />
+      <node id="LAC1" label="LAC1" />
+      <node id="CDC20" label="CDC20" />
+      <node id="MPS3" label="MPS3" />
+      <node id="APC1" label="APC1" />
+      <node id="COQ4" label="COQ4" />
+      <node id="BUB2" label="BUB2" />
+      <node id="SER33" label="SER33" />
+      <node id="PUP1" label="PUP1" />
+      <node id="DOA4" label="DOA4" />
+      <node id="KAP123" label="KAP123" />
+      <node id="ARN1" label="ARN1" />
+      <node id="LAS1" label="LAS1" />
+      <node id="WTM1" label="WTM1" />
+      <node id="ERG6" label="ERG6" />
+      <node id="PMR1" label="PMR1" />
       <node id="RAD23" label="RAD23" />
       <node id="GPD1" label="GPD1" />
-      <node id="VMA6" label="VMA6" />
-      <node id="ENT2" label="ENT2" />
-      <node id="RPT5" label="RPT5" />
-      <node id="GEA2" label="GEA2" />
-      <node id="DNF2" label="DNF2" />
+      <node id="RNR1" label="RNR1" />
+      <node id="ENA1" label="ENA1" />
       <node id="TAF10" label="TAF10" />
-      <node id="KAP122" label="KAP122" />
-      <node id="SAC1" label="SAC1" />
-      <node id="VPS5" label="VPS5" />
-      <node id="ORC1" label="ORC1" />
-      <node id="DDC1" label="DDC1" />
-      <node id="FRE1" label="FRE1" />
-      <node id="ENT1" label="ENT1" />
-      <node id="LGE1" label="LGE1" />
-      <node id="PEX10" label="PEX10" />
-      <node id="PEX14" label="PEX14" />
-      <node id="MCM6" label="MCM6" />
-      <node id="LAC1" label="LAC1" />
-      <node id="DDI1" label="DDI1" />
-      <node id="DPM1" label="DPM1" />
-      <node id="PEX6" label="PEX6" />
-      <node id="DAL81" label="DAL81" />
-      <node id="PET10" label="PET10" />
-      <node id="JSN1" label="JSN1" />
-      <node id="CRM1" label="CRM1" />
-      <node id="NUP1" label="NUP1" />
-      <node id="PRP18" label="PRP18" />
-      <node id="RPB2" label="RPB2" />
-      <node id="RPN4" label="RPN4" />
-      <node id="ESC1" label="ESC1" />
-      <node id="POR1" label="POR1" />
-      <node id="LIP1" label="LIP1" />
-      <node id="NEJ1" label="NEJ1" />
-      <node id="SER3" label="SER3" />
-      <node id="BUD20" label="BUD20" />
-      <node id="GCD6" label="GCD6" />
-      <node id="TOP3" label="TOP3" />
-      <node id="FUR4" label="FUR4" />
+      <node id="DNM1" label="DNM1" />
+      <node id="GAL4" label="GAL4" />
+      <node id="VAM3" label="VAM3" />
       <node id="ENP1" label="ENP1" />
-      <node id="PNO1" label="PNO1" />
-      <node id="POP2" label="POP2" />
-      <node id="ORC6" label="ORC6" />
-      <node id="PAH1" label="PAH1" />
-      <node id="CCR4" label="CCR4" />
-      <node id="FUS3" label="FUS3" />
-      <node id="HOG1" label="HOG1" />
-      <node id="MLP1" label="MLP1" />
-      <node id="BUD14" label="BUD14" />
-      <node id="MID1" label="MID1" />
-      <node id="CHC1" label="CHC1" />
-      <node id="YIL082W-A" label="YIL082W-A" />
-      <node id="EBP2" label="EBP2" />
-      <node id="HHF1" label="HHF1" />
-      <node id="SAM1" label="SAM1" />
-      <node id="MRPL32" label="MRPL32" />
-      <node id="FPR1" label="FPR1" />
-      <node id="GSC2" label="GSC2" />
-      <node id="WTM2" label="WTM2" />
-      <node id="ARC18" label="ARC18" />
-      <node id="TOM40" label="TOM40" />
-      <node id="MSH6" label="MSH6" />
-      <node id="VPS16" label="VPS16" />
-      <node id="PUP1" label="PUP1" />
-      <node id="RAD52" label="RAD52" />
-      <node id="DSK2" label="DSK2" />
-      <node id="VAC8" label="VAC8" />
-      <node id="YGR130C" label="YGR130C" />
-      <node id="CIC1" label="CIC1" />
-      <node id="ATP2" label="ATP2" />
-      <node id="TOM71" label="TOM71" />
-      <node id="PEP1" label="PEP1" />
-      <node id="RNR3" label="RNR3" />
-      <node id="BGL2" label="BGL2" />
-      <node id="BRR2" label="BRR2" />
-      <node id="DPB2" label="DPB2" />
-      <node id="RPL16A" label="RPL16A" />
-      <node id="FAT1" label="FAT1" />
-      <node id="AYR1" label="AYR1" />
-      <node id="KEL1" label="KEL1" />
-      <node id="PRP3" label="PRP3" />
-      <node id="PHO8" label="PHO8" />
-      <node id="ORC5" label="ORC5" />
-      <node id="CDC19" label="CDC19" />
-      <node id="HXT4" label="HXT4" />
-      <node id="VPS1" label="VPS1" />
-      <node id="SEC7" label="SEC7" />
-      <node id="LTV1" label="LTV1" />
-      <node id="RRS1" label="RRS1" />
-      <node id="MCD1" label="MCD1" />
-      <node id="BUD6" label="BUD6" />
-      <node id="EDE1" label="EDE1" />
-      <node id="CDC20" label="CDC20" />
-      <node id="RPS22B" label="RPS22B" />
-      <node id="NNF1" label="NNF1" />
-      <node id="COQ4" label="COQ4" />
-      <node id="ECM22" label="ECM22" />
-      <node id="UTP8" label="UTP8" />
-      <node id="SUI1" label="SUI1" />
-      <node id="RBG1" label="RBG1" />
-      <node id="CRN1" label="CRN1" />
-      <node id="ATP4" label="ATP4" />
-      <node id="CAN1" label="CAN1" />
-      <node id="SPT7" label="SPT7" />
-      <node id="ENA5" label="ENA5" />
-      <node id="PIP2" label="PIP2" />
-      <node id="UGA3" label="UGA3" />
-      <node id="RPT1" label="RPT1" />
-      <node id="ARN1" label="ARN1" />
-      <node id="SNF7" label="SNF7" />
-      <node id="AFG3" label="AFG3" />
-      <node id="BUB2" label="BUB2" />
-      <node id="COQ3" label="COQ3" />
-      <node id="APC2" label="APC2" />
-      <node id="RPB3" label="RPB3" />
-      <node id="KAR5" label="KAR5" />
-      <node id="NIP7" label="NIP7" />
-      <node id="GTR1" label="GTR1" />
-      <node id="YAP1801" label="YAP1801" />
-      <node id="ERG1" label="ERG1" />
-      <node id="CBF2" label="CBF2" />
-      <node id="RMI1" label="RMI1" />
-      <node id="EMP47" label="EMP47" />
-      <node id="GEA1" label="GEA1" />
-      <node id="NOP8" label="NOP8" />
-      <node id="NUM1" label="NUM1" />
-      <node id="FKS1" label="FKS1" />
-      <node id="NEM1" label="NEM1" />
-      <node id="SSA4" label="SSA4" />
-      <node id="DOA4" label="DOA4" />
-      <node id="PEX15" label="PEX15" />
-      <node id="HHT1" label="HHT1" />
-      <node id="NAN1" label="NAN1" />
-      <node id="TAF6" label="TAF6" />
-      <node id="POL2" label="POL2" />
-      <node id="CDC4" label="CDC4" />
-      <node id="TAF9" label="TAF9" />
-      <node id="KAP123" label="KAP123" />
-      <node id="VPS74" label="VPS74" />
-      <node id="RSP5" label="RSP5" />
-      <node id="GCN1" label="GCN1" />
-      <node id="SEC18" label="SEC18" />
-      <node id="RNA15" label="RNA15" />
-      <node id="ORC2" label="ORC2" />
-      <node id="GTR2" label="GTR2" />
-      <node id="CDC48" label="CDC48" />
-      <node id="BRO1" label="BRO1" />
-      <node id="NFU1" label="NFU1" />
-      <node id="MPS3" label="MPS3" />
       <node id="RAS2" label="RAS2" />
-      <node id="CDC33" label="CDC33" />
-      <node id="PFY1" label="PFY1" />
-      <node id="TOR2" label="TOR2" />
-      <node id="TMA46" label="TMA46" />
-      <node id="ERG6" label="ERG6" />
-      <node id="RNR2" label="RNR2" />
+      <node id="NOG1" label="NOG1" />
+      <node id="GTR1" label="GTR1" />
+      <node id="RPB3" label="RPB3" />
+      <node id="HXT4" label="HXT4" />
+      <node id="GEA2" label="GEA2" />
+      <node id="RSP5" label="RSP5" />
+      <node id="MRH1" label="MRH1" />
       <node id="CDC14" label="CDC14" />
-      <node id="BEM1" label="BEM1" />
+      <node id="ALG14" label="ALG14" />
+      <node id="VPS16" label="VPS16" />
+      <node id="PEP1" label="PEP1" />
+      <node id="SFP1" label="SFP1" />
+      <node id="SHM2" label="SHM2" />
+      <node id="PAH1" label="PAH1" />
+      <node id="CRM1" label="CRM1" />
+      <node id="PFY1" label="PFY1" />
+      <node id="NUP1" label="NUP1" />
+      <node id="ORC1" label="ORC1" />
+      <node id="PTR2" label="PTR2" />
+      <node id="COF1" label="COF1" />
+      <node id="SNF7" label="SNF7" />
+      <node id="PRP3" label="PRP3" />
+      <node id="VMA2" label="VMA2" />
+      <node id="OAF1" label="OAF1" />
+      <node id="BRO1" label="BRO1" />
+      <node id="SEC18" label="SEC18" />
+      <node id="EBP2" label="EBP2" />
+      <node id="BRE1" label="BRE1" />
+      <node id="MSN4" label="MSN4" />
+      <node id="NEJ1" label="NEJ1" />
+      <node id="TAF6" label="TAF6" />
+      <node id="YFH1" label="YFH1" />
+      <node id="RPN12" label="RPN12" />
+      <node id="GCD11" label="GCD11" />
+      <node id="VAM7" label="VAM7" />
+      <node id="HHT1" label="HHT1" />
+      <node id="BUD14" label="BUD14" />
+      <node id="ERG7" label="ERG7" />
+      <node id="HXT3" label="HXT3" />
+      <node id="YIL082W-A" label="YIL082W-A" />
+      <node id="PIP2" label="PIP2" />
+      <node id="DPM1" label="DPM1" />
+      <node id="SUI1" label="SUI1" />
+      <node id="FUS3" label="FUS3" />
+      <node id="RPT5" label="RPT5" />
+      <node id="BEM2" label="BEM2" />
+      <node id="PMA1" label="PMA1" />
+      <node id="AYR1" label="AYR1" />
+      <node id="GCD1" label="GCD1" />
+      <node id="ERV14" label="ERV14" />
+      <node id="FPR1" label="FPR1" />
+      <node id="DSK2" label="DSK2" />
+      <node id="HXT2" label="HXT2" />
+      <node id="ECM33" label="ECM33" />
+      <node id="ERF2" label="ERF2" />
+      <node id="TOM40" label="TOM40" />
+      <node id="SSE1" label="SSE1" />
+      <node id="COQ3" label="COQ3" />
+      <node id="LSP1" label="LSP1" />
+      <node id="PHO8" label="PHO8" />
+      <node id="RNR3" label="RNR3" />
+      <node id="VAC8" label="VAC8" />
+      <node id="VMA10" label="VMA10" />
+      <node id="JSN1" label="JSN1" />
+      <node id="SLI15" label="SLI15" />
+      <node id="PEX6" label="PEX6" />
+      <node id="IMH1" label="IMH1" />
+      <node id="MCM3" label="MCM3" />
+      <node id="KAR5" label="KAR5" />
+      <node id="TGL1" label="TGL1" />
+      <node id="HOG1" label="HOG1" />
+      <node id="APC2" label="APC2" />
+      <node id="UPC2" label="UPC2" />
+      <node id="MCD1" label="MCD1" />
+      <node id="SKO1" label="SKO1" />
+      <node id="INP52" label="INP52" />
+      <node id="NEM1" label="NEM1" />
+      <node id="YCK3" label="YCK3" />
+      <node id="PEX14" label="PEX14" />
+      <node id="NCE102" label="NCE102" />
+      <node id="ERV29" label="ERV29" />
+      <node id="VMA4" label="VMA4" />
+      <node id="DPB2" label="DPB2" />
+      <node id="NOP8" label="NOP8" />
+      <node id="CDC4" label="CDC4" />
+      <node id="HHF2" label="HHF2" />
+      <node id="RRS1" label="RRS1" />
+      <node id="MLP1" label="MLP1" />
+      <node id="ESC1" label="ESC1" />
+      <node id="DCP2" label="DCP2" />
+      <node id="KAP95" label="KAP95" />
+      <node id="TAF9" label="TAF9" />
+      <node id="ATP11" label="ATP11" />
+      <node id="LST8" label="LST8" />
+      <node id="ENT2" label="ENT2" />
+      <node id="RPN10" label="RPN10" />
+      <node id="ATP2" label="ATP2" />
+      <node id="SER3" label="SER3" />
+      <node id="EMP47" label="EMP47" />
+      <node id="PEP8" label="PEP8" />
+      <node id="BTN2" label="BTN2" />
+      <node id="SAM1" label="SAM1" />
+      <node id="PEX10" label="PEX10" />
+      <node id="BAP2" label="BAP2" />
+      <node id="RNR2" label="RNR2" />
+      <node id="VPS1" label="VPS1" />
+      <node id="SAC1" label="SAC1" />
       <node id="YLR072W" label="YLR072W" />
-      <node id="GSP1" label="GSP1" />
-      <node id="YIM1" label="YIM1" />
-      <node id="SIR2" label="SIR2" />
-      <node id="ELP3" label="ELP3" />
-      <node id="GLN3" label="GLN3" />
+      <node id="RNA14" label="RNA14" />
       <node id="CLN2" label="CLN2" />
+      <node id="CNS1" label="CNS1" />
+      <node id="RPL16A" label="RPL16A" />
+      <node id="DAL81" label="DAL81" />
+      <node id="VMA5" label="VMA5" />
+      <node id="BGL2" label="BGL2" />
+      <node id="CRN1" label="CRN1" />
+      <node id="HSF1" label="HSF1" />
+      <node id="CDC19" label="CDC19" />
+      <node id="GLN3" label="GLN3" />
+      <node id="RSC8" label="RSC8" />
       <node id="GPA1" label="GPA1" />
-      <node id="NSP1" label="NSP1" />
+      <node id="PEX1" label="PEX1" />
+      <node id="SPT7" label="SPT7" />
+      <node id="MRPL32" label="MRPL32" />
+      <node id="POC4" label="POC4" />
+      <node id="VPS35" label="VPS35" />
+      <node id="RER1" label="RER1" />
+      <node id="YPK1" label="YPK1" />
+      <node id="DDC1" label="DDC1" />
+      <node id="BEM1" label="BEM1" />
+      <node id="PET10" label="PET10" />
+      <node id="TPD3" label="TPD3" />
+      <node id="AFG3" label="AFG3" />
+      <node id="VPS5" label="VPS5" />
+      <node id="TOM71" label="TOM71" />
+      <node id="PEX15" label="PEX15" />
+      <node id="CDC34" label="CDC34" />
+      <node id="YGR130C" label="YGR130C" />
+      <node id="YKT6" label="YKT6" />
+      <node id="HFI1" label="HFI1" />
+      <node id="FKS1" label="FKS1" />
+      <node id="MSH6" label="MSH6" />
+      <node id="GTR2" label="GTR2" />
+      <node id="URA8" label="URA8" />
+      <node id="GCN1" label="GCN1" />
+      <node id="RPT1" label="RPT1" />
+      <node id="LTV1" label="LTV1" />
+      <node id="GET3" label="GET3" />
+      <node id="VPS74" label="VPS74" />
+      <node id="UBI4" label="UBI4" />
+      <node id="MSN5" label="MSN5" />
+      <node id="GSP1" label="GSP1" />
+      <node id="RPS22B" label="RPS22B" />
+      <node id="KEL1" label="KEL1" />
+      <node id="TOM20" label="TOM20" />
+      <node id="PNO1" label="PNO1" />
+      <node id="HSP104" label="HSP104" />
+      <node id="ZWF1" label="ZWF1" />
+      <node id="CHS1" label="CHS1" />
+      <node id="NSL1" label="NSL1" />
+      <node id="ERP1" label="ERP1" />
+      <node id="IKI3" label="IKI3" />
+      <node id="NAT4" label="NAT4" />
+      <node id="MID1" label="MID1" />
+      <node id="RPB2" label="RPB2" />
+      <node id="SEC7" label="SEC7" />
+      <node id="UMP1" label="UMP1" />
+      <node id="DPB4" label="DPB4" />
     </nodes>
     <edges>
-      <edge id="0" source="ECM33" target="TOR2">
+      <edge id="0" source="NIP7" target="NOP8">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="1" source="CTK1" target="HHT1">
+      <edge id="1" source="SSA4" target="MSN5">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="2" source="BTN2" target="IST2">
+      <edge id="2" source="FRE1" target="TOR2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="3" source="BTN2" target="HSP104">
+      <edge id="3" source="CTK1" target="HHT1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="4" source="HSF1" target="MSN4">
+      <edge id="4" source="ALG7" target="ALG14">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="5" source="RSC8" target="RTT106">
+      <edge id="5" source="ENA5" target="TOR2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="6" source="GAL4" target="TAF6">
+      <edge id="6" source="IST2" target="BTN2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="7" source="GAL4" target="TAF6">
+      <edge id="7" source="IST2" target="PMA1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="CBF1" target="INO4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="WTM2" target="KAP122">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="SAM2" target="SAM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="TMA46" target="RBG1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="CDC48" target="UBI4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="13" source="HHF1" target="HHT1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="14" source="HHF1" target="HHT1">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="8" source="GAL4" target="TAF10">
+      <edge id="15" source="HHF1" target="SIR2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="9" source="GAL4" target="TAF10">
+      <edge id="16" source="TIF35" target="GCD11">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="17" source="MCM6" target="MCM3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="18" source="UTP8" target="NAN1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="19" source="RNA15" target="RNA14">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="20" source="RNA15" target="RNA14">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="10" source="RHO1" target="TOR2">
+      <edge id="21" source="LIP1" target="LAC1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="11" source="RHO1" target="FKS1">
+      <edge id="22" source="CIC1" target="RPT1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="12" source="RHO1" target="BEM1">
+      <edge id="23" source="BRR2" target="PRP3">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="13" source="SLU7" target="PRP18">
+      <edge id="24" source="SSA1" target="SSE1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="14" source="RNR1" target="RNR1">
+      <edge id="25" source="SSA1" target="SSA2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="15" source="RNR1" target="RNR1">
+      <edge id="26" source="PEX5" target="PEX6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="27" source="PEX5" target="PEX1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="28" source="PEX5" target="PEX15">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="29" source="ARC18" target="JSN1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="30" source="ORC5" target="ORC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="31" source="TOR2" target="FKS1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="32" source="TOR2" target="HXT2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="33" source="TOR2" target="ECM33">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="34" source="TOR2" target="HXT4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="35" source="TOR2" target="GSC2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="36" source="TOR2" target="TPD3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="37" source="TOR2" target="CHS1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="38" source="TOR2" target="HXT3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="39" source="TOR2" target="RSP5">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="40" source="TOR2" target="RHO1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="41" source="TOR2" target="PTR2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="42" source="TOR2" target="DNF2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="43" source="TOR2" target="BEM2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="44" source="TOR2" target="NCE102">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="45" source="TOR2" target="PMA1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="46" source="TOR2" target="UTR2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="47" source="TOR2" target="YPK1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="48" source="TOR2" target="MRH1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="49" source="TOR2" target="ENA1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="50" source="ORC6" target="ORC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="51" source="CDC15" target="SLI15">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="52" source="TIF5" target="SUI1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="53" source="TIF5" target="SUI1">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="16" source="ABP1" target="INP52">
+      <edge id="54" source="UGA3" target="DAL81">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="17" source="ABP1" target="CHC1">
+      <edge id="55" source="MAD3" target="CDC20">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="18" source="IKI3" target="ELP3">
+      <edge id="56" source="RTT106" target="RSC8">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="19" source="ERG7" target="FAT1">
+      <edge id="57" source="ORC2" target="ORC1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="20" source="PEX1" target="PEX5">
+      <edge id="58" source="YIM1" target="FAT1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="21" source="PEX1" target="PEX14">
+      <edge id="59" source="FAA1" target="FAT1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="22" source="PEX1" target="PEX10">
+      <edge id="60" source="SGS1" target="TOP3">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="23" source="PEX1" target="PEX6">
+      <edge id="61" source="SGS1" target="RMI1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="24" source="PEX1" target="PEX6">
+      <edge id="62" source="VPH1" target="VMA5">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="63" source="VPH1" target="VMA4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="64" source="VPH1" target="VMA6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="65" source="VPH1" target="VMA2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="66" source="NFU1" target="NFU1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="67" source="PNC1" target="GPD1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="68" source="YAP1801" target="CHC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="69" source="FAP1" target="FPR1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="70" source="PRM3" target="KAR5">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="71" source="RAD52" target="DDC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="72" source="ABP1" target="INP52">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="73" source="ABP1" target="CHC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="74" source="RHO1" target="FKS1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="75" source="RHO1" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="76" source="ERP2" target="ERP1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="77" source="ERP2" target="ERP1">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="25" source="PEX1" target="PEX6">
+      <edge id="78" source="POR1" target="TOM40">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="79" source="TRA1" target="SPT7">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="80" source="TRA1" target="SPT7">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="81" source="EDE1" target="SFP1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="82" source="KAP122" target="WTM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="83" source="KAP122" target="RNR2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="84" source="PRP18" target="SLU7">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="85" source="FAT1" target="PET10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="86" source="FAT1" target="TGL1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="87" source="FAT1" target="AYR1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="88" source="FAT1" target="ERG7">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="89" source="FAT1" target="ERG1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="90" source="FAT1" target="ERG6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="91" source="LGE1" target="BRE1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="92" source="ATP4" target="ATP4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="93" source="CCR4" target="POP2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="94" source="FUR4" target="CAN1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="95" source="NSP1" target="NUP1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="96" source="MSH2" target="MSH6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="97" source="MSH2" target="MSH6">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="98" source="MSH2" target="MSH6">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge id="26" source="PEX1" target="PEX6">
+      <edge id="99" source="MSH2" target="MSH6">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge id="27" source="PEX1" target="PEX6">
+      <edge id="100" source="TOP3" target="RMI1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="101" source="TOP3" target="RMI1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="102" source="SIR2" target="HHF2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="103" source="SIR2" target="MCD1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="104" source="BUD20" target="KAP123">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="105" source="ECM22" target="UPC2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="106" source="CBF2" target="CDC14">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="107" source="PRE2" target="POC4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="108" source="CPR7" target="CNS1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="109" source="ELP3" target="IKI3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="110" source="RPN4" target="RPN10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="111" source="ENT1" target="CHC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="112" source="POL2" target="DPB2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="113" source="POL2" target="DPB4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="114" source="TSR1" target="LTV1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="115" source="GCD6" target="GCD1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="116" source="GEA1" target="GEA2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="117" source="DDI1" target="RAD23">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="118" source="BUD6" target="COF1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="119" source="CHC1" target="ENT2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="120" source="NNF1" target="NSL1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="121" source="CDC33" target="CDC33">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="122" source="NUM1" target="DNM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="123" source="MPS3" target="RRS1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="124" source="MPS3" target="EBP2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="125" source="APC1" target="APC2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="126" source="COQ4" target="COQ3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="127" source="BUB2" target="CDC14">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="128" source="SER33" target="CDC19">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="129" source="SER33" target="SAM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="130" source="SER33" target="SAM1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="131" source="PUP1" target="UMP1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="132" source="DOA4" target="BRO1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="133" source="ARN1" target="PMA1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="134" source="LAS1" target="NOG1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="135" source="WTM1" target="RNR2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="136" source="PMR1" target="GLN3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="137" source="RNR1" target="RNR1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="138" source="RNR1" target="RNR1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="139" source="TAF10" target="GAL4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="140" source="TAF10" target="GAL4">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="141" source="TAF10" target="TAF10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="142" source="TAF10" target="TAF9">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="143" source="TAF10" target="TAF6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="144" source="TAF10" target="TAF6">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="145" source="DNM1" target="DNM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="146" source="GAL4" target="TAF6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="147" source="GAL4" target="TAF6">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="148" source="VAM3" target="SEC18">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="149" source="VAM3" target="VAM3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="150" source="VAM3" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="151" source="VAM3" target="VAM7">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="152" source="VAM3" target="VAM7">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="153" source="ENP1" target="LTV1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="154" source="ENP1" target="LTV1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="155" source="RAS2" target="ERF2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="156" source="GTR1" target="GTR2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="157" source="RPB3" target="RPB2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="158" source="CDC14" target="SLI15">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="159" source="ALG14" target="DPM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="160" source="VPS16" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="161" source="PEP1" target="LST8">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="162" source="PEP1" target="VPS35">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="163" source="PEP1" target="PEP8">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="164" source="SHM2" target="SAM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="165" source="PAH1" target="NEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="166" source="CRM1" target="LTV1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="167" source="CRM1" target="HOG1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="168" source="PFY1" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="169" source="COF1" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="170" source="COF1" target="CRN1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="171" source="SNF7" target="BRO1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="172" source="VMA2" target="VMA10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="173" source="OAF1" target="OAF1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="174" source="OAF1" target="PIP2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="175" source="OAF1" target="PIP2">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="176" source="OAF1" target="PIP2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge id="177" source="SEC18" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="178" source="MSN4" target="HSF1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="179" source="NEJ1" target="NEJ1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="180" source="TAF6" target="TAF9">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="181" source="TAF6" target="TAF6">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="182" source="YFH1" target="YFH1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="183" source="YFH1" target="YFH1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="184" source="RPN12" target="RPN10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="185" source="VAM7" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="186" source="HHT1" target="HHF2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="187" source="HHT1" target="HHF2">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="188" source="BUD14" target="KEL1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="189" source="BUD14" target="KEL1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="190" source="YIL082W-A" target="YIL082W-A">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="191" source="DPM1" target="SAC1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="192" source="FUS3" target="GPA1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="193" source="RPT5" target="RPN10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="194" source="PMA1" target="MID1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="195" source="PMA1" target="BAP2">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="196" source="ERV14" target="ERP1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="197" source="DSK2" target="UBI4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="198" source="TOM40" target="TOM20">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="199" source="TOM40" target="TOM20">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="200" source="LSP1" target="YGR130C">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="201" source="PHO8" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="202" source="PHO8" target="LST8">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="203" source="RNR3" target="RNR3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="204" source="VAC8" target="YCK3">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="205" source="VAC8" target="BEM1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="206" source="VMA10" target="VMA4">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="207" source="PEX6" target="PEX10">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="208" source="PEX6" target="PEX14">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="209" source="PEX6" target="PEX1">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </edge>
+      <edge id="210" source="PEX6" target="PEX1">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge id="211" source="PEX6" target="PEX1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge id="212" source="PEX6" target="PEX1">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge id="213" source="PEX6" target="PEX1">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge id="28" source="PEX1" target="PEX15">
+      <edge id="214" source="PEX6" target="PEX15">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="29" source="PEX1" target="PEX15">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="30" source="APC1" target="APC2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="31" source="RER1" target="ERP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="32" source="CDC15" target="SLI15">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="33" source="UMP1" target="POC4">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="34" source="UMP1" target="PUP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="35" source="ALG7" target="ALG14">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="36" source="YCK3" target="VAC8">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="37" source="HXT3" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="38" source="RNA14" target="RNA15">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="39" source="RNA14" target="RNA15">
+      <edge id="215" source="PEX6" target="PEX15">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="40" source="FAA1" target="FAT1">
+      <edge id="216" source="IMH1" target="IMH1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="41" source="LST8" target="PHO8">
+      <edge id="217" source="HOG1" target="SKO1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="42" source="LST8" target="PEP1">
+      <edge id="218" source="PEX14" target="PEX1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="43" source="FAP1" target="FPR1">
+      <edge id="219" source="PEX14" target="PEX15">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="44" source="TOM20" target="TOM40">
+      <edge id="220" source="ERV29" target="ERP1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="45" source="TOM20" target="TOM40">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="46" source="ERV14" target="ERP1">
+      <edge id="221" source="CDC4" target="CDC34">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="47" source="CNS1" target="CPR7">
+      <edge id="222" source="MLP1" target="ESC1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="48" source="YKT6" target="BEM1">
+      <edge id="223" source="DCP2" target="RPL16A">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="49" source="LSP1" target="YGR130C">
+      <edge id="224" source="KAP95" target="GSP1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="50" source="GCD1" target="GCD6">
+      <edge id="225" source="TAF9" target="HFI1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="51" source="RPN12" target="RPN10">
+      <edge id="226" source="ATP11" target="ATP2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="52" source="HSP104" target="GET3">
+      <edge id="227" source="RPN10" target="RPT1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="53" source="CDC34" target="CDC4">
+      <edge id="228" source="SER3" target="SAM1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="54" source="VAM3" target="SEC18">
+      <edge id="229" source="EMP47" target="ERP1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="55" source="VAM3" target="VAM3">
+      <edge id="230" source="BTN2" target="HSP104">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="56" source="VAM3" target="VAM7">
+      <edge id="231" source="SAM1" target="CDC19">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="57" source="VAM3" target="VAM7">
+      <edge id="232" source="SAM1" target="CDC19">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="58" source="VAM3" target="BEM1">
+      <edge id="233" source="SAM1" target="SAM1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="59" source="PRE2" target="POC4">
+      <edge id="234" source="PEX10" target="PEX1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="60" source="SER33" target="SAM1">
+      <edge id="235" source="PEX10" target="PEX15">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="61" source="SER33" target="SAM1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="62" source="SER33" target="CDC19">
+      <edge id="236" source="VPS1" target="BEM1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="63" source="CBF1" target="INO4">
+      <edge id="237" source="YLR072W" target="TOM71">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="64" source="BAP2" target="PMA1">
+      <edge id="238" source="CLN2" target="MSN5">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="65" source="SSA2" target="SSA1">
+      <edge id="239" source="BGL2" target="BGL2">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="66" source="ERV29" target="ERP1">
+      <edge id="240" source="PEX1" target="PEX15">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="67" source="VPS35" target="VPS5">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="68" source="VPS35" target="PEP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="69" source="MCM3" target="MCM6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="70" source="PNC1" target="GPD1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="71" source="MSH2" target="MSH6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="72" source="MSH2" target="MSH6">
+      <edge id="241" source="PEX1" target="PEX15">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge id="73" source="MSH2" target="MSH6">
+      <edge id="242" source="MRPL32" target="AFG3">
         <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge id="74" source="MSH2" target="MSH6">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge id="75" source="TIF5" target="SUI1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="76" source="TIF5" target="SUI1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="77" source="WTM1" target="RNR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="78" source="WTM1" target="KAP122">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="79" source="COF1" target="BUD6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="80" source="COF1" target="CRN1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="81" source="COF1" target="BEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="82" source="TGL1" target="FAT1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="83" source="SHM2" target="SAM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="84" source="YFH1" target="YFH1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="85" source="YFH1" target="YFH1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="86" source="MAD3" target="CDC20">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="87" source="LAS1" target="NOG1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="88" source="TPD3" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="89" source="VMA2" target="VMA10">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="90" source="VMA2" target="VPH1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="91" source="SFP1" target="EDE1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="92" source="ENA1" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="93" source="NCE102" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="94" source="PEP8" target="PEP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="95" source="UPC2" target="ECM22">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="96" source="UTR2" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="97" source="KAP95" target="GSP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="98" source="MRH1" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="99" source="SAM2" target="SAM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="100" source="MSN5" target="SSA4">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="101" source="MSN5" target="CLN2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="102" source="UBI4" target="CDC48">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="103" source="UBI4" target="DSK2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="104" source="BRE1" target="LGE1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="105" source="SSE1" target="SSA1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="106" source="VMA10" target="VMA4">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="107" source="GCD11" target="TIF35">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="108" source="VMA5" target="VPH1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="109" source="DNM1" target="DNM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="110" source="DNM1" target="NUM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="111" source="DCP2" target="RPL16A">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="112" source="SGS1" target="TOP3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="113" source="SGS1" target="RMI1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="114" source="ALG14" target="DPM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="115" source="VAM7" target="BEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="116" source="HXT2" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="117" source="PMR1" target="GLN3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="118" source="TSR1" target="LTV1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="119" source="ERP2" target="ERP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="120" source="ERP2" target="ERP1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="121" source="URA8" target="URA8">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="122" source="ATP11" target="ATP2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="123" source="HHF2" target="SIR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="124" source="HHF2" target="HHT1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="125" source="HHF2" target="HHT1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="126" source="PRM3" target="KAR5">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="127" source="RPN10" target="RPT5">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="128" source="RPN10" target="RPN4">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="129" source="RPN10" target="RPT1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="130" source="HFI1" target="TAF9">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="131" source="ERF2" target="RAS2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="132" source="SKO1" target="HOG1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="133" source="IMH1" target="IMH1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="134" source="SLI15" target="CDC14">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="135" source="NAT4" target="ZWF1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="136" source="CHS1" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="137" source="PTR2" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="138" source="ERP1" target="EMP47">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="139" source="NSL1" target="NNF1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="140" source="IST2" target="PMA1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="141" source="TRA1" target="SPT7">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="142" source="TRA1" target="SPT7">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="143" source="OAF1" target="PIP2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="144" source="OAF1" target="PIP2">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="145" source="OAF1" target="PIP2">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge id="146" source="OAF1" target="OAF1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="147" source="VMA4" target="VPH1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="148" source="PMA1" target="MID1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="149" source="PMA1" target="ARN1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="150" source="PMA1" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="151" source="PEX5" target="PEX6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="152" source="PEX5" target="PEX15">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="153" source="DPB4" target="POL2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="154" source="VPH1" target="VMA6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="155" source="BEM2" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="156" source="YPK1" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="157" source="RAD23" target="DDI1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="158" source="ENT2" target="CHC1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="159" source="GEA2" target="GEA1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="160" source="DNF2" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="161" source="TAF10" target="TAF6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="162" source="TAF10" target="TAF6">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="163" source="TAF10" target="TAF9">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="164" source="TAF10" target="TAF10">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="165" source="KAP122" target="WTM2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="166" source="KAP122" target="RNR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="167" source="SAC1" target="DPM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="168" source="ORC1" target="ORC2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="169" source="ORC1" target="ORC6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="170" source="ORC1" target="ORC5">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="171" source="DDC1" target="RAD52">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="172" source="FRE1" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="173" source="ENT1" target="CHC1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="174" source="PEX10" target="PEX6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="175" source="PEX10" target="PEX15">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="176" source="PEX14" target="PEX6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="177" source="PEX14" target="PEX15">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="178" source="LAC1" target="LIP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="179" source="PEX6" target="PEX15">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="180" source="PEX6" target="PEX15">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="181" source="DAL81" target="UGA3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="182" source="PET10" target="FAT1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="183" source="JSN1" target="ARC18">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="184" source="CRM1" target="LTV1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="185" source="CRM1" target="HOG1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="186" source="NUP1" target="NSP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="187" source="RPB2" target="RPB3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="188" source="ESC1" target="MLP1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="189" source="POR1" target="TOM40">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="190" source="NEJ1" target="NEJ1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="191" source="SER3" target="SAM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="192" source="BUD20" target="KAP123">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="193" source="TOP3" target="RMI1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="194" source="TOP3" target="RMI1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="195" source="FUR4" target="CAN1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="196" source="ENP1" target="LTV1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="197" source="ENP1" target="LTV1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="198" source="PNO1" target="LTV1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="199" source="POP2" target="CCR4">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="200" source="PAH1" target="NEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="201" source="FUS3" target="GPA1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="202" source="BUD14" target="KEL1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="203" source="BUD14" target="KEL1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="204" source="MID1" target="MID1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="205" source="CHC1" target="YAP1801">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="206" source="YIL082W-A" target="YIL082W-A">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="207" source="EBP2" target="MPS3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="208" source="HHF1" target="SIR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="209" source="HHF1" target="HHT1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="210" source="HHF1" target="HHT1">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="211" source="SAM1" target="SAM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="212" source="SAM1" target="CDC19">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="213" source="SAM1" target="CDC19">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge id="214" source="MRPL32" target="AFG3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="215" source="GSC2" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="216" source="VPS16" target="BEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="217" source="VAC8" target="BEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="218" source="CIC1" target="RPT1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="219" source="TOM71" target="YLR072W">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="220" source="RNR3" target="RNR3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="221" source="BGL2" target="BGL2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="222" source="BRR2" target="PRP3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="223" source="DPB2" target="POL2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="224" source="FAT1" target="ERG1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="225" source="FAT1" target="YIM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="226" source="FAT1" target="ERG6">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="227" source="FAT1" target="AYR1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="228" source="PHO8" target="BEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="229" source="HXT4" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="230" source="VPS1" target="BEM1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="231" source="SEC7" target="SEC7">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="232" source="RRS1" target="MPS3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="233" source="MCD1" target="SIR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="234" source="RPS22B" target="GCN1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="235" source="COQ4" target="COQ3">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="236" source="UTP8" target="NAN1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="237" source="RBG1" target="TMA46">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="238" source="ATP4" target="ATP4">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="239" source="ENA5" target="TOR2">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="240" source="SNF7" target="BRO1">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="241" source="BUB2" target="CDC14">
-        <attvalues>
-          <attvalue for="0" value="0" />
-        </attvalues>
-      </edge>
-      <edge id="242" source="NIP7" target="NOP8">
-        <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="243" source="GTR1" target="GTR2">
+      <edge id="243" source="POC4" target="UMP1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="244" source="CBF2" target="CDC14">
+      <edge id="244" source="VPS35" target="VPS5">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="245" source="FKS1" target="TOR2">
+      <edge id="245" source="RER1" target="ERP1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="246" source="DOA4" target="BRO1">
+      <edge id="246" source="BEM1" target="YKT6">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="247" source="TAF6" target="TAF6">
+      <edge id="247" source="URA8" target="URA8">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="248" source="TAF6" target="TAF9">
+      <edge id="248" source="GCN1" target="RPS22B">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="249" source="VPS74" target="VPS74">
+      <edge id="249" source="LTV1" target="PNO1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="250" source="RSP5" target="TOR2">
+      <edge id="250" source="GET3" target="HSP104">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="251" source="SEC18" target="BEM1">
+      <edge id="251" source="VPS74" target="VPS74">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="252" source="NFU1" target="NFU1">
+      <edge id="252" source="ZWF1" target="NAT4">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="253" source="CDC33" target="CDC33">
+      <edge id="253" source="MID1" target="MID1">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
       </edge>
-      <edge id="254" source="PFY1" target="BEM1">
+      <edge id="254" source="SEC7" target="SEC7">
         <attvalues>
           <attvalue for="0" value="0" />
         </attvalues>
