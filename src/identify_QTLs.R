@@ -19,8 +19,9 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
   
   # Gene expression file name
   full_expression_filename = paste(base.dir, paste("/data/", expression_filename, sep=""), sep="");
+  
   # Output file name
-  full_output_filename = paste(base.dir, paste("/data/1", output_filename, sep=""), sep="");
+  full_output_filename = paste(base.dir, paste("/data/", output_filename, sep=""), sep="");
   if (!file.exists(full_output_filename)) {
     file.create(full_output_filename)
   }
@@ -72,15 +73,15 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
   #plot(me)
 }
 
-args <- commandArgs(TRUE)
+# args <- commandArgs(TRUE)
 
 identify_QTLs(
-  'rna_genotypes.csv',
-  'rna_expression_avg.csv',
-  'eQTLs.csv'
+  'eQTLs_genotypes_cleaned.csv',
+  'eQTLs_expression_avg.csv',
+  'eQTLs_new.csv'
 )
 identify_QTLs(
-  'protein_genotypes.csv',
-  'protein_expression_avg.csv',
-  'pQTLs.csv'
+  'pQTLs_genotypes_cleaned.csv',
+  'pQTLs_expression_avg.csv',
+  'pQTLs_new.csv'
 )
