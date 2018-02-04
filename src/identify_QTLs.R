@@ -3,7 +3,7 @@
 # 
 # Be sure to use an up to date version of R and Matrix eQTL.
 
-identify_QTLs <- function(genotypes_filename, expression_filename, output_filename, P_THRESHOLD = 1e-2) {
+identify_QTLs <- function(genotypes_filename, expression_filename, output_filename, P_THRESHOLD = 1) {
   library(MatrixEQTL)
   
   ## Location of the package with the data files.
@@ -30,8 +30,6 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
   pvOutputThreshold = P_THRESHOLD;
   
   ## Load genotype data
-  
-  ## 
   
   snps = SlicedData$new();
   snps$fileDelimiter = '\t';      # the TAB character
@@ -60,8 +58,8 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
     pvOutputThreshold = pvOutputThreshold,
     useModel = useModel,
     verbose = TRUE,
-    pvalue.hist = TRUE,
-    min.pv.by.genesnp = TRUE,
+    pvalue.hist = FALSE,
+    min.pv.by.genesnp = FALSE,
     noFDRsaveMemory = FALSE
   );
   
@@ -70,18 +68,30 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
   cat('Analysis done in: ', me$time.in.sec, ' seconds', '\n');
   
   ## Plot the histogram of all p-values
-  #plot(me)
 }
 
 # args <- commandArgs(TRUE)
 
 identify_QTLs(
-  'eQTLs_genotypes_cleaned.csv',
-  'eQTLs_expression_avg.csv',
-  'eQTLs_new.csv'
+  'eQTLs/genotypes_in_std.csv',
+  'eQTLs/averaged_expression.csv',
+  'eQTLs/results_nodup.csv'
 )
+
 identify_QTLs(
-  'pQTLs_genotypes_cleaned.csv',
-  'pQTLs_expression_avg.csv',
-  'pQTLs_new.csv'
+  'pQTLs/genotypes_in_std.csv',
+  'pQTLs/averaged_expression.csv',
+  'pQTLs/results_nodup.csv'
 )
+
+library(qvalue)
+
+eQTLs_df = read.table("~/Science/eQTL_analysis/data/eQTLs/results_nodup.csv", sep='\t', stringsAsFactors = FALSE, header=TRUE)
+eQTLs_df$q.value = qvalue(as.numeric(eQTLs_df$p.value))$qvalues
+eQTLs_df = eQTLs_df[, c(1,2,5:7)]
+write.table(eQTLs_df[eQTLs_df$p.value <= 0.05, ], "~/Science/eQTL_analysis/data/eQTLs/results_nodup.csv", sep='\t', row.names = FALSE)
+
+pQTLs_df = read.table("~/Science/eQTL_analysis/data/pQTLs/results_nodup.csv", sep='\t', stringsAsFactors = FALSE, header=TRUE)
+pQTLs_df$q.value = qvalue(as.numeric(pQTLs_df$p.value))$qvalues
+pQTLs_df = pQTLs_df[, c(1,2,5:7)]
+write.table(pQTLs_df[pQTLs_df$p.value <= 0.05, ], "~/Science/eQTL_analysis/data/pQTLs/results_nodup.csv", sep='\t', row.names = FALSE)
