@@ -54,8 +54,8 @@ def mean_linkage_similarity(interaction_graph, QTL_graph):
     interacting_genes = [vertex["name"] for vertex in interaction_graph.vs]
 
     mean_coeff = 0.
-    # Перебрать все рёбра и сопоставить каждой вершине
-    # пару множеств: eQTLs и pQTLs, которые с ней линкуются,
+    # Перебрать все рёбра и сопоставить каждому
+    # пару множеств: eQTL, которые линкуются с инцидентными вершинами,
     # а затем рассмотреть меру пересечения их объединения с мерой пересечения
     if interaction_graph.ecount():
         for edge in interaction_graph.es:
