@@ -1,6 +1,5 @@
 # Matrix eQTL by Andrey A. Shabalin
 # http://www.bios.unc.edu/research/genomic_software/Matrix_eQTL/
-# 
 # Be sure to use an up to date version of R and Matrix eQTL.
 
 identify_QTLs <- function(genotypes_filename, expression_filename, output_filename, P_THRESHOLD = 1) {
