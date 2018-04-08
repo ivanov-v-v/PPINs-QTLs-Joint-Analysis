@@ -32,7 +32,12 @@ def map_linkages_to_genome_location(QTL_df, full_genotypes_df):
             )
         )
     # Add the available linkage data
-    QTL_marker_to_linkages.update(dict(zip(left_part["name"], left_part.outdegree())))
+    QTL_marker_to_linkages.update(dict(
+        zip(
+            left_part["name"],
+            left_part.outdegree()
+        )
+    ))
     # Sort the dictionary accordingly to the marker position on the chromosome
     # and unzip it to extract the ordered linkage list
 
@@ -42,5 +47,5 @@ def map_linkages_to_genome_location(QTL_df, full_genotypes_df):
                 *sorted(QTL_marker_to_linkages.items(),
                         key=lambda p: marker_to_rownum[p[0]])
             )
-            )
+        )
     return QTL_x, QTL_y
