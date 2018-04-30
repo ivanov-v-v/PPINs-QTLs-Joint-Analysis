@@ -1,24 +1,17 @@
 import igraph as ig
-
+import numpy as np
 
 # Given a list of gene-gene interactions of some kind (pairs of genes treated as edges),
 # construct a graph and, if specified, randomize it, preserving some invariant
 def assemble_graph_of_interactions(edges, directed=False, randomize=False):
     interaction_graph = ig.Graph(directed=directed)
-    # For some weird reason, igraph can add multiple copies of the same
-    # vertex without even signalling about it, therefore the duplicates
-    # require manual removal from the dataset
-    vertices = set()
-    for source, target in edges:
-        vertices |= {source, target}
-    vertex_names = list(vertices)
+    # For some weird reason, igraph can add multiple copies of the same vertex.
+    # Numpy can unpack a list of tuples into 1-D array and filter out duplicates
+    vertex_names = np.unique(np.ravel(edges))
     interaction_graph.add_vertices(vertex_names)
+    interaction_graph.vs["name"] = vertex_names
     interaction_graph.add_edges(edges)
-    ''' TODO:   There must be hundreds to thousands of 
-                randomization iterations over which the
-                results will be averaged and used,
-                this must be implemented efficiently
-    '''
+
     if randomize:
         if directed:
             interaction_graph = interaction_graph.Degree_Sequence(
@@ -31,14 +24,15 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
                 interaction_graph.degree(),
                 method='vl'
             )
+
     # Due to domain-related specifics,
     # directed graphs produced by this function
     # will represent marker-gene interactions
     # and must be bipartite therefore
+
     if directed:
-        interaction_graph.vs["type"] = \
-            [False if deg > 0 else True for deg in interaction_graph.outdegree()]
-    interaction_graph.vs["name"] = vertex_names
+        interaction_graph.vs["type"] = np.array(interaction_graph.outdegree()) == 0
+
     return interaction_graph
 
 
@@ -50,21 +44,27 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
 # and estimated QTL-linkages, calculate for each pair of interacting genes
 # a Jaccard similarity coefficient, and then average it over all edges
 def mean_linkage_similarity(interaction_graph, QTL_graph):
-    linked_genes = set([vertex["name"] for vertex in QTL_graph.vs])
-    interacting_genes = [vertex["name"] for vertex in interaction_graph.vs]
+    genes_with_linkages = QTL_graph.vs.select(type=1)["name"]
+    genes_with_interactions = interaction_graph.vs["name"]
 
-    mean_coeff = 0.
-    # Перебрать все рёбра и сопоставить каждому
-    # пару множеств: eQTL, которые линкуются с инцидентными вершинами,
-    # а затем рассмотреть меру пересечения их объединения с мерой пересечения
-    if interaction_graph.ecount():
-        for edge in interaction_graph.es:
-            s_id, t_id = edge.source, edge.target
-            s_name = interacting_genes[s_id]
-            t_name = interacting_genes[t_id]
-            if s_name in linked_genes and t_name in linked_genes:
-                s_neigh = set(QTL_graph.neighbors(s_name, mode="IN"))
-                t_neigh = set(QTL_graph.neighbors(t_name, mode="IN"))
-                mean_coeff += len(s_neigh & t_neigh) / len(s_neigh | t_neigh)
-        mean_coeff /= interaction_graph.ecount()
-    return mean_coeff
+    subgraph_with_linkages = interaction_graph.subgraph(
+        set(genes_with_linkages) & set(genes_with_interactions)
+    )
+
+    if not subgraph_with_linkages.ecount():
+        return 0  # такой граф нет смысла проверять
+
+    # Перебрать все рёбра и сопоставить каждому пару множеств —
+    # eQTLs, которые линкуются с концами ребра —
+    # а затем подсчитать для них долю общих элементов
+
+    mean_jaccard = 0.
+    for edge in subgraph_with_linkages.es:  # можно ли убрать этот цикл?
+        source = subgraph_with_linkages.vs[edge.source]
+        target = subgraph_with_linkages.vs[edge.target]
+
+        s_neigh = set(QTL_graph.neighbors(source["name"], mode="IN"))
+        t_neigh = set(QTL_graph.neighbors(target["name"], mode="IN"))
+        mean_jaccard += len(s_neigh & t_neigh) / len(s_neigh | t_neigh)
+
+    return mean_jaccard / subgraph_with_linkages.ecount()
