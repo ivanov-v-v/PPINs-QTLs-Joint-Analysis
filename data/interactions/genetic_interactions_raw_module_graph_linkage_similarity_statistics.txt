@@ -1,0 +1,90 @@
+G1/S and G2/M cell cycle progression/meiosis:
+	- num_vertices	127
+	- num_edges	336
+	- eQTLs sim.	0.03
+	- pQTLs sim.	0.0
+chromosome segregation/kinetochore/spindle/microtubule:
+	- num_vertices	116
+	- num_edges	1086
+	- eQTLs sim.	0.005
+	- pQTLs sim.	0.068
+cell polarity/morphogenesis:
+	- num_vertices	201
+	- num_edges	1158
+	- eQTLs sim.	0.041
+	- pQTLs sim.	0.109
+chromatin/transcription:
+	- num_vertices	261
+	- num_edges	3780
+	- eQTLs sim.	0.015
+	- pQTLs sim.	0.088
+metabolism/mitochondria:
+	- num_vertices	645
+	- num_edges	5510
+	- eQTLs sim.	0.031
+	- pQTLs sim.	0.057
+signaling/stress response:
+	- num_vertices	228
+	- num_edges	1253
+	- eQTLs sim.	0.021
+	- pQTLs sim.	0.094
+protein degradation/proteosome:
+	- num_vertices	80
+	- num_edges	175
+	- eQTLs sim.	0.024
+	- pQTLs sim.	0
+amino acid biosynth&transport/nitrogen utilization:
+	- num_vertices	124
+	- num_edges	391
+	- eQTLs sim.	0.086
+	- pQTLs sim.	0.478
+Golgi/endosome/vacuole/sorting:
+	- num_vertices	178
+	- num_edges	2125
+	- eQTLs sim.	0.047
+	- pQTLs sim.	0.171
+DNA replication/repair/HR/cohesion:
+	- num_vertices	158
+	- num_edges	2090
+	- eQTLs sim.	0.016
+	- pQTLs sim.	0.064
+RNA processing:
+	- num_vertices	108
+	- num_edges	616
+	- eQTLs sim.	0.057
+	- pQTLs sim.	0
+unknown:
+	- num_vertices	984
+	- num_edges	4827
+	- eQTLs sim.	0.023
+	- pQTLs sim.	0.094
+nuclear-cytoplasic transport:
+	- num_vertices	42
+	- num_edges	175
+	- eQTLs sim.	0.025
+	- pQTLs sim.	0
+ER<->Golgi traffic:
+	- num_vertices	69
+	- num_edges	286
+	- eQTLs sim.	0.046
+	- pQTLs sim.	0
+ribosome/translation:
+	- num_vertices	232
+	- num_edges	1229
+	- eQTLs sim.	0.135
+	- pQTLs sim.	0.1
+lipid/sterol/fatty acid biosynth:
+	- num_vertices	134
+	- num_edges	580
+	- eQTLs sim.	0.029
+	- pQTLs sim.	0.132
+drug/ion transport:
+	- num_vertices	249
+	- num_edges	487
+	- eQTLs sim.	0.022
+	- pQTLs sim.	0.556
+protein folding/protein glycosylation/cell wall biogenesis&integrity:
+	- num_vertices	193
+	- num_edges	1390
+	- eQTLs sim.	0.019
+	- pQTLs sim.	0.136
