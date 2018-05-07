@@ -5,11 +5,8 @@ import numpy as np
 # construct a graph and, if specified, randomize it, preserving some invariant
 def assemble_graph_of_interactions(edges, directed=False, randomize=False):
     interaction_graph = ig.Graph(directed=directed)
-    # For some weird reason, igraph can add multiple copies of the same vertex.
-    # Numpy can unpack a list of tuples into 1-D array and filter out duplicates
     vertex_names = np.unique(np.ravel(edges))
     interaction_graph.add_vertices(vertex_names)
-    interaction_graph.vs["name"] = vertex_names
     interaction_graph.add_edges(edges)
 
     if randomize:
@@ -32,7 +29,7 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
 
     if directed:
         interaction_graph.vs["type"] = np.array(interaction_graph.outdegree()) == 0
-
+    interaction_graph.vs["name"] = vertex_names
     return interaction_graph
 
 
