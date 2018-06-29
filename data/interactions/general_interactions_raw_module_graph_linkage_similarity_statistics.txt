@@ -1,102 +1,102 @@
 Cell polarity & morphogenesis:
 	- num_vertices	64
-	- num_edges	2152
-	- eQTLs sim.	0.092
-	- pQTLs sim.	0.158
+	- num_edges	3118
+	- eQTLs sim.	0.154
+	- pQTLs sim.	0.117
 	- eQTLs/pQTLs sim.	0.01
 Respiration, oxidative phosphorylation, mitochondrial targeting:
-	- num_vertices	128
-	- num_edges	888
-	- eQTLs sim.	0.078
-	- pQTLs sim.	0.0
+	- num_vertices	133
+	- num_edges	1206
+	- eQTLs sim.	0.185
+	- pQTLs sim.	0.487
 	- eQTLs/pQTLs sim.	0.008
 Protein degradation/turnover:
 	- num_vertices	44
-	- num_edges	1161
-	- eQTLs sim.	0.184
-	- pQTLs sim.	0.285
+	- num_edges	2471
+	- eQTLs sim.	0.113
+	- pQTLs sim.	0.435
 	- eQTLs/pQTLs sim.	0.0
 Ribosome biogenesis:
-	- num_vertices	62
-	- num_edges	186
-	- eQTLs sim.	0.6
-	- pQTLs sim.	0.23
+	- num_vertices	67
+	- num_edges	251
+	- eQTLs sim.	0.269
+	- pQTLs sim.	0.198
 	- eQTLs/pQTLs sim.	0.0
 Cytokinesis:
 	- num_vertices	4
-	- num_edges	23
+	- num_edges	158
 	- eQTLs sim.	0
 	- pQTLs sim.	0
 	- eQTLs/pQTLs sim.	0.0
 DNA replication & repair:
 	- num_vertices	75
-	- num_edges	2679
-	- eQTLs sim.	0.075
-	- pQTLs sim.	0.051
+	- num_edges	3605
+	- eQTLs sim.	0.073
+	- pQTLs sim.	0.346
 	- eQTLs/pQTLs sim.	0.008
 Nuclear-cytoplasmic transport:
 	- num_vertices	35
-	- num_edges	773
-	- eQTLs sim.	0.078
-	- pQTLs sim.	0.693
+	- num_edges	1134
+	- eQTLs sim.	0.082
+	- pQTLs sim.	0.622
 	- eQTLs/pQTLs sim.	0.0
 Peroxisome:
 	- num_vertices	17
-	- num_edges	59
-	- eQTLs sim.	0.4
+	- num_edges	354
+	- eQTLs sim.	0.315
 	- pQTLs sim.	0
 	- eQTLs/pQTLs sim.	0.0
 Metabolism:
 	- num_vertices	11
-	- num_edges	38
+	- num_edges	39
 	- eQTLs sim.	0.0
-	- pQTLs sim.	0.333
+	- pQTLs sim.	0.0
 	- eQTLs/pQTLs sim.	0.013
 Mitosis & chromosome segregation:
 	- num_vertices	149
-	- num_edges	9098
-	- eQTLs sim.	0.045
-	- pQTLs sim.	0.216
+	- num_edges	11576
+	- eQTLs sim.	0.056
+	- pQTLs sim.	0.27
 	- eQTLs/pQTLs sim.	0.003
 mRNA & tRNA processing:
 	- num_vertices	83
-	- num_edges	2311
-	- eQTLs sim.	0.134
-	- pQTLs sim.	0.536
+	- num_edges	3437
+	- eQTLs sim.	0.073
+	- pQTLs sim.	0.592
 	- eQTLs/pQTLs sim.	0.0
 Glycosylation, protein folding/targeting, cell wall biosynthesis:
 	- num_vertices	140
-	- num_edges	8091
+	- num_edges	8640
 	- eQTLs sim.	0.049
-	- pQTLs sim.	0.195
+	- pQTLs sim.	0.263
 	- eQTLs/pQTLs sim.	0.013
 tRNA wobble modification:
-	- num_vertices	13
-	- num_edges	164
-	- eQTLs sim.	0.248
+	- num_vertices	14
+	- num_edges	413
+	- eQTLs sim.	0.177
 	- pQTLs sim.	0
 	- eQTLs/pQTLs sim.	0.0
 rDNA & ncDNA processing:
 	- num_vertices	76
-	- num_edges	1052
-	- eQTLs sim.	0.228
-	- pQTLs sim.	0.186
+	- num_edges	2107
+	- eQTLs sim.	0.298
+	- pQTLs sim.	0.353
 	- eQTLs/pQTLs sim.	0.006
 Vesicle traffic:
 	- num_vertices	85
-	- num_edges	5338
+	- num_edges	6108
 	- eQTLs sim.	0.114
-	- pQTLs sim.	0.09
+	- pQTLs sim.	0.342
 	- eQTLs/pQTLs sim.	0.0
 MVB sorting and pH depending signaling:
 	- num_vertices	21
-	- num_edges	198
-	- eQTLs sim.	0.8
-	- pQTLs sim.	0.571
+	- num_edges	353
+	- eQTLs sim.	0.174
+	- pQTLs sim.	0.4
 	- eQTLs/pQTLs sim.	0.0
 Transcription & chromatin organization:
 	- num_vertices	85
-	- num_edges	4479
-	- eQTLs sim.	0.091
-	- pQTLs sim.	0.75
+	- num_edges	6054
+	- eQTLs sim.	0.094
+	- pQTLs sim.	0.857
 	- eQTLs/pQTLs sim.	0.005
