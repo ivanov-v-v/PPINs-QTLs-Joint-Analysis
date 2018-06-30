@@ -9,6 +9,7 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
     interaction_graph.add_vertices(vertex_names)
     interaction_graph.add_edges(edges)
 
+    # Можно ли тут переписать код?
     if randomize:
         if directed:
             interaction_graph = interaction_graph.Degree_Sequence(
@@ -22,16 +23,16 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
                 method='vl'
             )
 
+    interaction_graph.vs["name"] = vertex_names
+
     # Due to domain-related specifics,
     # directed graphs produced by this function
     # will represent marker-gene interactions
     # and must be bipartite therefore
-
     if directed:
-        interaction_graph.vs["type"] = np.array(interaction_graph.outdegree()) == 0
-    interaction_graph.vs["name"] = vertex_names
-    return interaction_graph
+        interaction_graph.vs["part"] = (np.array(interaction_graph.outdegree()) == 0)
 
+    return interaction_graph
 
 ''' TODO:   Стоит попробовать более совершенные метрики
             подобия, а также добиться лучшей скорости работы 
@@ -41,9 +42,10 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
 # and estimated QTL-linkages, calculate for each pair of interacting genes
 # a Jaccard similarity coefficient, and then average it over all edges
 def mean_linkage_similarity(interaction_graph, QTL_graph):
-    genes_with_linkages = QTL_graph.vs.select(type=1)["name"]
+    genes_with_linkages = QTL_graph.vs.select(part=1)["name"]
     genes_with_interactions = interaction_graph.vs["name"]
 
+    # Как поступать с петлями? Их учитывать или нет?
     subgraph_with_linkages = interaction_graph.subgraph(
         set(genes_with_linkages) & set(genes_with_interactions)
     )
@@ -56,7 +58,7 @@ def mean_linkage_similarity(interaction_graph, QTL_graph):
     # а затем подсчитать для них долю общих элементов
 
     mean_jaccard = 0.
-    for edge in subgraph_with_linkages.es:  # можно ли убрать этот цикл?
+    for edge in subgraph_with_linkages.es:
         source = subgraph_with_linkages.vs[edge.source]
         target = subgraph_with_linkages.vs[edge.target]
 
@@ -65,3 +67,4 @@ def mean_linkage_similarity(interaction_graph, QTL_graph):
         mean_jaccard += len(s_neigh & t_neigh) / len(s_neigh | t_neigh)
 
     return mean_jaccard / subgraph_with_linkages.ecount()
+
