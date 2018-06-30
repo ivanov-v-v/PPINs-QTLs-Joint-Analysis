@@ -1,7 +1,14 @@
+from __future__ import print_function
+
+import sys
+
 import numpy as np
 
-import networks
+from .networks import assemble_graph_of_interactions
 
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
 
 # Returns a list of genes connected to gene_name in interactions_graph
 # where "connected" is interpreted as "reachable in bfs_depth steps".
@@ -25,12 +32,12 @@ def convert_to_sys(gene_name, std_to_sys):
 # full strain genotype lookup table, plot the number
 # of linkages against marker location in genome
 def map_linkages_to_genome_location(QTL_df, full_genotypes_df):
-    QTL_graph = networks.assemble_graph_of_interactions(
+    QTL_graph = assemble_graph_of_interactions(
         edges=QTL_df[["SNP", "gene"]].values,
         directed=True
     )
     # Select only the marker vertices
-    left_part = QTL_graph.vs.select(type=False)
+    left_part = QTL_graph.vs.select(part=False)
     # And map them to their absolute genome location
     marker_to_rownum = \
         dict(
