@@ -38,6 +38,10 @@ def assemble_graph_of_interactions(edges, directed=False, randomize=False):
             подобия, а также добиться лучшей скорости работы 
 '''
 
+def jaccard(set_A, set_B):
+    return len(set_A & set_B) / len(set_A | set_B)
+
+
 # Given a pair of graphs, representing gene-gene interactions
 # and estimated QTL-linkages, calculate for each pair of interacting genes
 # a Jaccard similarity coefficient, and then average it over all edges
@@ -64,7 +68,7 @@ def mean_linkage_similarity(interaction_graph, QTL_graph):
 
         s_neigh = set(QTL_graph.neighbors(source["name"], mode="IN"))
         t_neigh = set(QTL_graph.neighbors(target["name"], mode="IN"))
-        mean_jaccard += len(s_neigh & t_neigh) / len(s_neigh | t_neigh)
+        mean_jaccard += jaccard(s_neigh, t_neigh)
 
     return mean_jaccard / subgraph_with_linkages.ecount()
 
