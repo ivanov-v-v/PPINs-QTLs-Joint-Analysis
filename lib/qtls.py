@@ -84,7 +84,7 @@ class ModuleAnalyzer:
         self.mgraph = module_graph
         self.qval_list = q_value_thresholds
 
-    def _range_mean_linkage_similarity(self, graph_to_test):
+    def _range_mean_jaccard(self, modified_mgraph):
         '''
         Given a dataframe of QTL linkages and a list of q-value thresholds, loops through them,
         filtering out the linkages that fall behind the confidence interval, and calculates
@@ -106,28 +106,34 @@ class ModuleAnalyzer:
                 directed=True
             )
             jaccard[num_thresholds - idx - 1] = \
-                networks.mean_linkage_similarity(graph_to_test, qtl_graph)
+                networks.mean_linkage_similarity(modified_mgraph, qtl_graph)
         return jaccard
 
-    def _randomized_statistics(self, __dummy_arg):
+
+    def _randomize_and_recalc_stats(self, __dummy_arg):
         randomized_mgraph = self.mgraph.Degree_Sequence(
             self.mgraph.degree(),
             method="vl"
         )
         randomized_mgraph.vs["name"] = self.mgraph.vs["name"]
-        return self._range_mean_linkage_similarity(randomized_mgraph)
+        return self._range_mean_jaccard(randomized_mgraph)
 
-    def test_linkage_robustness(self, randomization_iterations=64):
-        actual_stats = self._range_mean_linkage_similarity(self.mgraph)
+
+    def actual_linkage_statistics(self):
+        return self._range_mean_jaccard(self.mgraph)
+
+
+    def simulated_linkage_statistics(self, randomization_iterations=64):
         pool = Pool(processes=cpu_count())
         simulation_stats = np.vstack(
             pool.map(
-                self._randomized_statistics,
+                self._randomize_and_recalc_stats,
                 range(randomization_iterations)
             ))
         pool.close()
         pool.join()
-        return actual_stats, simulation_stats
+        return simulation_stats
+
 
     def plot_robustness_analysis(self, actual_stats, simulation_stats):
         plt.figure(figsize=(20, 10))
@@ -154,3 +160,10 @@ class ModuleAnalyzer:
 
         plt.savefig("./img/interactions/" + self.qtl_type + '_' + self.mname + ".png")
         plt.close()
+
+
+    def analyze_robustness_of_linkage_sharing(self):
+        actual_stats = self.actual_linkage_statistics()
+        simulated_stats = self.simulated_linkage_statistics()
+        self.plot_robustness_analysis(actual_stats, simulated_stats)
+
