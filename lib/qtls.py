@@ -105,7 +105,7 @@ def mean_linkage_similarity(interaction_graph, QTL_graph):
     return mean_jaccard / subgraph_with_linkages.ecount()
 
 
-class FunctionalModuleAnalyzer:
+class LinkageSharingAnalyzer:
     '''
     Used to analyze to which extent interacting genes tend to share linkages.
     Given a datafame of linkages, a functional module graph and a list of q-value thresholds,
@@ -221,10 +221,13 @@ class FunctionalModuleAnalyzer:
         :param __dummy_arg: Dummy variable required for Pool usage.
         :return: Numpy array of Jaccard coefficients for each threshold from self.qval_list.
         '''
-        randomized_mgraph = self.mgraph.Degree_Sequence(
-            self.mgraph.degree(),
-            method="vl"
-        )
+        try:
+            randomized_mgraph = self.mgraph.Degree_Sequence(
+                self.mgraph.degree(),
+                method="vl"
+            )
+        except RuntimeWarning:
+            randomized_mgraph = self.mgraph
         randomized_mgraph.vs["name"] = self.mgraph.vs["name"]
         return self._range_mean_jaccard(randomized_mgraph)
 
