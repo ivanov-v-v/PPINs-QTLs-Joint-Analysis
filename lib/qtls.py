@@ -160,12 +160,13 @@ class LinkageSharingAnalyzer:
 
         plt.xticks(fontsize=15)
         plt.yticks(fontsize=15)
+        plt.grid(linestyle="dotted")
 
         plt.xlabel("linkage q-value threshold", fontsize=20)
         plt.ylabel("average linkage similarity", fontsize=20)
         plt.legend(fontsize=20)
 
-        plt.savefig(destination_folder + self.qtl_type + '_' + self.mname + ".png")
+        plt.savefig(destination_folder + self.qtl_type + '_' + self.mname + ".png", dpi=300)
         plt.close()
 
     def actual_linkage_statistics(self):
@@ -228,10 +229,16 @@ class LinkageSharingAnalyzer:
             )
         except RuntimeWarning:
             randomized_mgraph = self.mgraph
+            pass
         randomized_mgraph.vs["name"] = self.mgraph.vs["name"]
         return self._range_mean_jaccard(randomized_mgraph)
 
-
+'''
+TODO: 
+- Refactor interface!
+- Reimplement plotting 
+- Add more statistics to returned string
+'''
 class PqtlPredictor:
 # [--------------------------------------------------PUBLIC METHODS--------------------------------------------------]
     def __init__(self, eqtls_df, pqtls_df,
