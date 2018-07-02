@@ -158,8 +158,8 @@ class FunctionalModuleAnalyzer:
                          confidence_interval[0], confidence_interval[1],
                          color="#FFD700", alpha=0.4)
 
-        plt.xticks(fontsize=20)
-        plt.yticks(fontsize=20)
+        plt.xticks(fontsize=15)
+        plt.yticks(fontsize=15)
 
         plt.xlabel("linkage q-value threshold", fontsize=20)
         plt.ylabel("average linkage similarity", fontsize=20)
@@ -230,8 +230,7 @@ class FunctionalModuleAnalyzer:
 
 
 class PqtlPredictor:
-    # [--------------------------------------------------PUBLIC METHODS--------------------------------------------------]
-    # [--------------------------------------------------PRIVATE METHODS--------------------------------------------------]
+# [--------------------------------------------------PUBLIC METHODS--------------------------------------------------]
     def __init__(self, eqtls_df, pqtls_df,
                  eqtls_expression_df, eqtls_genotypes_df,
                  pqtls_expression_df, pqtls_genotypes_df,
@@ -263,45 +262,7 @@ class PqtlPredictor:
         self.mname = functional_module_name
         self.mgraph = functional_module_graph
 
-    def _get_interacting_genes(self, gene_name, bfs_depth=1):
-        try:
-            return set(self.mgraph.vs[
-                           self.mgraph.neighborhood(gene_name, order=bfs_depth)
-                       ]["name"])
-        except ValueError:
-            return set()
-
-    def _get_linked_markers(self, gene_name, QTL_df):
-        return set(QTL_df[QTL_df["gene"] == gene_name]["SNP"].values)
-
-    def _get_linked_genes(self, marker_name, QTL_df):
-        return set(QTL_df[QTL_df["SNP"] == marker_name]["gene"].values)
-
-    def _get_linked_to_adjacent(self, gene_name):
-        interacting_genes = set(gene_name) | self._get_interacting_genes(gene_name)
-        linked = set()
-        for neighbor in interacting_genes:
-            linked |= self._get_linked_markers(neighbor, self.eqtls_df)
-            if neighbor != gene_name:
-                linked |= set(neighbor)
-        return linked
-
-    def _get_possible_linkages(self, gene_name):
-        return [(marker_name, gene_name) for marker_name in
-                self._get_linked_to_adjacent(gene_name) & self.valid_markers]
-
-    def _compute_p_value(self, candidate_linkage):
-        marker_name, gene_name = candidate_linkage
-        genotype_rowmask = self.pqtls_gen_df["SNP"] == marker_name
-        genotype_row = self.pqtls_gen_mx[genotype_rowmask]
-        expression_rowmask = self.pqtls_expr_df["gene"] == gene_name
-        expression_row = self.pqtls_expr_mx[expression_rowmask]
-        from_BY = expression_row[genotype_row == 0]
-        from_RM = expression_row[genotype_row == 2]
-        _, p_value = stats.mannwhitneyu(from_BY, from_RM, alternative="two-sided")
-        return p_value
-
-    # REFACTOR THIS
+    # TO BE REFACTORED
     def predict(self):
         pool = Pool(cpu_count())
         results = pool.map(self._get_possible_linkages, self.valid_genes)
@@ -369,5 +330,44 @@ class PqtlPredictor:
                    self.pqtls_df.shape[0],
                    new_pQTLs_df.shape[0],
                    new_pQTLs_df.shape[0] - common)
+# [--------------------------------------------------PRIVATE METHODS--------------------------------------------------]
+
+    def _get_interacting_genes(self, gene_name, bfs_depth=1):
+        try:
+            return set(self.mgraph.vs[
+                           self.mgraph.neighborhood(gene_name, order=bfs_depth)
+                       ]["name"])
+        except ValueError:
+            return set()
+
+    def _get_linked_markers(self, gene_name, QTL_df):
+        return set(QTL_df[QTL_df["gene"] == gene_name]["SNP"].values)
+
+    def _get_linked_genes(self, marker_name, QTL_df):
+        return set(QTL_df[QTL_df["SNP"] == marker_name]["gene"].values)
+
+    def _get_linked_to_adjacent(self, gene_name):
+        interacting_genes = set(gene_name) | self._get_interacting_genes(gene_name)
+        linked = set()
+        for neighbor in interacting_genes:
+            linked |= self._get_linked_markers(neighbor, self.eqtls_df)
+            if neighbor != gene_name:
+                linked |= set(neighbor)
+        return linked
+
+    def _get_possible_linkages(self, gene_name):
+        return [(marker_name, gene_name) for marker_name in
+                self._get_linked_to_adjacent(gene_name) & self.valid_markers]
+
+    def _compute_p_value(self, candidate_linkage):
+        marker_name, gene_name = candidate_linkage
+        genotype_rowmask = self.pqtls_gen_df["SNP"] == marker_name
+        genotype_row = self.pqtls_gen_mx[genotype_rowmask]
+        expression_rowmask = self.pqtls_expr_df["gene"] == gene_name
+        expression_row = self.pqtls_expr_mx[expression_rowmask]
+        from_BY = expression_row[genotype_row == 0]
+        from_RM = expression_row[genotype_row == 2]
+        _, p_value = stats.mannwhitneyu(from_BY, from_RM, alternative="two-sided")
+        return p_value
 
 
