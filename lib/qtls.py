@@ -132,7 +132,6 @@ class LinkageSharingAnalyzer:
         self.plot_robustness_analysis(title, destination_folder,
                                       actual_stats, simulated_stats)
 
-
     def plot_robustness_analysis(self, title, destination_folder, actual_stats, simulation_stats):
         '''
         Plots simulation data (average among all the iterations and confidence intervals)
