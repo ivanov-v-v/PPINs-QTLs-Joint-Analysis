@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
+from scipy.spatial import distance
 
 import networks
 
@@ -126,11 +127,16 @@ class LinkageSharingAnalyzer:
     def analyze_robustness_of_linkage_sharing(self, title, destination_folder):
         '''
         Interface function. Performs the simulation and saves the plot with results.
+
+        return: Some measure of curve similarity between real and simulated data.
         '''
         actual_stats = self.actual_linkage_statistics()
         simulated_stats = self.simulated_linkage_statistics()
-        self.plot_robustness_analysis(title, destination_folder,
+        curve_similarity = distance.sqeuclidean(actual_stats, simulated_stats.mean(axis=0), -np.log10(self.qval_list))
+        if curve_similarity != 0:
+            self.plot_robustness_analysis(title, destination_folder,
                                       actual_stats, simulated_stats)
+        return curve_similarity
 
     def plot_robustness_analysis(self, title, destination_folder, actual_stats, simulation_stats):
         '''
@@ -190,30 +196,6 @@ class LinkageSharingAnalyzer:
 
 # [--------------------------------------------------PRIVATE METHODS--------------------------------------------------]
 
-    def _range_mean_jaccard(self, modified_mgraph):
-        '''
-        Given a dataframe of QTL linkages and a list of q-value thresholds, loops through them,
-        filtering out the linkages with q-value above the threshold, and calculates
-        the averaged linkage similarity (Jaccard coefficient) for QTL sets linked to interacting genes
-
-        :param modified_mgraph: In this context "modified" means perturbed self.mgraph
-                                for robustness testing preserving vertex degree
-        :return: Numpy array of averaged Jaccard coefficients for every threshold given.
-
-        '''
-        num_thresholds = len(self.qval_list)
-        jaccard = np.zeros(num_thresholds, dtype=np.float32)
-        qtl_df = self.qtl_df
-        for idx, q_threshold in enumerate(self.qval_list[::-1]):
-            qtl_df = qtl_df[qtl_df['q.value'] <= q_threshold ]
-            qtl_graph = networks.graph_from_edges(
-                edges=qtl_df[["SNP", "gene"]].values,
-                directed=True
-            )
-            jaccard[num_thresholds - idx - 1] = \
-                mean_linkage_similarity(modified_mgraph, qtl_graph)
-        return jaccard
-
     def _randomize_and_recalc_stats(self, __dummy_arg):
         '''
         Performs the simulation: perturbs the graph and calculates Jaccard coefficients.
@@ -231,6 +213,32 @@ class LinkageSharingAnalyzer:
             pass
         randomized_mgraph.vs["name"] = self.mgraph.vs["name"]
         return self._range_mean_jaccard(randomized_mgraph)
+
+    def _range_mean_jaccard(self, modified_mgraph):
+        '''
+        Given a dataframe of QTL linkages and a list of q-value thresholds, loops through them,
+        filtering out the linkages with q-value above the threshold, and calculates
+        the averaged linkage similarity (Jaccard coefficient) for QTL sets linked to interacting genes
+
+        :param modified_mgraph: In this context "modified" means perturbed self.mgraph
+                                for robustness testing preserving vertex degree
+        :return: Numpy array of averaged Jaccard coefficients for every threshold given.
+
+        '''
+        num_thresholds = len(self.qval_list)
+        jaccard = np.zeros(num_thresholds, dtype=np.float32)
+        qtl_df = self.qtl_df
+        for idx, q_threshold in enumerate(self.qval_list[::-1]):
+            qtl_df = qtl_df[qtl_df['q.value'] <= q_threshold]
+            if qtl_df.empty:
+                break
+            qtl_graph = networks.graph_from_edges(
+                edges=qtl_df[["SNP", "gene"]].values,
+                directed=True
+            )
+            jaccard[num_thresholds - idx - 1] = \
+                mean_linkage_similarity(modified_mgraph, qtl_graph)
+        return jaccard
 
 '''
 TODO: 
