@@ -13,17 +13,17 @@ import numpy as np
 
 # Returns a list of genes connected to gene_name in interactions_graph
 # where "connected" is interpreted as "reachable in bfs_depth steps".
-def convert_to_std(gene_name, sys_to_std):
+def convert_to_std(gene_name, sys2std):
     try:
-        result = sys_to_std[gene_name]
+        result = sys2std[gene_name]
     except KeyError:
         result = gene_name
     return result
 
 
-def convert_to_sys(gene_name, std_to_sys):
+def convert_to_sys(gene_name, std2sys):
     try:
-        result = std_to_sys[gene_name]
+        result = std2sys[gene_name]
     except KeyError:
         result = gene_name
     return result
