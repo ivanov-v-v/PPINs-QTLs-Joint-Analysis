@@ -181,6 +181,7 @@ class LinkageSharingStatistics:
         self.destdir ="/".join(["./results", self.module_type, self.module_name, self.qtl_type])
         util.ensure_dir(self.destdir)
 
+    ''' IMPLEMENT PICKLING '''
     def save(self):
         self.qtl_df.to_csv(
             "/".join([self.destdir, "qtl_df.csv"]),
@@ -374,33 +375,48 @@ class LinkageSharingAnalyzer:
                 pass
         return np.array([p_value, real_stats.mean(), randomized_stats.mean() if len(randomized_stats) != 0 else 0.])
 
-    def process_modules(self, recompute=True, randiter_count=64):
+    def process_randiter(self, iter_num):
+        results_dict = collections.defaultdict(list)
+        self.randomized_interactome = self.interactome.Degree_Sequence(
+            self.interactome.degree(),
+            method='vl'
+        )
+        self.randomized_interactome.vs["name"] = self.interactome.vs["name"]
+        for module_name, module_vertices in self.module_dict.items():
+            randiter_results = np.vstack(
+                [self.process_threshold(q_thr, module_name)
+                 for q_thr in self.qval_list]
+            )
+            if len(results_dict[module_name]) == 0:
+                results_dict[module_name] = randiter_results
+            else:
+                results_dict[module_name] = np.dstack(
+                    (results_dict[module_name], randiter_results)
+                )
+        return results_dict
+
+    def process_modules(self, randiter_count=8):
         '''
         Interface function. Performs the simulation and saves the plot with results.
         return: Some measure of curve similarity between real and simulated data.
         '''
-        results_dict = collections.defaultdict(lambda: np.array([]))
-        ''' PARALLELIZE! (BUT HOW TO COLLECT RESULTS?) '''
-        for randiter in range(randiter_count):
-            self.randomized_interactome = self.interactome.Degree_Sequence(
-                self.interactome.degree(),
-                method='vl'
-            )
-            self.randomized_interactome.vs["name"] = self.interactome.vs["name"]
-            for module_name, module_vertices in self.module_dict.items():
-                randiter_results = np.vstack(
-                    [self.process_threshold(q_thr, module_name)
-                     for q_thr in self.qval_list]
-                )
-                if len(results_dict[module_name]) == 0:
-                    results_dict[module_name] = randiter_results
-                else:
-                    results_dict[module_name] = np.dstack(
-                        (results_dict[module_name], randiter_results)
-                    )
+
+        for module_name in self.module_dict.keys():
+            self.module_dict[module_name] = np.intersect1d(self.module_dict[module_name],
+                                                           self.interactome.vs["name"])
+
+        pool = mp.Pool(mp.cpu_count())
+        raw_results_dict = pool.map(self.process_randiter, range(randiter_count))
+        pool.close()
+        pool.join()
+
+        results_dict = {
+            module_name:np.stack([rawd[module_name] for rawd in raw_results_dict])
+            for module_name in self.module_dict.keys()
+        }
 
         for module_name in results_dict.keys():
-            results_dict[module_name] = results_dict[module_name].mean(axis=-1)
+            results_dict[module_name] = results_dict[module_name].mean(axis=0)
 
         module_scores = collections.defaultdict(list)
         for module_name, module_vertices in self.module_dict.items():

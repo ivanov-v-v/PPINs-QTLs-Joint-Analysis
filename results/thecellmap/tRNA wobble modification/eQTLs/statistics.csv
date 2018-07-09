@@ -1,4 +1,4 @@
-module_name	tRNA wobble modification
 module_type	thecellmap
-robustness_score	0.0027234887309311893
+module_name	tRNA wobble modification
+robustness_score	0.006352873001896596
 qtl_type	eQTLs
