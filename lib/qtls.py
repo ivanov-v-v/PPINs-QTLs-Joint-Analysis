@@ -1,7 +1,9 @@
 from __future__ import print_function
 
+import collections
 import multiprocessing as mp
 import subprocess
+from importlib import reload
 
 import igraph as ig
 import matplotlib.pyplot as plt
@@ -109,6 +111,7 @@ def plot_module_svg(module_name, module_graph, qtl_type, qtl_df, dirname):
     edge_colors = [util.rgba2hex(rgba) for rgba in [[0, 0, 0, 0.05]] * module_graph.ecount()]
     module_graph.es["color"] = edge_colors
 
+    ''' WRITE_SVG IS DEPRECATED, USE IG.PLOT INSTEAD '''
     module_graph.write_svg(
         fname=dirname + '/' + qtl_type + "_" + module_name + ".svg",
         layout=module_graph.layout_fruchterman_reingold(),
@@ -176,7 +179,7 @@ class LinkageSharingStatistics:
         self.linkage_sharing_df = linkage_sharing_df
         self.robustness_score = robustness_score
 
-        self.destdir ="/".join(["./results", self.module_type, self.module_name])
+        self.destdir ="/".join(["./results", self.module_type, self.module_name, self.qtl_type])
         util.ensure_dir(self.destdir)
 
     def save(self):
@@ -192,32 +195,40 @@ class LinkageSharingStatistics:
             graph=self.module_graph,
             filename="/".join([self.destdir, "module_graph.pkl"]),
             format="pickle"
+
         )
+        np.savetxt("/".join([self.destdir, "q_thresholds.csv"]), self.q_thresholds, delimiter='\t')
         vardict = vars(self)
         pd.DataFrame.from_dict(
             data={
                 key:vardict[key] for key in
-                ["qtl_type", "module_type", "module_name", "q_thresholds", "robustness_score"]
+                ["qtl_type", "module_type", "module_name", "robustness_score"]
             },
             orient="index"
         ).to_csv(
             "/".join([self.destdir, "statistics.csv"]),
-            sep='\t', header=False
+            sep='\t', header=None
         )
 
     def load(self):
         self.qtl_df = pd.read_csv("/".join([self.destdir, "qtl_df.csv"]), sep='\t')
         self.linkage_sharing_df = pd.read_csv("/".join([self.destdir, "linkage_sharing.csv"]), sep='\t')
         self.module_graph.Read_Pickle(fname="/".join([self.destdir, "module_graph.pkl"]))
+        self.q_thresholds = np.recfromcsv(fname="/".join([self.destdir, "q_thresholds.csv"]), delimiter='\t')
+
         vardict = pd.read_csv("/".join([self.destdir, "statistics.csv"]), index_col=0, header=None, sep='\t').T\
             .to_dict(orient="records")[0]
         for key, val in vardict.items():
-            if key == "q_thresholds":
-                self.q_thresholds = np.array([np.float32(numrepr) for numrepr in val.strip('[]').split(' ')])
-            elif key == "robustness_score":
+            if key == "robustness_score":
                 self.robustness_score = float(val)
             else:
                 self.__dict__[key] = val
+
+    def features_dict(self):
+        return collections.OrderedDict([
+            ("robustness_score", self.robustness_score),
+            ("vertex_q_score", self.qtl_df["q.value"].median()),
+            ("edge_p_score", self.linkage_sharing_df["p_value"].median())])
 
     def plot_module_graph(self):
         plot_module_svg(
@@ -237,8 +248,9 @@ class LinkageSharingStatistics:
             color="xkcd:tangerine",
             edgecolor="black",
             linewidth=1.2,
-            label="{} linkages in total\nmean q-value: {}"
-                .format(self.qtl_df.shape[0], self.qtl_df["q.value"].mean())
+            label="{} linkages in total\nmean q-value: {}\n|V| = {}\n|E| = {}"
+                .format(self.qtl_df.shape[0], self.qtl_df["q.value"].mean(),
+                        self.module_graph.vcount(), self.module_graph.ecount())
         )
         ax.grid(linestyle='dotted', alpha=0.8)
         ax.tick_params(labelsize=15)
@@ -310,7 +322,7 @@ class LinkageSharingAnalyzer:
     def __init__(self, qtl_type, qtl_df,
                  module_type, module_name, module_graph,
                  q_thresholds):
-
+        reload(util)
         self.qtl_type = qtl_type
         self.qtl_df = qtl_df
 
@@ -353,14 +365,24 @@ class LinkageSharingAnalyzer:
         p_values = np.ones(randiter)
 
         for i in range(randiter):
-            randomized_mgraph = self.mgraph.Degree_Sequence(
-                self.mgraph.degree(),
-                method="vl"
-            )
+            try:
+                randomized_mgraph = self.mgraph.Degree_Sequence(
+                    self.mgraph.degree(),
+                    method="vl"
+                )
+            except RuntimeWarning: # create random edges in case there is only one graph with given degree sequence
+                randedges = [
+                    (self.mgraph.vs[i], self.mgraph.vs[j])
+                    for i, j in util.sample_combinations(
+                        (self.mgraph.vcount(), self.mgraph.vcount()),
+                        self.mgraph.ecount()
+                    )
+                ]
+                randomized_mgraph = networks.graph_from_edges(randedges)
+
             randomized_mgraph.vs["name"] = vertex_names
             randomized_stats = \
                 linkage_similarity(
-                    # module_graph=randomized_mgraph,
                     module_graph=randomized_mgraph.subgraph(
                         set(genes_with_linkages) &
                         set(vertex_names)
@@ -379,7 +401,6 @@ class LinkageSharingAnalyzer:
                 simulation_means[i] = randomized_stats.mean()
                 simulation_stds[i] = randomized_stats.std()
         return np.array([p_values.mean(), real_stats.mean(), simulation_means.mean(), simulation_stds.mean()])
-
 
     def process_module(self, recompute=True):
         '''
@@ -421,7 +442,7 @@ class LinkageSharingAnalyzer:
 
         self.results = LinkageSharingStatistics(
             qtl_type=self.qtl_type,
-            qtl_df=self.qtl_df[self.qtl_df["gene"].isin(self.mgraph.vs["name"])], # implement as a global function?
+            qtl_df=self.qtl_df[self.qtl_df["gene"].isin(self.mgraph.vs["name"])],
             module_type=self.mtype,
             module_name=self.mname,
             module_graph=self.mgraph,
