@@ -3,7 +3,6 @@ from __future__ import print_function
 import collections
 import multiprocessing as mp
 import subprocess
-from importlib import reload
 
 import igraph as ig
 import matplotlib.pyplot as plt
@@ -319,37 +318,33 @@ class LinkageSharingAnalyzer:
     """
 
 # [-------------------------------------------------PUBLIC METHODS-------------------------------------------------]
-    def __init__(self, qtl_type, qtl_df,
-                 module_type, module_name, module_graph,
-                 q_thresholds):
-        reload(util)
+    def __init__(self, interactome_graph, qtl_type, qtl_df, modules_type, module_dict, q_thresholds):
+        self.interactome = interactome_graph.simplify()
+        self.interactome.vs.select(_degree=0).delete()
         self.qtl_type = qtl_type
         self.qtl_df = qtl_df
-
-        self.mtype = module_type
-        self.mname = module_name
-        # Without this preprocessing the results will be __incorrect__,
-        # inflated, as in linkage similarity calculations the same jaccard
-        # coefficient will be calculated many times
-        self.mgraph = module_graph.simplify()
-        self.mgraph.vs.select(_degree=0).delete()
-
+        self.modules_type = modules_type
+        self.module_dict = module_dict
         self.qval_list = q_thresholds
-        self.statistics = None
 
-    def process_threshold(self, q_value_threshold, randiter=64):
+        self.statistics = collections.defaultdict()
+        self.randomized_interactome = None
+
+        self._default_row = np.zeros(3)
+
+    def process_threshold(self, q_value_threshold, module_name):
         qtl_graph = networks.graph_from_edges(
             edges=self.qtl_df[self.qtl_df["q.value"] <= q_value_threshold][["SNP", "gene"]].values,
             directed=True
         )
         genes_with_linkages = qtl_graph.vs.select(part=1)["name"]
-        vertex_names = self.mgraph.vs["name"]
+        vertex_names = self.module_dict[module_name]
 
         if set(genes_with_linkages).isdisjoint(set(vertex_names)):
-            return np.zeros(4)
+            return self._default_row
 
         real_stats = linkage_similarity(
-            module_graph=self.mgraph.subgraph(
+            module_graph=self.interactome.subgraph(
                 set(genes_with_linkages) &
                 set(vertex_names)
             ),
@@ -358,105 +353,91 @@ class LinkageSharingAnalyzer:
         )
 
         if len(real_stats) == 0 or all([sim_coeff == 0 for sim_coeff in real_stats]):
-            return np.zeros(4)
+            return self._default_row
 
-        simulation_means = np.zeros(randiter)
-        simulation_stds = np.zeros(randiter)
-        p_values = np.ones(randiter)
-
-        for i in range(randiter):
+        randomized_stats = linkage_similarity(
+                module_graph=self.randomized_interactome.subgraph(
+                    set(genes_with_linkages) &
+                    set(vertex_names)
+                ),
+                qtl_graph=qtl_graph,
+                mode="full"
+            )
+        p_value = 0.
+        if len(randomized_stats) != 0:
             try:
-                randomized_mgraph = self.mgraph.Degree_Sequence(
-                    self.mgraph.degree(),
-                    method="vl"
-                )
-            except RuntimeWarning: # create random edges in case there is only one graph with given degree sequence
-                randedges = [
-                    (self.mgraph.vs[i], self.mgraph.vs[j])
-                    for i, j in util.sample_combinations(
-                        (self.mgraph.vcount(), self.mgraph.vcount()),
-                        self.mgraph.ecount()
-                    )
-                ]
-                randomized_mgraph = networks.graph_from_edges(randedges)
+                _, p_value = stats.mannwhitneyu(real_stats, randomized_stats, alternative="two-sided")
+            except ValueError:
+                # prevents "all numbers are equal" error that is thrown when,
+                # for example, [1, 1, 1] and [1, 1] are passed to MWU
+                # it's really weird, but simply ignoring it seems the be best workaround so far
+                pass
+        return np.array([p_value, real_stats.mean(), randomized_stats.mean() if len(randomized_stats) != 0 else 0.])
 
-            randomized_mgraph.vs["name"] = vertex_names
-            randomized_stats = \
-                linkage_similarity(
-                    module_graph=randomized_mgraph.subgraph(
-                        set(genes_with_linkages) &
-                        set(vertex_names)
-                    ),
-                    qtl_graph=qtl_graph,
-                    mode="full"
-                )
-            if len(randomized_stats) != 0:
-                try:
-                    _, p_values[i] = stats.mannwhitneyu(real_stats, randomized_stats, alternative="two-sided")
-                except ValueError:
-                    # prevents "all numbers are equal" error that is thrown when,
-                    # for example, [1, 1, 1] and [1, 1] are passed to MWU
-                    # it's really weird, but simply ignoring it seems the be best workaround so far
-                    pass
-                simulation_means[i] = randomized_stats.mean()
-                simulation_stds[i] = randomized_stats.std()
-        return np.array([p_values.mean(), real_stats.mean(), simulation_means.mean(), simulation_stds.mean()])
-
-    def process_module(self, recompute=True):
+    def process_modules(self, recompute=True, randiter_count=64):
         '''
         Interface function. Performs the simulation and saves the plot with results.
         return: Some measure of curve similarity between real and simulated data.
         '''
-
-        if not recompute:
-            if self.statistics is None:
-                self.statistics = LinkageSharingStatistics(
-                    qtl_type=self.qtl_type,
-                    module_type=self.mtype,
-                    module_name=self.mname
+        results_dict = collections.defaultdict(lambda: np.array([]))
+        ''' PARALLELIZE! (BUT HOW TO COLLECT RESULTS?) '''
+        for randiter in range(randiter_count):
+            self.randomized_interactome = self.interactome.Degree_Sequence(
+                self.interactome.degree(),
+                method='vl'
+            )
+            self.randomized_interactome.vs["name"] = self.interactome.vs["name"]
+            for module_name, module_vertices in self.module_dict.items():
+                randiter_results = np.vstack(
+                    [self.process_threshold(q_thr, module_name)
+                     for q_thr in self.qval_list]
                 )
-            self.statistics.load()
-            return self.statistics
+                if len(results_dict[module_name]) == 0:
+                    results_dict[module_name] = randiter_results
+                else:
+                    results_dict[module_name] = np.dstack(
+                        (results_dict[module_name], randiter_results)
+                    )
 
-        pool = mp.Pool(mp.cpu_count())
-        results = np.vstack(pool.map(self.process_threshold, self.qval_list))
-        pool.close()
-        pool.join()
+        for module_name in results_dict.keys():
+            results_dict[module_name] = results_dict[module_name].mean(axis=-1)
 
-        results_df = pd.DataFrame(np.vstack(results),
-                                  columns=["p_value", "real_mean", "simulated_mean", "simulated_std"])
+        module_scores = collections.defaultdict(list)
+        for module_name, module_vertices in self.module_dict.items():
+            results_df = pd.DataFrame(results_dict[module_name], columns=["p_value", "real_mean", "simulated_mean"])
+            results_df = results_df[results_df["real_mean"] != 0]
+            if results_df.empty:
+                print("{} — no data, no processing done!".format(module_name))
+                continue
 
-        results_df = results_df[results_df["real_mean"] != 0]
-        # filter those out __before__ calling this function
-        # raise an error here
-        if results_df.empty:
-            print("{} — no data, no processing done!".format(self.mname))
-            return 0
+            trimmed_qval_list = self.qval_list[-results_df.shape[0]:]
 
-        trimmed_qval_list = self.qval_list[-results_df.shape[0]:]
+            curve_similarity = distance.sqeuclidean(
+                results_df["real_mean"], results_df["simulated_mean"],
+                -np.log10(trimmed_qval_list)
+            )
 
-        curve_similarity = distance.sqeuclidean(
-            results_df["real_mean"], results_df["simulated_mean"],
-            -np.log10(trimmed_qval_list)
-        )
+            self.statistics[module_name] = LinkageSharingStatistics(
+                qtl_type=self.qtl_type,
+                qtl_df=self.qtl_df[self.qtl_df["gene"].isin(module_vertices)],
+                module_type=self.modules_type,
+                module_name=module_name,
+                module_graph=self.interactome.subgraph(
+                    set(self.interactome.vs["name"])
+                    & set(module_vertices)
+                ),
+                linkage_sharing_df=results_df,
+                robustness_score=curve_similarity,
+                q_thresholds=self.qval_list
+            )
 
-        self.results = LinkageSharingStatistics(
-            qtl_type=self.qtl_type,
-            qtl_df=self.qtl_df[self.qtl_df["gene"].isin(self.mgraph.vs["name"])],
-            module_type=self.mtype,
-            module_name=self.mname,
-            module_graph=self.mgraph,
-            linkage_sharing_df=results_df,
-            robustness_score=curve_similarity,
-            q_thresholds=self.qval_list
-        )
+            self.statistics[module_name].save()
+            self.statistics[module_name].plot_module_graph()
+            self.statistics[module_name].plot_q_value_hist()
+            self.statistics[module_name].plot_linkage_sharing_comparison()
 
-        self.results.save()
-        self.results.plot_module_graph()
-        self.results.plot_q_value_hist()
-        self.results.plot_linkage_sharing_comparison()
-
-        return self.results
+            module_scores[module_name] = self.statistics[module_name].features_dict()
+        return module_scores
 
 
 ########################################################################################################################
