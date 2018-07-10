@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import collections
 import multiprocessing as mp
+import os
 import subprocess
 
 import igraph as ig
@@ -9,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
+from scipy import ndimage
 from scipy.spatial import distance
 
 import networks
@@ -87,6 +89,51 @@ def linkages2gencoords(qtl_df, full_genotypes_df):
                               key=lambda p: marker_to_rownum[p[0]])))
     return qtl_x, qtl_y
 
+''' GET RID OF COPY-PASTED CODE! '''
+def plot_module_png(module_name, module_graph, qtl_type, qtl_df, dirname):
+    '''
+    Plot functional module graph in .svg format with vertices colored in accordance to
+    the number of linked QTLs. Vertices with no linkages are not shown.
+    All other vertices have number of linked QTLs written in their labels.
+
+    :param module_graph: interactome subgraph
+    :param qtl_df: s/e
+    :param dirname: s/e
+    :param module_name: s/e
+    :return: None
+    '''
+    num_linkages = [len(linked_markers(qtl_df, [gene_name])) for gene_name in module_graph.vs["name"]]
+    normalized_num_linkages = (num_linkages - np.min(num_linkages)) / (np.max(num_linkages)) - np.min(num_linkages)
+
+    vertex_colors = plt.cm.coolwarm(normalized_num_linkages)
+    vertex_colors[:, -1] = 0.4
+    module_graph.vs["color"] = [util.rgba2hex(rgba) for rgba in vertex_colors]
+
+    edge_colors = [util.rgba2hex(rgba) for rgba in [[0, 0, 0, 0.1]] * module_graph.ecount()]
+    for i, e in enumerate(module_graph.es):
+        if num_linkages[e.source] != 0 and num_linkages[e.target] != 0:
+            edge_colors[i] = util.rgba2hex([1, 0, 0, 0.5])
+
+    module_graph.es["color"] = edge_colors
+    n = module_graph.vcount()
+    module_graph.vs["size"] = [5 if num_linkages[i] == 0 else 10 for i in range(n)]
+    module_graph.vs["label_size"] = [0 if num_linkages[i] == 0 else 15 for i in range(n)]
+    module_graph.vs["label_dist"] = [0 if num_linkages[i] == 0 else 2 for i in range(n)]
+
+    ig.plot(
+        module_graph,
+        target=dirname + '/' + qtl_type + "_" + module_name + ".png",
+        layout=module_graph.layout_fruchterman_reingold(maxiter=1000, area=n**3, repulserad=n**3),
+        bbox=(1440, 720),
+        vertex_label=[gene_name + ", " + str(num_linkages[i]) if num_linkages[i] != 0 else ''
+                for i, gene_name in enumerate(module_graph.vs["name"])],
+        margin=50,
+        # vertex_color="color",
+        # shapes=[1] * module_graph.vcount(),
+        # vertex_size=8,
+        # font_size=25,
+        # edge_color="color"
+    )
 
 def plot_module_svg(module_name, module_graph, qtl_type, qtl_df, dirname):
     '''
@@ -114,8 +161,8 @@ def plot_module_svg(module_name, module_graph, qtl_type, qtl_df, dirname):
     module_graph.write_svg(
         fname=dirname + '/' + qtl_type + "_" + module_name + ".svg",
         layout=module_graph.layout_fruchterman_reingold(),
-        width=1000,
-        height=1000,
+        width=1440,
+        height=1440,
         labels=[gene_name + ", " + str(num_linkages[i]) if num_linkages[i] != 0 else ''
                 for i, gene_name in enumerate(module_graph.vs["name"])],
         colors="color",
@@ -149,6 +196,9 @@ def linkage_similarity(module_graph, qtl_graph, mode="mean"):
     :return: some statistics about linkage similarity specified by "mode"
     """
     results = np.zeros(shape=module_graph.ecount())
+    if mode == 'mean' and len(results) == 0:
+        return 0
+
     for i, edge in enumerate(module_graph.es):
         source = module_graph.vs[edge.source]
         target = module_graph.vs[edge.target]
@@ -181,7 +231,7 @@ class LinkageSharingStatistics:
         self.destdir ="/".join(["./results", self.module_type, self.module_name, self.qtl_type])
         util.ensure_dir(self.destdir)
 
-    ''' IMPLEMENT PICKLING '''
+    ''' IMPLEMENT PICKLING AND DEPICKLING '''
     def save(self):
         self.qtl_df.to_csv(
             "/".join([self.destdir, "qtl_df.csv"]),
@@ -213,7 +263,7 @@ class LinkageSharingStatistics:
     def load(self):
         self.qtl_df = pd.read_csv("/".join([self.destdir, "qtl_df.csv"]), sep='\t')
         self.linkage_sharing_df = pd.read_csv("/".join([self.destdir, "linkage_sharing.csv"]), sep='\t')
-        self.module_graph.Read_Pickle(fname="/".join([self.destdir, "module_graph.pkl"]))
+        self.module_graph = ig.Graph().Read_Pickle(fname="/".join([self.destdir, "module_graph.pkl"]))
         self.q_thresholds = np.recfromcsv(fname="/".join([self.destdir, "q_thresholds.csv"]), delimiter='\t')
 
         vardict = pd.read_csv("/".join([self.destdir, "statistics.csv"]), index_col=0, header=None, sep='\t').T\
@@ -227,11 +277,13 @@ class LinkageSharingStatistics:
     def features_dict(self):
         return collections.OrderedDict([
             ("robustness_score", self.robustness_score),
-            ("vertex_q_score", self.qtl_df["q.value"].median()),
-            ("edge_p_score", self.linkage_sharing_df["p_value"].median())])
+            ("mean_q_score", self.qtl_df["q.value"].mean()),
+            ("median_q_score", self.qtl_df["q.value"].median()),
+            ("mean_p_score", self.linkage_sharing_df["p_value"].mean()),
+            ("median_p_score", self.linkage_sharing_df["p_value"].median())])
 
     def plot_module_graph(self):
-        plot_module_svg(
+        plot_module_png(
             module_name=self.module_name,
             module_graph=self.module_graph,
             qtl_type=self.qtl_type,
@@ -241,30 +293,37 @@ class LinkageSharingStatistics:
 
     def plot_q_value_hist(self):
         fig, ax = plt.subplots(figsize=(20, 10))
+        plt.xscale("log")
         counts, bins, patches = plt.hist(
             self.qtl_df["q.value"],
-            bins='auto',
-            alpha=0.6,
-            color="xkcd:tangerine",
+            bins=10.**np.arange(-8, -1),
+            alpha=0.5,
+            color="xkcd:turquoise",
             edgecolor="black",
             linewidth=1.2,
-            label="{} linkages in total\nmean q-value: {}\n|V| = {}\n|E| = {}"
-                .format(self.qtl_df.shape[0], self.qtl_df["q.value"].mean(),
-                        self.module_graph.vcount(), self.module_graph.ecount())
+            label="{0} linkages in total\n"
+                  "mean q-value: {1:.4f}\n"
+                  "median q-value: {2:.4f}\n"
+                  "|V| = {3}, |E| = {4}"
+                .format(self.qtl_df.shape[0],
+                        self.qtl_df["q.value"].mean(),
+                        self.qtl_df["q.value"].median(),
+                        self.module_graph.vcount(),
+                        self.module_graph.ecount())
         )
         ax.grid(linestyle='dotted', alpha=0.8)
         ax.tick_params(labelsize=15)
 
         ax.set_xticks(bins)
         ax.tick_params(axis='x', labelrotation=90)
-        ax.ticklabel_format(axis='x', style='sci', scilimits=(0, 0), useMathText=True)
+        # ax.ticklabel_format(axis='x', style='sci', scilimits=(0, 0), useMathText=True)
 
         ax.set_title("{} linkage q-value distribution for {}; {}".format(
             self.qtl_type, self.module_name, self.module_type
         ), fontsize=20)
         ax.set_xlabel("q-value", fontsize=20)
         ax.set_ylabel("number of linkages", fontsize=20)
-        ax.legend(fontsize=20)
+        ax.legend(fontsize=15)
 
         plt.savefig(self.destdir + "/{}_q_value_distribution for {}; {}.png".format(
             self.qtl_type, self.module_name, self.module_type)
@@ -286,17 +345,26 @@ class LinkageSharingStatistics:
         plt.xscale('log')
         ax2 = ax1.twinx()
 
-        ax1.set_xlabel("linkage q-value threshold, log10-scale", fontsize=20)
+        ax1.set_xlabel("linkage q-value threshold, lg-scale", fontsize=20)
         ax1.set_ylabel("average linkage similarity", fontsize=20)
         ax1.plot(trimmed_qval_list, results_df["real_mean"], label="real data")
-        ax1.plot(trimmed_qval_list, results_df["simulated_mean"], label="synthesized data")
+        ax1.plot(trimmed_qval_list, results_df["simulated_mean"],
+                 label="synthesized data\n"
+                       "curve similarity score (WMSQ): {0:.4f}".format(self.robustness_score)
+         )
 
-        ax2.plot(trimmed_qval_list, results_df["p_value"], color="r", linestyle="dashed", label="p-values", alpha=0.5)
+        ax2.plot(trimmed_qval_list, results_df["p_value"],
+                 color="r", linestyle="dashed", alpha=0.5,
+                 label="p-values\nmean p-value: {0:.4f}\nmedian p-value: {1:.4f}".format(
+                     results_df["p_value"].mean(),
+                     results_df["p_value"].median()
+                 )
+        )
         ax2.set_ylabel("p-value of difference of edge scores", fontsize=20)
 
         lines, labels = ax1.get_legend_handles_labels()
         lines2, labels2 = ax2.get_legend_handles_labels()
-        ax2.legend(lines + lines2, labels + labels2, loc=0, fontsize=15)
+        ax2.legend(lines + lines2, labels + labels2, loc=2, fontsize=15)
 
         ax1.grid(linestyle='dotted')
         plt.setp(ax1.get_xticklabels(), fontsize=15)
@@ -307,6 +375,43 @@ class LinkageSharingStatistics:
             self.qtl_type, self.module_name, self.module_type)
         )
         plt.close()
+
+def plot_vignettes(module_type, module_names):
+
+    for module_name in module_names:
+        elplot, eqplot, egplot = None, None, None
+        plplot, pqplot, pgplot = None, None, None
+
+        epath = "/".join(["./results", module_type, module_name, "eQTLs"])
+        ppath = "/".join(["./results", module_type, module_name, "pQTLs"])
+
+        if not os.path.exists(epath) and not os.path.exists(ppath):
+            continue
+
+        if os.path.exists(epath):
+            elplot = ndimage.imread(epath + "/{}_{}_{}.png".format(
+                "eQTLs", module_name, module_type), mode="RGBA")
+            eqplot = ndimage.imread(epath + "/{}_q_value_distribution for {}; {}.png".format(
+                "eQTLs", module_name, module_type), mode="RGBA")
+            egplot = ndimage.imread(epath + "/{}_{}.png".format("eQTLs", module_name), mode="RGBA")
+        if os.path.exists(ppath):
+            plplot = ndimage.imread(ppath + "/{}_{}_{}.png".format(
+                "pQTLs", module_name, module_type), mode="RGBA")
+            pqplot = ndimage.imread(ppath + "/{}_q_value_distribution for {}; {}.png".format(
+                "pQTLs", module_name, module_type), mode="RGBA")
+            pgplot = ndimage.imread(ppath + "/{}_{}.png".format("pQTLs", module_name), mode="RGBA")
+
+        ecplot, pcplot = None, None
+        if elplot is not None:
+            ecplot = np.vstack((eqplot, elplot, egplot))
+        if plplot is not None:
+            pcplot = np.vstack((pqplot, plplot, pgplot))
+
+        if ecplot is not None and pcplot is not None:
+            result = np.hstack((ecplot, pcplot))
+        else:
+            result = ecplot if ecplot is not None else pcplot
+        plt.imsave("/".join(["./results", module_type, module_name + ".png"]), result)
 
 
 class LinkageSharingAnalyzer:
@@ -375,7 +480,8 @@ class LinkageSharingAnalyzer:
                 pass
         return np.array([p_value, real_stats.mean(), randomized_stats.mean() if len(randomized_stats) != 0 else 0.])
 
-    def process_randiter(self, iter_num):
+    ''' IMPLEMENT SIMULTANEOUS ANALYSIS OF DIFFERENT QTL TYPES: SPEED IT UP |QTL_TYPES|-FOLD! '''
+    def process_randiter(self, _iter_num):
         results_dict = collections.defaultdict(list)
         self.randomized_interactome = self.interactome.Degree_Sequence(
             self.interactome.degree(),
@@ -423,7 +529,7 @@ class LinkageSharingAnalyzer:
             results_df = pd.DataFrame(results_dict[module_name], columns=["p_value", "real_mean", "simulated_mean"])
             results_df = results_df[results_df["real_mean"] != 0]
             if results_df.empty:
-                print("{} — no data, no processing done!".format(module_name))
+                print("{} — FATAL ERROR!".format(module_name))
                 continue
 
             trimmed_qval_list = self.qval_list[-results_df.shape[0]:]

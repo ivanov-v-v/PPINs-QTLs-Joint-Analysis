@@ -1,4 +1,4 @@
-module_type	thecellmap
-module_name	Glycosylation, protein folding|targeting, cell wall biosynthesis
-robustness_score	0.00879257722484647
 qtl_type	eQTLs
+module_name	Glycosylation, protein folding|targeting, cell wall biosynthesis
+module_type	thecellmap
+robustness_score	0.08913962516789292

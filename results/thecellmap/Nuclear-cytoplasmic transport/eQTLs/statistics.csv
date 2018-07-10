@@ -1,4 +1,4 @@
-module_type	thecellmap
-module_name	Nuclear-cytoplasmic transport
-robustness_score	41.754549446701915
 qtl_type	eQTLs
+module_name	Nuclear-cytoplasmic transport
+module_type	thecellmap
+robustness_score	24.655709599798087

@@ -1,4 +1,4 @@
-module_type	thecellmap
-module_name	Respiration, oxidative phosphorylation, mitochondrial targeting
-robustness_score	3.316185543683427
 qtl_type	eQTLs
+module_name	Respiration, oxidative phosphorylation, mitochondrial targeting
+module_type	thecellmap
+robustness_score	46.5150965113792

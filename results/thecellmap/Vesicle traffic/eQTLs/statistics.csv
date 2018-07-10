@@ -1,4 +1,4 @@
-module_type	thecellmap
-module_name	Vesicle traffic
-robustness_score	0.7780668754762495
 qtl_type	eQTLs
+module_name	Vesicle traffic
+module_type	thecellmap
+robustness_score	0.18135661106519566
