@@ -1,4 +1,4 @@
-qtl_type	eQTLs
-module_name	rDNA & ncDNA processing
 module_type	thecellmap
-robustness_score	0.050455570510348415
+qtl_type	eQTLs
+robustness_score	0.0035418434975370812
+module_name	rDNA & ncDNA processing

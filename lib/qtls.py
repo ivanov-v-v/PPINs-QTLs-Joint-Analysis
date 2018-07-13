@@ -89,8 +89,8 @@ def linkages2gencoords(qtl_df, full_genotypes_df):
                               key=lambda p: marker_to_rownum[p[0]])))
     return qtl_x, qtl_y
 
-''' GET RID OF COPY-PASTED CODE! '''
-def plot_module_png(module_name, module_graph, qtl_type, qtl_df, dirname):
+
+def plot_module_graph(module_name, module_graph, qtl_type, qtl_df, dirname, format="png"):
     '''
     Plot functional module graph in .svg format with vertices colored in accordance to
     the number of linked QTLs. Vertices with no linkages are not shown.
@@ -122,56 +122,141 @@ def plot_module_png(module_name, module_graph, qtl_type, qtl_df, dirname):
 
     ig.plot(
         module_graph,
-        target=dirname + '/' + qtl_type + "_" + module_name + ".png",
+        target=dirname + '/' + qtl_type + "_" + module_name + "." + format,
         layout=module_graph.layout_fruchterman_reingold(maxiter=1000, area=n**3, repulserad=n**3),
         bbox=(1440, 720),
         vertex_label=[gene_name + ", " + str(num_linkages[i]) if num_linkages[i] != 0 else ''
                 for i, gene_name in enumerate(module_graph.vs["name"])],
         margin=50,
-        # vertex_color="color",
-        # shapes=[1] * module_graph.vcount(),
-        # vertex_size=8,
-        # font_size=25,
-        # edge_color="color"
     )
 
-def plot_module_svg(module_name, module_graph, qtl_type, qtl_df, dirname):
-    '''
-    Plot functional module graph in .svg format with vertices colored in accordance to
-    the number of linked QTLs. Vertices with no linkages are not shown.
-    All other vertices have number of linked QTLs written in their labels.
 
-    :param module_graph: interactome subgraph
-    :param qtl_df: s/e
-    :param dirname: s/e
-    :param module_name: s/e
-    :return: None
-    '''
-    num_linkages = [len(linked_markers(qtl_df, [gene_name])) for gene_name in module_graph.vs["name"]]
-    normalized_num_linkages = (num_linkages - np.min(num_linkages)) / (np.max(num_linkages)) - np.min(num_linkages)
-
-    vertex_colors = plt.cm.coolwarm(normalized_num_linkages)
-    vertex_colors[:, -1] = 0.4
-    module_graph.vs["color"] = [util.rgba2hex(rgba) for rgba in vertex_colors]
-
-    edge_colors = [util.rgba2hex(rgba) for rgba in [[0, 0, 0, 0.05]] * module_graph.ecount()]
-    module_graph.es["color"] = edge_colors
-
-    ''' WRITE_SVG IS DEPRECATED, USE IG.PLOT INSTEAD '''
-    module_graph.write_svg(
-        fname=dirname + '/' + qtl_type + "_" + module_name + ".svg",
-        layout=module_graph.layout_fruchterman_reingold(),
-        width=1440,
-        height=1440,
-        labels=[gene_name + ", " + str(num_linkages[i]) if num_linkages[i] != 0 else ''
-                for i, gene_name in enumerate(module_graph.vs["name"])],
-        colors="color",
-        shapes=[1] * module_graph.vcount(),
-        vertex_size=8,
-        font_size=25,
-        edge_colors="color"
+def plot_q_value_hist(destdir, module_graph, module_name, module_type, qtl_df, qtl_type):
+    fig, ax = plt.subplots(figsize=(20, 10))
+    plt.xscale("log")
+    counts, bins, patches = plt.hist(
+        qtl_df["q.value"],
+        bins=10. ** np.arange(-8, -1),
+        alpha=0.5,
+        color="xkcd:turquoise",
+        edgecolor="black",
+        linewidth=1.2,
+        label="{0} linkages in total\n"
+              "mean q-value: {1:.4f}\n"
+              "median q-value: {2:.4f}\n"
+              "|V| = {3}, |E| = {4}"
+            .format(qtl_df.shape[0],
+                    qtl_df["q.value"].mean(),
+                    qtl_df["q.value"].median(),
+                    module_graph.vcount(),
+                    module_graph.ecount())
     )
+    ax.grid(linestyle='dotted', alpha=0.8)
+    ax.tick_params(labelsize=15)
 
+    ax.set_xticks(bins)
+    ax.tick_params(axis='x', labelrotation=90)
+
+    ax.set_title("{} linkage q-value distribution for {}; {}".format(
+        qtl_type, module_name, module_type
+    ), fontsize=20)
+    ax.set_xlabel("q-value", fontsize=20)
+    ax.set_ylabel("number of linkages", fontsize=20)
+    ax.legend(fontsize=15)
+
+    plt.savefig(destdir + "/{}_q_value_distribution for {}; {}.png".format(
+        qtl_type, module_name, module_type)
+                )
+    plt.close()
+
+
+def plot_pairwise_test(linkage_sharing_df, module_name, module_type, q_thresholds, qtl_type):
+    # for the plot to be informative, don't show the range
+    # where there are no linkage with such q-values at all
+    results_df = linkage_sharing_df.query("real_mean > 0")
+
+    if results_df.shape[0] < 2:
+        print("{} — no data!".format(module_name))
+        return
+
+    trimmed_qval_list = q_thresholds[-results_df.shape[0]:]
+
+    fig, ax = plt.subplots(figsize=(20, 10))
+    ax.set_title("{} linkage similarity for {}; {}".format(
+        qtl_type, module_name, module_type
+    ), fontsize=20)
+    plt.xscale('log')
+
+    ax.set_xlabel("linkage q-value threshold, lg-scale", fontsize=20)
+    ax.set_ylabel("average linkage similarity", fontsize=20)
+    ax.plot(trimmed_qval_list, results_df["real_mean"], label="functional module")
+    ax.plot(trimmed_qval_list, results_df["simulated_mean"],
+            label="random gene set\n")
+    ax.legend(fontsize=15)
+
+    ax.grid(linestyle='dotted')
+    plt.setp(ax.get_xticklabels(), fontsize=15)
+    plt.setp(ax.get_yticklabels(), fontsize=12)
+
+    destdir = '/'.join(["./results", module_type, module_name, qtl_type])
+    util.ensure_dir(destdir)
+    plt.savefig(destdir + "/pairwise_{}_{}_{}.png".format(qtl_type, module_name, module_type))
+    plt.close()
+
+
+def plot_interactome_test(module_name, module_type, linkage_sharing_df,
+                          robustness_score, q_thresholds, qtl_type):
+    # for the plot to be informative, don't show the range
+    # where there are no linkage with such q-values at all
+    results_df = linkage_sharing_df[
+        linkage_sharing_df["real_mean"] != 0
+        ]
+
+    if results_df.shape[0] < 2:
+        print("{} — no data!".format(module_name))
+        return
+
+    trimmed_qval_list = q_thresholds[-results_df.shape[0]:]
+
+    fig, ax1 = plt.subplots(figsize=(20, 10))
+    ax1.set_title("{} linkage similarity for {}; {}".format(
+        qtl_type, module_name, module_type
+    ), fontsize=20)
+    plt.xscale('log')
+    ax2 = ax1.twinx()
+
+    ax1.set_xlabel("linkage q-value threshold, lg-scale", fontsize=20)
+    ax1.set_ylabel("average linkage similarity", fontsize=20)
+    ax1.plot(trimmed_qval_list, results_df["real_mean"], label="real data")
+    ax1.plot(trimmed_qval_list, results_df["simulated_mean"],
+             label="synthesized data\n"
+                   "curve similarity score (WMSQ): {0:.4f}".format(robustness_score)
+             )
+
+    ax2.plot(trimmed_qval_list, results_df["p_value"],
+             color="r", linestyle="dashed", alpha=0.5,
+             label="p-values\nmean p-value: {0:.4f}\nmedian p-value: {1:.4f}".format(
+                 results_df["p_value"].mean(),
+                 results_df["p_value"].median()
+             )
+    )
+    ax2.set_ylabel("p-value of difference of edge scores", fontsize=20)
+
+    lines, labels = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax2.legend(lines + lines2, labels + labels2, loc=2, fontsize=15)
+
+    ax1.grid(linestyle='dotted')
+    plt.setp(ax1.get_xticklabels(), fontsize=15)
+    plt.setp(ax1.get_yticklabels(), fontsize=12)
+    plt.setp(ax2.get_yticklabels(), fontsize=12)
+
+    destdir = '/'.join(["./results", module_type, module_name, qtl_type])
+    util.ensure_dir(destdir)
+    plt.savefig(destdir + "/interactome_{}_{}_{}.png".format(
+        qtl_type, module_name, module_type)
+                )
+    plt.close()
 
 ########################################################################################################################
 #                                            LINKAGE SHARING ESTIMATION                                                #
@@ -197,7 +282,7 @@ def linkage_similarity(module_graph, qtl_graph, mode="mean"):
     """
     results = np.zeros(shape=module_graph.ecount())
     if mode == 'mean' and len(results) == 0:
-        return 0
+        return 0.
 
     for i, edge in enumerate(module_graph.es):
         source = module_graph.vs[edge.source]
@@ -208,7 +293,7 @@ def linkage_similarity(module_graph, qtl_graph, mode="mean"):
             t_neigh = set(qtl_graph.neighbors(target["name"], mode="IN"))
             results[i] = jaccard(s_neigh, t_neigh)
         except ValueError:
-            '''TODO: add description'''
+            '''Sometimes there is no such vertex in qtl graph'''
             pass
 
     return results.mean() if mode == "mean" else results
@@ -216,8 +301,10 @@ def linkage_similarity(module_graph, qtl_graph, mode="mean"):
 
 class LinkageSharingStatistics:
     ''' Storage class for analysis results produced by the LinkageSharingAnalyzer class.'''
-    def __init__(self, qtl_type, module_type, module_name, qtl_df=None, module_graph=None,
+
+    def __init__(self, analysis_type, qtl_type, module_type, module_name, qtl_df=None, module_graph=None,
                  q_thresholds=None, linkage_sharing_df=None, robustness_score=None):
+        self.analysis_type = analysis_type
         self.qtl_type = qtl_type
         self.module_type = module_type
         self.module_name = module_name
@@ -228,7 +315,7 @@ class LinkageSharingStatistics:
         self.linkage_sharing_df = linkage_sharing_df
         self.robustness_score = robustness_score
 
-        self.destdir ="/".join(["./results", self.module_type, self.module_name, self.qtl_type])
+        self.destdir = "/".join(["./results", self.analysis_type, self.module_type, self.module_name, self.qtl_type])
         util.ensure_dir(self.destdir)
 
     ''' IMPLEMENT PICKLING AND DEPICKLING '''
@@ -245,7 +332,6 @@ class LinkageSharingStatistics:
             graph=self.module_graph,
             filename="/".join([self.destdir, "module_graph.pkl"]),
             format="pickle"
-
         )
         np.savetxt("/".join([self.destdir, "q_thresholds.csv"]), self.q_thresholds, delimiter='\t')
         vardict = vars(self)
@@ -282,105 +368,33 @@ class LinkageSharingStatistics:
             ("mean_p_score", self.linkage_sharing_df["p_value"].mean()),
             ("median_p_score", self.linkage_sharing_df["p_value"].median())])
 
-    def plot_module_graph(self):
-        plot_module_png(
+    def plot_module_graph(self, format):
+        plot_module_graph(
             module_name=self.module_name,
             module_graph=self.module_graph,
             qtl_type=self.qtl_type,
             qtl_df=self.qtl_df,
-            dirname=self.destdir
+            dirname=self.destdir,
+            format=format
         )
 
     def plot_q_value_hist(self):
-        fig, ax = plt.subplots(figsize=(20, 10))
-        plt.xscale("log")
-        counts, bins, patches = plt.hist(
-            self.qtl_df["q.value"],
-            bins=10.**np.arange(-8, -1),
-            alpha=0.5,
-            color="xkcd:turquoise",
-            edgecolor="black",
-            linewidth=1.2,
-            label="{0} linkages in total\n"
-                  "mean q-value: {1:.4f}\n"
-                  "median q-value: {2:.4f}\n"
-                  "|V| = {3}, |E| = {4}"
-                .format(self.qtl_df.shape[0],
-                        self.qtl_df["q.value"].mean(),
-                        self.qtl_df["q.value"].median(),
-                        self.module_graph.vcount(),
-                        self.module_graph.ecount())
+        plot_q_value_hist(
+            destdir=self.destdir,
+            module_graph=self.module_graph,
+            module_name=self.module_name,
+            module_type=self.module_type,
+            qtl_df=self.qtl_df,
+            qtl_type=self.qtl_type
         )
-        ax.grid(linestyle='dotted', alpha=0.8)
-        ax.tick_params(labelsize=15)
 
-        ax.set_xticks(bins)
-        ax.tick_params(axis='x', labelrotation=90)
-        # ax.ticklabel_format(axis='x', style='sci', scilimits=(0, 0), useMathText=True)
 
-        ax.set_title("{} linkage q-value distribution for {}; {}".format(
-            self.qtl_type, self.module_name, self.module_type
-        ), fontsize=20)
-        ax.set_xlabel("q-value", fontsize=20)
-        ax.set_ylabel("number of linkages", fontsize=20)
-        ax.legend(fontsize=15)
-
-        plt.savefig(self.destdir + "/{}_q_value_distribution for {}; {}.png".format(
-            self.qtl_type, self.module_name, self.module_type)
-        )
-        plt.close()
-
-    def plot_linkage_sharing_comparison(self):
-        # for the plot to be informative, don't show the range
-        # where there are no linkage with such q-values at all
-        results_df = self.linkage_sharing_df[
-            self.linkage_sharing_df["real_mean"] != 0
-        ]
-        trimmed_qval_list = self.q_thresholds[-results_df.shape[0]:]
-
-        fig, ax1 = plt.subplots(figsize=(20, 10))
-        ax1.set_title("{} linkage similarity for {}; {}".format(
-            self.qtl_type, self.module_name, self.module_type
-        ), fontsize=20)
-        plt.xscale('log')
-        ax2 = ax1.twinx()
-
-        ax1.set_xlabel("linkage q-value threshold, lg-scale", fontsize=20)
-        ax1.set_ylabel("average linkage similarity", fontsize=20)
-        ax1.plot(trimmed_qval_list, results_df["real_mean"], label="real data")
-        ax1.plot(trimmed_qval_list, results_df["simulated_mean"],
-                 label="synthesized data\n"
-                       "curve similarity score (WMSQ): {0:.4f}".format(self.robustness_score)
-         )
-
-        ax2.plot(trimmed_qval_list, results_df["p_value"],
-                 color="r", linestyle="dashed", alpha=0.5,
-                 label="p-values\nmean p-value: {0:.4f}\nmedian p-value: {1:.4f}".format(
-                     results_df["p_value"].mean(),
-                     results_df["p_value"].median()
-                 )
-        )
-        ax2.set_ylabel("p-value of difference of edge scores", fontsize=20)
-
-        lines, labels = ax1.get_legend_handles_labels()
-        lines2, labels2 = ax2.get_legend_handles_labels()
-        ax2.legend(lines + lines2, labels + labels2, loc=2, fontsize=15)
-
-        ax1.grid(linestyle='dotted')
-        plt.setp(ax1.get_xticklabels(), fontsize=15)
-        plt.setp(ax1.get_yticklabels(), fontsize=12)
-        plt.setp(ax2.get_yticklabels(), fontsize=12)
-
-        plt.savefig(self.destdir + "/{}_{}_{}.png".format(
-            self.qtl_type, self.module_name, self.module_type)
-        )
-        plt.close()
-
+# Rewrite this, for god's sake
 def plot_vignettes(module_type, module_names):
 
     for module_name in module_names:
-        elplot, eqplot, egplot = None, None, None
-        plplot, pqplot, pgplot = None, None, None
+        elplot, eqplot, epplot, egplot = None, None, None, None
+        plplot, pqplot, ppplot, pgplot = None, None, None, None
 
         epath = "/".join(["./results", module_type, module_name, "eQTLs"])
         ppath = "/".join(["./results", module_type, module_name, "pQTLs"])
@@ -424,7 +438,8 @@ class LinkageSharingAnalyzer:
     """
 
 # [-------------------------------------------------PUBLIC METHODS-------------------------------------------------]
-    def __init__(self, interactome_graph, qtl_type, qtl_df, modules_type, module_dict, q_thresholds):
+    def __init__(self, expression_df, interactome_graph, modules_type, module_dict, qtl_type, qtl_df, q_thresholds):
+        self.expression_df = expression_df
         self.interactome = interactome_graph.simplify()
         self.interactome.vs.select(_degree=0).delete()
         self.qtl_type = qtl_type
@@ -433,86 +448,77 @@ class LinkageSharingAnalyzer:
         self.module_dict = module_dict
         self.qval_list = q_thresholds
 
+        for module_name in self.module_dict.keys():
+            self.module_dict[module_name] = np.intersect1d(self.module_dict[module_name],
+                                                           self.interactome.vs["name"])
+
         self.statistics = collections.defaultdict()
         self.randomized_interactome = None
 
         self._default_row = np.zeros(3)
 
-    def process_threshold(self, q_value_threshold, module_name):
-        qtl_graph = networks.graph_from_edges(
-            edges=self.qtl_df[self.qtl_df["q.value"] <= q_value_threshold][["SNP", "gene"]].values,
-            directed=True
-        )
-        genes_with_linkages = qtl_graph.vs.select(part=1)["name"]
-        vertex_names = self.module_dict[module_name]
+    def process_modules(self):
+        self.all_pairs_test()
+        self.interactome_test()
 
-        if set(genes_with_linkages).isdisjoint(set(vertex_names)):
-            return self._default_row
+    def all_pairs_test(self, randiter_count=64):
+        # Почему бы не сравнивать их просто со средним значением для всего графа?
+        gene_pool = self.expression_df["gene"].values
+        real_results, randomized_results = None, None
 
-        real_stats = linkage_similarity(
-            module_graph=self.interactome.subgraph(
-                set(genes_with_linkages) &
-                set(vertex_names)
-            ),
-            qtl_graph=qtl_graph,
-            mode="full"
-        )
-
-        if len(real_stats) == 0 or all([sim_coeff == 0 for sim_coeff in real_stats]):
-            return self._default_row
-
-        randomized_stats = linkage_similarity(
-                module_graph=self.randomized_interactome.subgraph(
-                    set(genes_with_linkages) &
-                    set(vertex_names)
-                ),
-                qtl_graph=qtl_graph,
-                mode="full"
+        for q_thr in self.qval_list:
+            qtl_graph = networks.graph_from_edges(
+                self.qtl_df[self.qtl_df["q.value"] <= q_thr][["SNP", "gene"]].values,
+                directed=True
             )
-        p_value = 0.
-        if len(randomized_stats) != 0:
-            try:
-                _, p_value = stats.mannwhitneyu(real_stats, randomized_stats, alternative="two-sided")
-            except ValueError:
-                # prevents "all numbers are equal" error that is thrown when,
-                # for example, [1, 1, 1] and [1, 1] are passed to MWU
-                # it's really weird, but simply ignoring it seems the be best workaround so far
-                pass
-        return np.array([p_value, real_stats.mean(), randomized_stats.mean() if len(randomized_stats) != 0 else 0.])
 
-    ''' IMPLEMENT SIMULTANEOUS ANALYSIS OF DIFFERENT QTL TYPES: SPEED IT UP |QTL_TYPES|-FOLD! '''
-    def process_randiter(self, _iter_num):
-        results_dict = collections.defaultdict(list)
-        self.randomized_interactome = self.interactome.Degree_Sequence(
-            self.interactome.degree(),
-            method='vl'
-        )
-        self.randomized_interactome.vs["name"] = self.interactome.vs["name"]
-        for module_name, module_vertices in self.module_dict.items():
-            randiter_results = np.vstack(
-                [self.process_threshold(q_thr, module_name)
-                 for q_thr in self.qval_list]
+            real_avg_link_sim = []
+            random_avg_link_sim = []
+
+            for module_name, module_genes in self.module_dict.items():
+                full_g = ig.Graph.Full(len(module_genes))
+                full_g.vs["name"] = module_genes
+                real_avg_link_sim.append(linkage_similarity(full_g, qtl_graph, mode='mean'))
+                randsum = 0.
+                for i in range(randiter_count):
+                    full_g.vs["name"] = np.random.choice(gene_pool, len(module_genes), replace=False)
+                    randsum += linkage_similarity(full_g, qtl_graph, mode='mean')
+                random_avg_link_sim.append(randsum / randiter_count)
+
+            real_results = real_avg_link_sim if real_results is None else np.vstack((real_results, real_avg_link_sim))
+            randomized_results = random_avg_link_sim if randomized_results is None \
+                else np.vstack((randomized_results, random_avg_link_sim))
+
+        results_df_dict = collections.defaultdict()
+        for i, module_name in enumerate(self.module_dict.keys()):
+            results_df_dict[module_name] = pd.DataFrame(
+                data=np.column_stack((
+                    real_results[:, i],
+                    randomized_results[:, i]
+                )),
+                columns=["real_mean", "simulated_mean"]
             )
-            if len(results_dict[module_name]) == 0:
-                results_dict[module_name] = randiter_results
-            else:
-                results_dict[module_name] = np.dstack(
-                    (results_dict[module_name], randiter_results)
-                )
-        return results_dict
 
-    def process_modules(self, randiter_count=8):
+        for module_name in results_df_dict.keys():
+            plot_pairwise_test(
+                module_name=module_name,
+                module_type="thecellmap",
+                linkage_sharing_df=results_df_dict[module_name],
+                q_thresholds=np.logspace(-5, -2, 100),
+                qtl_type="eQTLs"
+            )
+
+        return results_df_dict
+
+    # how to incapsulate implementation of the test into something nice?
+    def interactome_test(self, randiter_count=8):
         '''
         Interface function. Performs the simulation and saves the plot with results.
         return: Some measure of curve similarity between real and simulated data.
         '''
 
-        for module_name in self.module_dict.keys():
-            self.module_dict[module_name] = np.intersect1d(self.module_dict[module_name],
-                                                           self.interactome.vs["name"])
-
         pool = mp.Pool(mp.cpu_count())
-        raw_results_dict = pool.map(self.process_randiter, range(randiter_count))
+        raw_results_dict = pool.map(self._process_randiter, range(randiter_count))
         pool.close()
         pool.join()
 
@@ -560,6 +566,69 @@ class LinkageSharingAnalyzer:
 
             module_scores[module_name] = self.statistics[module_name].features_dict()
         return module_scores
+
+    # [-------------------------------------------------PRIVATE METHODS-------------------------------------------------]
+
+    def _process_threshold(self, q_value_threshold, module_name):
+        qtl_graph = networks.graph_from_edges(
+            edges=self.qtl_df[self.qtl_df["q.value"] <= q_value_threshold][["SNP", "gene"]].values,
+            directed=True
+        )
+        genes_with_linkages = qtl_graph.vs.select(part=1)["name"]
+        vertex_names = self.module_dict[module_name]
+
+        if set(genes_with_linkages).isdisjoint(set(vertex_names)):
+            return self._default_row
+
+        real_stats = linkage_similarity(
+            module_graph=self.interactome.subgraph(
+                set(genes_with_linkages) &
+                set(vertex_names)
+            ),
+            qtl_graph=qtl_graph,
+            mode="full"
+        )
+
+        if len(real_stats) == 0 or all([sim_coeff == 0 for sim_coeff in real_stats]):
+            return self._default_row
+
+        randomized_stats = linkage_similarity(
+            module_graph=self.randomized_interactome.subgraph(
+                set(genes_with_linkages) &
+                set(vertex_names)
+            ),
+            qtl_graph=qtl_graph,
+            mode="full"
+        )
+        p_value = 0.
+        if len(randomized_stats) != 0:
+            try:
+                _, p_value = stats.mannwhitneyu(real_stats, randomized_stats, alternative="two-sided")
+            except ValueError:
+                # prevents "all numbers are equal" error that is thrown when,
+                # for example, [1, 1, 1] and [1, 1] are passed to MWU
+                # it's really weird, but simply ignoring it seems the be best workaround so far
+                pass
+        return np.array([p_value, real_stats.mean(), randomized_stats.mean() if len(randomized_stats) != 0 else 0.])
+
+    def _process_randiter(self, iter_num):
+        results_dict = collections.defaultdict(list)
+        self.randomized_interactome = ig.Graph().Read_Pickle(
+            "./data/randomized_interactome_copies/{}.pkl".format(iter_num)
+        )
+        for module_name, module_vertices in self.module_dict.items():
+            randiter_results = np.vstack(
+                [self._process_threshold(q_thr, module_name)
+                 for q_thr in self.qval_list]
+            )
+            if len(results_dict[module_name]) == 0:
+                results_dict[module_name] = randiter_results
+            else:
+                results_dict[module_name] = np.dstack(
+                    (results_dict[module_name], randiter_results)
+                )
+
+        return results_dict
 
 
 ########################################################################################################################

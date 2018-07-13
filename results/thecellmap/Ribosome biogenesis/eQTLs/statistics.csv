@@ -1,4 +1,4 @@
-qtl_type	eQTLs
-module_name	Ribosome biogenesis
 module_type	thecellmap
-robustness_score	0.19691979124647405
+qtl_type	eQTLs
+robustness_score	0.014826653245610241
+module_name	Ribosome biogenesis

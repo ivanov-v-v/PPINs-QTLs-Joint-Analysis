@@ -1,4 +1,4 @@
-qtl_type	eQTLs
-module_name	Cell polarity & morphogenesis
 module_type	thecellmap
-robustness_score	0.009010086976499385
+qtl_type	eQTLs
+robustness_score	0.0023337058398555737
+module_name	Cell polarity & morphogenesis
