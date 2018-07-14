@@ -1,6 +1,7 @@
 import os
 import sys
 
+import imageio
 import numpy as np
 
 
@@ -22,6 +23,14 @@ def ensure_dir(destdir):
     """
     if not os.path.exists(destdir):
         os.makedirs(destdir)
+
+
+def try_imread(filepath, mode='RGBA'):
+    try:
+        img = imageio.imread(uri=filepath, format="png", pilmode=mode)
+    except FileNotFoundError:
+        img = None
+    return img
 
 
 def rgba2hex(rgba_color):
