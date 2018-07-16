@@ -84,7 +84,7 @@ def linkages2gencoords(qtl_df, full_genotypes_df):
     return qtl_x, qtl_y
 
 
-def plot_module_graph(destdir, module_graph, qtl_df, format="png"):
+def plot_module_graph(destdir, module_graph, qtl_df, filename="module_graph", format="png"):
     '''
     Plot functional module graph in .svg format with vertices colored in accordance to
     the number of linked QTLs. Vertices with no linkages are not shown.
@@ -116,7 +116,7 @@ def plot_module_graph(destdir, module_graph, qtl_df, format="png"):
 
     ig.plot(
         module_graph,
-        target=destdir + '/' + "module_graph." + format,
+        target=destdir + '/' + filename + "." + format,
         layout=module_graph.layout_fruchterman_reingold(maxiter=1000, area=n ** 3, repulserad=n ** 3),
         bbox=(1440, 720),
         vertex_label=[gene_name + ", " + str(num_linkages[i]) if num_linkages[i] != 0 else ''
@@ -332,8 +332,8 @@ class LinkageSharingAnalyzer:
     """
 
     # [-------------------------------------------------PUBLIC METHODS-------------------------------------------------]
-    def __init__(self, expression_df, interactome_graph, modules_type, module_dict, qtl_type, qtl_df, q_thresholds,
-                 pairwise_test_randiter_count=8, ppi_test_randiter_count=8):
+    def __init__(self, expression_df, interactome_graph, modules_type, module_dict,
+                 qtl_type, qtl_df, q_thresholds, pairwise_test_iter=8, ppi_test_iter=8):
         self.expression_df = expression_df
         self.interactome = interactome_graph.simplify()
         self.interactome.vs.select(_degree=0).delete()
@@ -350,13 +350,11 @@ class LinkageSharingAnalyzer:
         self.randomized_interactome = None
         self._default_row = np.zeros(3)
 
-        self.pairwise_randiter_count = pairwise_test_randiter_count
-        self.ppi_randiter_count = ppi_test_randiter_count
+        self.pairwise_randiter_count = pairwise_test_iter
+        self.ppi_randiter_count = ppi_test_iter
 
     def process_modules(self):
         for module_name in self.module_dict.keys():
-            print(module_name)
-
             destdir = "/".join(["./results", self.modules_type, module_name, self.qtl_type])
             util.ensure_dir(destdir)
 
@@ -595,6 +593,70 @@ class LinkageSharingAnalyzer:
         return results_dict
 
 
+def process_ontologies(database_name, expression_dfs, qtl_dfs, qtl_types,
+                       interactome_graph, ontology_to_genes, q_thresholds,
+                       pairwise_test_iter=32, ppi_test_iter=1024):
+    qtl_graphs = {
+        qtl_type: networks.graph_from_edges(
+            edges=qtl_df[qtl_df["q.value"] <= np.max(q_thresholds)][["SNP", "gene"]].values,
+            directed=True
+        )
+        for qtl_type, qtl_df in list(zip(qtl_types, qtl_dfs))
+    }
+
+    for qtl_type, qtl_df, expression_df in list(zip(qtl_types, qtl_dfs, expression_dfs)):
+        filtered_out_modules = []
+        modules_dict = collections.defaultdict()
+        for module_name, gene_list in ontology_to_genes.items():
+            module_graph = interactome_graph.subgraph(
+                set(ontology_to_genes[module_name])
+                & set(interactome_graph.vs["name"])
+            ).simplify()
+            module_graph.vs.select(_degree=0).delete()
+
+            if module_graph.vcount() < 4:
+                filtered_out_modules.append((module_name, "less than 4 vertices"))
+                continue
+
+            genes_with_linkages = qtl_graphs[qtl_type].vs.select(part=1)["name"]
+
+            if set(genes_with_linkages).isdisjoint(set(gene_list)):
+                filtered_out_modules.append((module_name, "no linkages"))
+                continue
+
+            average_linkage_similarity = linkage_similarity(
+                module_graph=interactome_graph.subgraph(
+                    set(interactome_graph.vs["name"]) &
+                    set(gene_list)
+                ),
+                qtl_graph=qtl_graphs[qtl_type],
+                mode="mean"
+            )
+            if np.isclose(average_linkage_similarity, 0):
+                filtered_out_modules.append((module_name, "linkage sets don't intersect"))
+                continue
+
+            modules_dict[module_name] = gene_list
+
+        pd.DataFrame(filtered_out_modules, columns=["module_name", "reason"]).to_csv(
+            "/".join(["./results", database_name, qtl_type + "_filtered_out_modules.csv"]), sep='\t', index=False
+        )
+
+        LinkageSharingAnalyzer(
+            expression_df=expression_df,
+            interactome_graph=interactome_graph,
+            qtl_type=qtl_type,
+            qtl_df=qtl_df,
+            modules_type=database_name,
+            module_dict=modules_dict,
+            q_thresholds=q_thresholds,
+            pairwise_test_iter=pairwise_test_iter,
+            ppi_test_iter=ppi_test_iter
+        ).process_modules()
+
+        plot_vignettes(module_type=database_name, module_names=modules_dict.keys())
+
+
 ########################################################################################################################
 #                                             PREDICTING PQTLS FROM EQTLS                                              #
 ########################################################################################################################
@@ -613,8 +675,7 @@ class PqtlPredictor:
                  eqtls_expression_df, eqtls_genotypes_df,
                  pqtls_expression_df, pqtls_genotypes_df,
                  full_genotypes_df,
-                 functional_module_name,
-                 functional_module_graph):
+                 functional_module_name, functional_module_graph):
 
         self.eqtls_df = eqtls_df
         self.pqtls_df = pqtls_df
