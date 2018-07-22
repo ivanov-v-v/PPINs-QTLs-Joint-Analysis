@@ -51,6 +51,14 @@ def rgba2hex(rgba_color):
     blue = int(((1 - a) * 255) + (a * b))
     return '#{r:02x}{g:02x}{b:02x}'.format(r=red, g=green, b=blue)
 
+
+def bincount_scott(data):
+    n = len(data)
+    sigma = np.std(data)
+    data_range = np.max(data) - np.min(data)
+    return int(np.ceil(data_range * (n ** (1 / 3)) / (3.49 * sigma)))
+
+
 def sample_combinations(dims, nsamp):
-    idx = np.random.choice(np.prod(dims), nsamp, replace=False)
+    idx = np.random.RandomState().choice(np.prod(dims), nsamp, replace=False)
     return np.vstack(np.unravel_index(idx, dims)).T

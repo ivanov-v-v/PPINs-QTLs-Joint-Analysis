@@ -1,6 +1,7 @@
 import collections
 
 from Bio.KEGG import REST
+from tqdm import *
 
 import networks
 
@@ -15,7 +16,7 @@ def query_KEGG(database="pathway", organism="sce"):
 
     # Get the genes for modules and add them to a list
     module_genes_dict = collections.defaultdict(list)
-    for module in module_data:
+    for module in tqdm(module_data, desc="modules retrieved"):
         entry, description = module
         module_file = REST.kegg_get(entry).read()  # query and read each module
 
