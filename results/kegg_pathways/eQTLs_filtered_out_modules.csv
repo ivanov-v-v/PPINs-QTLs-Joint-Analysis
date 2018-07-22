@@ -1,48 +1,48 @@
 module_name	reason
-Riboflavin metabolism 	less than 4 vertices
-Hippo signaling pathway - multiple species 	linkage sets don't intersect
-Fatty acid degradation 	less than 4 vertices
-Thiamine metabolism 	less than 4 vertices
-Pentose and glucuronate interconversions 	less than 4 vertices
-Sulfur metabolism 	less than 4 vertices
-Arachidonic acid metabolism 	less than 4 vertices
-Nitrogen metabolism 	less than 4 vertices
-Lipoic acid metabolism 	less than 4 vertices
-Phosphonate and phosphinate metabolism 	less than 4 vertices
-Arginine and proline metabolism 	less than 4 vertices
-Lysine biosynthesis 	less than 4 vertices
-N-Glycan biosynthesis 	linkage sets don't intersect
-Ether lipid metabolism 	less than 4 vertices
-Lysine degradation 	less than 4 vertices
-Carbapenem biosynthesis 	less than 4 vertices
-Protein export 	linkage sets don't intersect
-Sulfur relay system 	no linkages
-Selenocompound metabolism 	less than 4 vertices
-Autophagy - other 	linkage sets don't intersect
-Phosphatidylinositol signaling system 	less than 4 vertices
-AGE-RAGE signaling pathway in diabetic complications 	less than 4 vertices
-Ubiquinone and other terpenoid-quinone biosynthesis 	no linkages
-Biosynthesis of unsaturated fatty acids 	no linkages
-C5-Branched dibasic acid metabolism 	less than 4 vertices
-Inositol phosphate metabolism 	less than 4 vertices
-Phenylalanine, tyrosine and tryptophan biosynthesis 	less than 4 vertices
-Glycine, serine and threonine metabolism 	less than 4 vertices
-SNARE interactions in vesicular transport 	linkage sets don't intersect
-Histidine metabolism 	less than 4 vertices
-Cyanoamino acid metabolism 	less than 4 vertices
-Sesquiterpenoid and triterpenoid biosynthesis 	less than 4 vertices
-Tryptophan metabolism 	less than 4 vertices
-Nicotinate and nicotinamide metabolism 	less than 4 vertices
-Pantothenate and CoA biosynthesis 	no linkages
-Biotin metabolism 	less than 4 vertices
-Atrazine degradation 	less than 4 vertices
-Other glycan degradation 	less than 4 vertices
-Monobactam biosynthesis 	less than 4 vertices
-Synthesis and degradation of ketone bodies 	less than 4 vertices
-Phenylalanine metabolism 	less than 4 vertices
-Taurine and hypotaurine metabolism 	less than 4 vertices
+Arginine and proline metabolism 	degenerate graph
+Inositol phosphate metabolism 	degenerate graph
+Synthesis and degradation of ketone bodies 	degenerate graph
 ABC transporters 	no linkages
+Phenylalanine metabolism 	degenerate graph
+C5-Branched dibasic acid metabolism 	degenerate graph
+Sesquiterpenoid and triterpenoid biosynthesis 	degenerate graph
+Nitrogen metabolism 	degenerate graph
+Valine, leucine and isoleucine degradation 	degenerate graph
+Fatty acid degradation 	degenerate graph
+Sulfur metabolism 	degenerate graph
+Histidine metabolism 	degenerate graph
+Riboflavin metabolism 	degenerate graph
+Ubiquinone and other terpenoid-quinone biosynthesis 	no linkages
+AGE-RAGE signaling pathway in diabetic complications 	degenerate graph
+Atrazine degradation 	degenerate graph
+Carbapenem biosynthesis 	degenerate graph
+Phosphonate and phosphinate metabolism 	degenerate graph
+Glycine, serine and threonine metabolism 	degenerate graph
+Autophagy - other 	linkage sets don't intersect
+Lysine biosynthesis 	degenerate graph
+Folate biosynthesis 	degenerate graph
+Pentose and glucuronate interconversions 	degenerate graph
 Glycosylphosphatidylinositol (GPI)-anchor biosynthesis 	linkage sets don't intersect
-Folate biosynthesis 	less than 4 vertices
-alpha-Linolenic acid metabolism 	less than 4 vertices
-Valine, leucine and isoleucine degradation 	less than 4 vertices
+Nicotinate and nicotinamide metabolism 	degenerate graph
+Protein export 	linkage sets don't intersect
+Cyanoamino acid metabolism 	degenerate graph
+Monobactam biosynthesis 	degenerate graph
+Ether lipid metabolism 	degenerate graph
+Biosynthesis of unsaturated fatty acids 	no linkages
+SNARE interactions in vesicular transport 	linkage sets don't intersect
+Phenylalanine, tyrosine and tryptophan biosynthesis 	degenerate graph
+Taurine and hypotaurine metabolism 	degenerate graph
+Other glycan degradation 	degenerate graph
+Thiamine metabolism 	degenerate graph
+Tryptophan metabolism 	degenerate graph
+Pantothenate and CoA biosynthesis 	no linkages
+N-Glycan biosynthesis 	linkage sets don't intersect
+Sulfur relay system 	no linkages
+Phosphatidylinositol signaling system 	degenerate graph
+Biotin metabolism 	degenerate graph
+Arachidonic acid metabolism 	degenerate graph
+Selenocompound metabolism 	degenerate graph
+Hippo signaling pathway - multiple species 	linkage sets don't intersect
+Lipoic acid metabolism 	degenerate graph
+Lysine degradation 	degenerate graph
+alpha-Linolenic acid metabolism 	degenerate graph

@@ -65,7 +65,6 @@ docs/Zia_Khan_email_Re_ 2d protein QTL LOD plots_.rtf
 /data/genotypes.csv
 /data/genotypes_annotation.csv
 /private/
-/src/CLUSTER_data_analysis.py
 /src/initial_data_cleanup.ipynb
 /.gitignore
 src/.RData
