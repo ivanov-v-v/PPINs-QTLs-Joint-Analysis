@@ -1,93 +1,40 @@
 module_name	reason
-Cysteine and methionine metabolism 	linkage sets don't intersect
-Ribosome biogenesis in eukaryotes 	linkage sets don't intersect
-Ubiquitin mediated proteolysis 	linkage sets don't intersect
-Arginine and proline metabolism 	degenerate graph
-Aminoacyl-tRNA biosynthesis 	linkage sets don't intersect
-Propanoate metabolism 	linkage sets don't intersect
-Arginine biosynthesis 	linkage sets don't intersect
-Glutathione metabolism 	linkage sets don't intersect
-Galactose metabolism 	linkage sets don't intersect
-Pyrimidine metabolism 	linkage sets don't intersect
-Inositol phosphate metabolism 	degenerate graph
-Synthesis and degradation of ketone bodies 	degenerate graph
-ABC transporters 	no linkages
-Phenylalanine metabolism 	degenerate graph
-RNA degradation 	linkage sets don't intersect
-Mannose type O-glycan biosynthesis 	linkage sets don't intersect
-C5-Branched dibasic acid metabolism 	degenerate graph
-Sesquiterpenoid and triterpenoid biosynthesis 	degenerate graph
-Nitrogen metabolism 	degenerate graph
-One carbon pool by folate 	linkage sets don't intersect
-Various types of N-glycan biosynthesis 	no linkages
-Valine, leucine and isoleucine degradation 	degenerate graph
-Mismatch repair 	no linkages
-Fatty acid degradation 	degenerate graph
-Sulfur metabolism 	degenerate graph
-Amino sugar and nucleotide sugar metabolism 	linkage sets don't intersect
-Base excision repair 	linkage sets don't intersect
-Vitamin B6 metabolism 	linkage sets don't intersect
-Other types of O-glycan biosynthesis 	linkage sets don't intersect
-Proteasome 	no linkages
-Histidine metabolism 	degenerate graph
-Homologous recombination 	linkage sets don't intersect
-Riboflavin metabolism 	degenerate graph
-Ubiquinone and other terpenoid-quinone biosynthesis 	linkage sets don't intersect
-AGE-RAGE signaling pathway in diabetic complications 	degenerate graph
-DNA replication 	linkage sets don't intersect
-Atrazine degradation 	degenerate graph
-Carbapenem biosynthesis 	degenerate graph
-Tyrosine metabolism 	linkage sets don't intersect
-Phosphonate and phosphinate metabolism 	degenerate graph
-Glycerophospholipid metabolism 	linkage sets don't intersect
-Glycine, serine and threonine metabolism 	degenerate graph
-Autophagy - yeast 	linkage sets don't intersect
-Autophagy - other 	linkage sets don't intersect
-Lysine biosynthesis 	degenerate graph
-Folate biosynthesis 	degenerate graph
-beta-Alanine metabolism 	linkage sets don't intersect
-Pentose and glucuronate interconversions 	degenerate graph
-Glycosylphosphatidylinositol (GPI)-anchor biosynthesis 	no linkages
-Nicotinate and nicotinamide metabolism 	degenerate graph
-Fatty acid elongation 	no linkages
-Nucleotide excision repair 	linkage sets don't intersect
-Protein export 	linkage sets don't intersect
-Cyanoamino acid metabolism 	degenerate graph
-Basal transcription factors 	no linkages
-Monobactam biosynthesis 	degenerate graph
-Pentose phosphate pathway 	linkage sets don't intersect
-Ether lipid metabolism 	degenerate graph
-Peroxisome 	linkage sets don't intersect
-Biosynthesis of unsaturated fatty acids 	no linkages
-Glycerolipid metabolism 	linkage sets don't intersect
-SNARE interactions in vesicular transport 	linkage sets don't intersect
-Alanine, aspartate and glutamate metabolism 	linkage sets don't intersect
-Terpenoid backbone biosynthesis 	linkage sets don't intersect
-Phenylalanine, tyrosine and tryptophan biosynthesis 	degenerate graph
-Non-homologous end-joining 	no linkages
-Taurine and hypotaurine metabolism 	degenerate graph
-Purine metabolism 	linkage sets don't intersect
-Other glycan degradation 	degenerate graph
-Thiamine metabolism 	degenerate graph
-Sphingolipid metabolism 	linkage sets don't intersect
-Tryptophan metabolism 	degenerate graph
-mRNA surveillance pathway 	linkage sets don't intersect
-Phagosome 	linkage sets don't intersect
-N-Glycan biosynthesis 	linkage sets don't intersect
+Inositol phosphate metabolism 	no interactions
 Sulfur relay system 	no linkages
-Fructose and mannose metabolism 	linkage sets don't intersect
-Phosphatidylinositol signaling system 	degenerate graph
-Biotin metabolism 	degenerate graph
-Meiosis - yeast 	linkage sets don't intersect
-Porphyrin and chlorophyll metabolism 	linkage sets don't intersect
-Methane metabolism 	linkage sets don't intersect
-Glyoxylate and dicarboxylate metabolism 	linkage sets don't intersect
-Arachidonic acid metabolism 	degenerate graph
-RNA polymerase 	no linkages
-Selenocompound metabolism 	degenerate graph
+Thiamine metabolism 	no linkages
+ABC transporters 	no linkages
+Other glycan degradation 	no interactions
+Basal transcription factors 	no linkages
 Hippo signaling pathway - multiple species 	linkage sets don't intersect
-Lipoic acid metabolism 	degenerate graph
-Citrate cycle (TCA cycle) 	linkage sets don't intersect
-Glycolysis | Gluconeogenesis 	linkage sets don't intersect
-Lysine degradation 	degenerate graph
-alpha-Linolenic acid metabolism 	degenerate graph
+Folate biosynthesis 	no interactions
+Monobactam biosynthesis 	no interactions
+Arachidonic acid metabolism 	no interactions
+Mismatch repair 	no linkages
+Homologous recombination 	linkage sets don't intersect
+Carbapenem biosynthesis 	no interactions
+alpha-Linolenic acid metabolism 	no interactions
+Mannose type O-glycan biosynthesis 	linkage sets don't intersect
+RNA degradation 	linkage sets don't intersect
+Aminoacyl-tRNA biosynthesis 	linkage sets don't intersect
+Fatty acid elongation 	no linkages
+Sesquiterpenoid and triterpenoid biosynthesis 	no interactions
+Cyanoamino acid metabolism 	no interactions
+Synthesis and degradation of ketone bodies 	no interactions
+Other types of O-glycan biosynthesis 	linkage sets don't intersect
+Biosynthesis of unsaturated fatty acids 	no linkages
+Atrazine degradation 	no interactions
+Phosphatidylinositol signaling system 	no interactions
+Glycosylphosphatidylinositol (GPI)-anchor biosynthesis 	no linkages
+Various types of N-glycan biosynthesis 	no linkages
+Taurine and hypotaurine metabolism 	no interactions
+Lipoic acid metabolism 	no interactions
+AGE-RAGE signaling pathway in diabetic complications 	no linkages
+Phosphonate and phosphinate metabolism 	no linkages
+Sulfur metabolism 	no interactions
+Nicotinate and nicotinamide metabolism 	no linkages
+RNA polymerase 	no linkages
+Nitrogen metabolism 	no interactions
+Tryptophan metabolism 	no interactions
+Proteasome 	no linkages
+Biotin metabolism 	no interactions
+Non-homologous end-joining 	no linkages

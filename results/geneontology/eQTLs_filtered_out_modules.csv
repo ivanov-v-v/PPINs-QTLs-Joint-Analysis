@@ -1,435 +1,98 @@
 module_name	reason
-G-protein coupled receptor signaling pathway	linkage sets don't intersect
-cytoplasmic vesicle	linkage sets don't intersect
-rRNA modification	linkage sets don't intersect
-arginine transport	no linkages
-chromatin assembly	linkage sets don't intersect
-establishment of mitochondrion localization	linkage sets don't intersect
-chromosome organization	linkage sets don't intersect
-endodeoxyribonuclease activity	linkage sets don't intersect
-protein O-linked glycosylation	linkage sets don't intersect
-positive regulation of autophagy	linkage sets don't intersect
-disaccharide catabolic process	no linkages
-phosphoric diester hydrolase activity	no linkages
-protein glycosylation	linkage sets don't intersect
-RNA phosphodiester bond hydrolysis	linkage sets don't intersect
-negative regulation of autophagy	linkage sets don't intersect
-mitochondrial RNA processing	linkage sets don't intersect
-amino acid transmembrane transport	linkage sets don't intersect
-structural molecule activity	linkage sets don't intersect
-mismatched DNA binding	no linkages
-vesicle fusion	linkage sets don't intersect
-response to pH	linkage sets don't intersect
-xenobiotic transport	no linkages
-regulation of sphingolipid biosynthetic process	no linkages
-histone H3 acetylation	no linkages
-helicase activity	linkage sets don't intersect
-negative regulation of protein complex assembly	no linkages
-protein processing	linkage sets don't intersect
-glycerophospholipid biosynthetic process	linkage sets don't intersect
-lysosome	linkage sets don't intersect
-positive regulation of MAPK cascade	linkage sets don't intersect
-RNA export from nucleus	linkage sets don't intersect
-pyrimidine nucleotide biosynthetic process	no linkages
-solute:proton symporter activity	linkage sets don't intersect
-cellular respiration	no linkages
-ribonuclease activity	linkage sets don't intersect
-ribonucleoprotein complex	linkage sets don't intersect
-negative regulation of protein serine|threonine kinase activity	linkage sets don't intersect
-positive regulation of macroautophagy	linkage sets don't intersect
-cytoplasmic vesicle membrane	linkage sets don't intersect
-regulation of establishment or maintenance of cell polarity	linkage sets don't intersect
-small GTPase mediated signal transduction	linkage sets don't intersect
-filamentous growth	no linkages
-cysteine-type peptidase activity	no linkages
-cellular response to oxidative stress	linkage sets don't intersect
-basic amino acid transmembrane transporter activity	no linkages
-phospholipid catabolic process	linkage sets don't intersect
-translation regulator activity	no linkages
-basic amino acid transmembrane transport	no linkages
-phospholipase activity	linkage sets don't intersect
-regulation of DNA damage checkpoint	no linkages
-isoprenoid biosynthetic process	linkage sets don't intersect
-protein secretion	linkage sets don't intersect
-pyruvate metabolic process	linkage sets don't intersect
-dicarboxylic acid transport	linkage sets don't intersect
-Ras protein signal transduction	linkage sets don't intersect
-adenylate cyclase-modulating G-protein coupled receptor signaling pathway	linkage sets don't intersect
-O-acyltransferase activity	no linkages
-spliceosomal complex	linkage sets don't intersect
-response to amino acid	no linkages
-carbohydrate:proton symporter activity	linkage sets don't intersect
-potassium ion transmembrane transporter activity	no linkages
-tRNA threonylcarbamoyladenosine metabolic process	no linkages
-regulation of DNA-dependent DNA replication initiation	no linkages
-protein lipidation	no linkages
-purine-containing compound transmembrane transport	no linkages
-chromatin	linkage sets don't intersect
-RNA polymerase II transcription factor binding	linkage sets don't intersect
-ATP metabolic process	linkage sets don't intersect
-negative regulation of translational initiation	linkage sets don't intersect
-nucleoside catabolic process	no linkages
-polysaccharide catabolic process	linkage sets don't intersect
-regulation of meiotic nuclear division	linkage sets don't intersect
-response to oxidative stress	linkage sets don't intersect
-tRNA methyltransferase activity	no linkages
-amino acid binding	linkage sets don't intersect
-copper ion transport	no linkages
-iron ion transport	linkage sets don't intersect
-cleavage involved in rRNA processing	no linkages
-negative regulation of apoptotic process	linkage sets don't intersect
-myosin complex	linkage sets don't intersect
-regulation of mitotic metaphase|anaphase transition	no linkages
-endoribonuclease activity	no linkages
-cellular protein-containing complex localization	linkage sets don't intersect
-histone acetylation	linkage sets don't intersect
-glycosphingolipid biosynthetic process	no linkages
-N-terminal protein amino acid acetylation	no linkages
-sulfur amino acid metabolic process	linkage sets don't intersect
-electron transport chain	linkage sets don't intersect
-calcium ion transport	linkage sets don't intersect
-phosphatidylinositol biosynthetic process	no linkages
-spindle organization	linkage sets don't intersect
-gene silencing by RNA	no linkages
-regulation of exit from mitosis	linkage sets don't intersect
-glucose metabolic process	linkage sets don't intersect
-respiratory electron transport chain	linkage sets don't intersect
-cell cycle	linkage sets don't intersect
-proteolysis involved in cellular protein catabolic process	linkage sets don't intersect
-translational elongation	linkage sets don't intersect
-positive regulation of endocytosis	linkage sets don't intersect
-regulation of cell shape	linkage sets don't intersect
-calcium channel activity	linkage sets don't intersect
-oxidoreductase activity, acting on a sulfur group of donors, disulfide as acceptor	linkage sets don't intersect
-proximal promoter sequence-specific DNA binding	linkage sets don't intersect
-transcription regulatory region DNA binding	linkage sets don't intersect
-regulation of cell aging	no linkages
-protein localization to vacuole	no linkages
-deaminase activity	linkage sets don't intersect
-negative regulation of MAPK cascade	linkage sets don't intersect
-protein domain specific binding	linkage sets don't intersect
-peptide catabolic process	linkage sets don't intersect
-response to antibiotic	linkage sets don't intersect
-fatty acid biosynthetic process	linkage sets don't intersect
-response to xenobiotic stimulus	linkage sets don't intersect
-positive regulation of endopeptidase activity	linkage sets don't intersect
-cAMP-mediated signaling	linkage sets don't intersect
-anaerobic respiration	no linkages
-positive regulation of protein serine|threonine kinase activity	linkage sets don't intersect
-ribonucleoprotein complex binding	linkage sets don't intersect
-nuclear envelope organization	linkage sets don't intersect
-Wnt signaling pathway	linkage sets don't intersect
-pyrimidine nucleobase metabolic process	linkage sets don't intersect
-proton transmembrane transport	linkage sets don't intersect
-protein deglycosylation	linkage sets don't intersect
-regulation of cellular respiration	linkage sets don't intersect
-mitochondrial membrane organization	linkage sets don't intersect
-arginine metabolic process	linkage sets don't intersect
-guanyl-nucleotide exchange factor activity	linkage sets don't intersect
-peptide binding	linkage sets don't intersect
-sister chromatid cohesion	no linkages
-anchored component of plasma membrane	no linkages
-transcription elongation factor complex	no linkages
-carbohydrate kinase activity	linkage sets don't intersect
-endosome	linkage sets don't intersect
-positive regulation of proteasomal protein catabolic process	no linkages
-vesicle	linkage sets don't intersect
-protein localization to nucleus	linkage sets don't intersect
-cellular monovalent inorganic cation homeostasis	no linkages
-negative regulation of nucleic acid-templated transcription	linkage sets don't intersect
-regulation of pH	linkage sets don't intersect
-enzyme activator activity	linkage sets don't intersect
-P-P-bond-hydrolysis-driven protein transmembrane transporter activity	linkage sets don't intersect
-exocytosis	linkage sets don't intersect
-negative regulation of DNA replication	no linkages
-coenzyme binding	linkage sets don't intersect
-positive regulation of translation	linkage sets don't intersect
-microtubule	linkage sets don't intersect
-regulation of nitrogen utilization	linkage sets don't intersect
-lipid transport	linkage sets don't intersect
-cytoskeletal protein binding	linkage sets don't intersect
-protein-containing complex localization	no linkages
-intracellular membrane-bounded organelle	no linkages
-protein acetylation	linkage sets don't intersect
-response to metal ion	no linkages
-phosphatidylinositol binding	linkage sets don't intersect
-sterol transport	linkage sets don't intersect
-establishment or maintenance of cell polarity	no linkages
-endonuclease activity	linkage sets don't intersect
-endodeoxyribonuclease activity, producing 5'-phosphomonoesters	linkage sets don't intersect
-regulation of sulfur amino acid metabolic process	linkage sets don't intersect
-receptor-mediated endocytosis	linkage sets don't intersect
-carbohydrate transport	linkage sets don't intersect
-nucleobase transport	linkage sets don't intersect
-RNA polymerase II regulatory region sequence-specific DNA binding	linkage sets don't intersect
-regulation of translational initiation	linkage sets don't intersect
-positive regulation of kinase activity	no linkages
-regulation of translational elongation	no linkages
-endopeptidase activity	linkage sets don't intersect
-polyamine transmembrane transporter activity	no linkages
-basic amino acid transport	no linkages
-vacuole	linkage sets don't intersect
-protein kinase regulator activity	linkage sets don't intersect
-SCF ubiquitin ligase complex	linkage sets don't intersect
-intracellular protein transport	linkage sets don't intersect
-ammonium transport	no linkages
-protein transmembrane transporter activity	linkage sets don't intersect
-actin filament organization	linkage sets don't intersect
-ncRNA 3'-end processing	no linkages
-positive regulation of protein catabolic process	linkage sets don't intersect
-glycolytic process	linkage sets don't intersect
-protein deubiquitination	linkage sets don't intersect
-exonuclease activity	no linkages
-RNA phosphodiester bond hydrolysis, endonucleolytic	linkage sets don't intersect
-vacuolar membrane	linkage sets don't intersect
-response to nutrient	linkage sets don't intersect
-cellular calcium ion homeostasis	linkage sets don't intersect
-mRNA metabolic process	no linkages
-L-amino acid transmembrane transporter activity	no linkages
-nuclear-transcribed mRNA catabolic process	linkage sets don't intersect
-regulation of phosphoprotein phosphatase activity	linkage sets don't intersect
-regulation of endoplasmic reticulum unfolded protein response	linkage sets don't intersect
-sphingolipid biosynthetic process	linkage sets don't intersect
-RNA splicing	linkage sets don't intersect
-electron transfer activity	linkage sets don't intersect
-positive regulation of apoptotic process	no linkages
-nucleotidyltransferase activity	linkage sets don't intersect
-DNA secondary structure binding	no linkages
-protein kinase binding	linkage sets don't intersect
-palmitoyltransferase activity	linkage sets don't intersect
-endoplasmic reticulum organization	no linkages
-sulfurtransferase activity	no linkages
-protein localization to spindle pole body	linkage sets don't intersect
-double-stranded DNA binding	linkage sets don't intersect
-regulation of nuclear cell cycle DNA replication	linkage sets don't intersect
-transport vesicle membrane	no linkages
-ribonucleoside monophosphate biosynthetic process	linkage sets don't intersect
-negative regulation of endopeptidase activity	linkage sets don't intersect
-microtubule cytoskeleton organization	linkage sets don't intersect
-membrane fusion	linkage sets don't intersect
-phospholipid transport	linkage sets don't intersect
-transcription factor activity, RNA polymerase II proximal promoter sequence-specific DNA binding	linkage sets don't intersect
-glucan catabolic process	linkage sets don't intersect
-glucosidase activity	linkage sets don't intersect
-cellular response to DNA damage stimulus	linkage sets don't intersect
-response to toxic substance	linkage sets don't intersect
-DNA repair	linkage sets don't intersect
-nuclear chromatin	linkage sets don't intersect
-hexose transmembrane transport	linkage sets don't intersect
-macroautophagy	linkage sets don't intersect
-peptidyl-arginine methylation	linkage sets don't intersect
-regulation of cell size	no linkages
-regulation of reciprocal meiotic recombination	no linkages
-cell morphogenesis	no linkages
-regulation of protein localization to nucleus	no linkages
-ammonium transmembrane transporter activity	no linkages
-negative regulation of phospholipid biosynthetic process	linkage sets don't intersect
-iron ion transmembrane transport	linkage sets don't intersect
-cellular response to amino acid stimulus	linkage sets don't intersect
-nucleus organization	linkage sets don't intersect
-vesicle organization	linkage sets don't intersect
-protein-containing complex binding	no linkages
-sulfate transmembrane transporter activity	linkage sets don't intersect
-glutamine metabolic process	linkage sets don't intersect
-mitotic cell cycle	linkage sets don't intersect
-protein maturation	linkage sets don't intersect
-anion:anion antiporter activity	no linkages
-cellular protein catabolic process	linkage sets don't intersect
-telomere maintenance	linkage sets don't intersect
-ubiquitin ligase complex	linkage sets don't intersect
-sporulation resulting in formation of a cellular spore	linkage sets don't intersect
-rRNA (guanine) methyltransferase activity	no linkages
-glycerophospholipid metabolic process	linkage sets don't intersect
-cell wall	no linkages
-attachment of spindle microtubules to kinetochore	linkage sets don't intersect
-cellular metal ion homeostasis	linkage sets don't intersect
-nucleic acid phosphodiester bond hydrolysis	linkage sets don't intersect
-nucleoside-triphosphate diphosphatase activity	no linkages
-purine nucleobase biosynthetic process	linkage sets don't intersect
-positive regulation of transcription from RNA polymerase II promoter in response to stress	linkage sets don't intersect
-activation of protein kinase activity	linkage sets don't intersect
-negative regulation of meiotic nuclear division	no linkages
-vacuolar transport	linkage sets don't intersect
-DNA helicase activity	linkage sets don't intersect
-carbohydrate binding	linkage sets don't intersect
-nucleosome organization	linkage sets don't intersect
-spindle microtubule	linkage sets don't intersect
-response to endoplasmic reticulum stress	linkage sets don't intersect
-L-alpha-amino acid transmembrane transport	no linkages
-DNA strand elongation involved in DNA replication	linkage sets don't intersect
-positive regulation of translation in response to stress	linkage sets don't intersect
-rRNA metabolic process	no linkages
-intracellular mRNA localization	linkage sets don't intersect
-plasma membrane organization	linkage sets don't intersect
-ethanol metabolic process	linkage sets don't intersect
-reactive oxygen species metabolic process	no linkages
-cytoskeleton	linkage sets don't intersect
-histone deacetylase complex	no linkages
-protein-lysine N-methyltransferase activity	linkage sets don't intersect
-establishment of cell polarity	linkage sets don't intersect
-aldehyde dehydrogenase (NAD) activity	linkage sets don't intersect
-motor activity	linkage sets don't intersect
-regulation of transcription from RNA polymerase II promoter in response to stress	no linkages
-clathrin-coated vesicle	linkage sets don't intersect
-pyrimidine-containing compound salvage	linkage sets don't intersect
-protein complex oligomerization	linkage sets don't intersect
-methionine metabolic process	linkage sets don't intersect
-positive regulation of translational initiation	no linkages
-regulation of intracellular pH	no linkages
-cyclin-dependent protein kinase holoenzyme complex	linkage sets don't intersect
-siderophore transport	linkage sets don't intersect
-cell adhesion	linkage sets don't intersect
-calcium ion transmembrane transport	linkage sets don't intersect
-regulation of vacuole organization	linkage sets don't intersect
-cell wall organization	linkage sets don't intersect
-DNA-dependent ATPase activity	linkage sets don't intersect
-negative regulation of DNA recombination	linkage sets don't intersect
-mitochondrial transport	linkage sets don't intersect
-endosomal transport	no linkages
-chromatin silencing	no linkages
-SNARE complex	linkage sets don't intersect
-nicotinamide nucleotide metabolic process	linkage sets don't intersect
-carbohydrate derivative binding	linkage sets don't intersect
-drug transmembrane transport	linkage sets don't intersect
-peptidyl-threonine phosphorylation	linkage sets don't intersect
-phospholipid biosynthetic process	linkage sets don't intersect
-nucleotide binding	linkage sets don't intersect
-siderophore transmembrane transporter activity	no linkages
-histone methyltransferase activity	no linkages
-DNA-dependent DNA replication maintenance of fidelity	linkage sets don't intersect
-protein ubiquitination	linkage sets don't intersect
-protein transmembrane transport	linkage sets don't intersect
-histone acetyltransferase complex	linkage sets don't intersect
-positive regulation of protein phosphorylation	no linkages
-negative regulation of protein phosphorylation	linkage sets don't intersect
-lipid homeostasis	no linkages
-site of polarized growth	linkage sets don't intersect
-cellular response to osmotic stress	linkage sets don't intersect
-GTPase binding	no linkages
-actin cytoskeleton organization	linkage sets don't intersect
-acetyltransferase activity	no linkages
-phosphatidylinositol metabolic process	linkage sets don't intersect
-protein catabolic process	linkage sets don't intersect
-response to osmotic stress	linkage sets don't intersect
-single-stranded RNA binding	no linkages
-regulation of macroautophagy	linkage sets don't intersect
-prenyltransferase activity	no linkages
-oligopeptide transmembrane transporter activity	linkage sets don't intersect
-double-strand break repair	linkage sets don't intersect
-protein autophosphorylation	linkage sets don't intersect
-RNA catabolic process	no linkages
-histone demethylation	linkage sets don't intersect
-lipase activity	linkage sets don't intersect
-peroxisome	linkage sets don't intersect
-cellular aldehyde metabolic process	linkage sets don't intersect
-N-acetyltransferase activity	linkage sets don't intersect
-oligopeptide transmembrane transport	linkage sets don't intersect
-endosome membrane	linkage sets don't intersect
-nuclear migration	linkage sets don't intersect
-dicarboxylic acid transmembrane transporter activity	linkage sets don't intersect
-endocytic vesicle	no linkages
-response to arsenic-containing substance	linkage sets don't intersect
-tRNA processing	linkage sets don't intersect
-disulfide oxidoreductase activity	no linkages
-fermentation	linkage sets don't intersect
-antiporter activity	linkage sets don't intersect
-DNA replication	linkage sets don't intersect
-metallopeptidase activity	linkage sets don't intersect
-autophagy	linkage sets don't intersect
-proteasome-mediated ubiquitin-dependent protein catabolic process	linkage sets don't intersect
-cell wall biogenesis	no linkages
-extrinsic component of plasma membrane	linkage sets don't intersect
-regulation of transcription by RNA polymerase I	linkage sets don't intersect
-histone phosphorylation	no linkages
-long-chain fatty acid metabolic process	no linkages
-histone acetyltransferase activity	linkage sets don't intersect
-vacuolar lumen	linkage sets don't intersect
-extrinsic component of membrane	linkage sets don't intersect
-galactose metabolic process	linkage sets don't intersect
-negative regulation of ATPase activity	linkage sets don't intersect
-drug transmembrane transporter activity	linkage sets don't intersect
-histone modification	no linkages
+septin ring	linkage sets don't intersect
+ncRNA 3'-end processing	linkage sets don't intersect
+positive regulation of protein polymerization	linkage sets don't intersect
+TOR complex	linkage sets don't intersect
+mitotic actomyosin contractile ring	no linkages
+ammonium transport	linkage sets don't intersect
+attachment of mitotic spindle microtubules to kinetochore	linkage sets don't intersect
+regulation of programmed cell death	linkage sets don't intersect
+regulation of attachment of spindle microtubules to kinetochore	linkage sets don't intersect
+microtubule binding	linkage sets don't intersect
+regulation of nuclear-transcribed mRNA catabolic process                                          ,deadenylation-dependent decay	linkage sets don't intersect
+negative regulation of cellular biosynthetic process	linkage sets don't intersect
+establishment of sister chromatid cohesion	linkage sets don't intersect
+positive regulation of response to nutrient levels	linkage sets don't intersect
+clathrin adaptor complex	linkage sets don't intersect
+replication fork	linkage sets don't intersect
+carboxy-terminal domain protein kinase complex	no linkages
+transition metal ion transmembrane transporter activity	linkage sets don't intersect
+protein serine|threonine phosphatase complex	linkage sets don't intersect
 cortical actin cytoskeleton organization	linkage sets don't intersect
-ribonucleoside binding	linkage sets don't intersect
-chloride channel activity	no linkages
-purine nucleobase metabolic process	linkage sets don't intersect
-nucleocytoplasmic transport	linkage sets don't intersect
-microtubule-based movement	no linkages
-NAD metabolic process	linkage sets don't intersect
-negative regulation of transcription, DNA-templated	no linkages
-peptide metabolic process	linkage sets don't intersect
-protein transporter activity	linkage sets don't intersect
-chromosome segregation	linkage sets don't intersect
-small nuclear ribonucleoprotein complex	linkage sets don't intersect
-oligopeptide transport	linkage sets don't intersect
-protein methyltransferase activity	linkage sets don't intersect
-carboxy-lyase activity	linkage sets don't intersect
-actin filament bundle	no linkages
-ATPase activity, coupled to transmembrane movement of ions, phosphorylative mechanism	linkage sets don't intersect
-phospholipid binding	linkage sets don't intersect
-histone ubiquitination	no linkages
-regulation of mitochondrial membrane permeability	no linkages
-signal sequence binding	linkage sets don't intersect
-vacuole organization	linkage sets don't intersect
-glucose transmembrane transporter activity	linkage sets don't intersect
-cellular response to nutrient levels	linkage sets don't intersect
-protein-DNA complex	linkage sets don't intersect
-RNA polymerase II regulatory region DNA binding	linkage sets don't intersect
-positive regulation of protein kinase activity	no linkages
-protein tyrosine kinase activity	no linkages
-protein binding, bridging	linkage sets don't intersect
-response to reactive oxygen species	linkage sets don't intersect
-signal transduction by protein phosphorylation	no linkages
-regulation of DNA replication	no linkages
-MAPK cascade	linkage sets don't intersect
-regulation of vesicle fusion	linkage sets don't intersect
-oxidoreductase activity, oxidizing metal ions	no linkages
-tRNA modification	linkage sets don't intersect
-RNA polymerase II transcription factor activity, sequence-specific DNA binding	linkage sets don't intersect
-chromosome	linkage sets don't intersect
-protein folding	linkage sets don't intersect
-proteolysis	linkage sets don't intersect
-positive regulation of ATPase activity	linkage sets don't intersect
-protein dephosphorylation	linkage sets don't intersect
-polyamine transport	linkage sets don't intersect
-pentose transmembrane transporter activity	linkage sets don't intersect
-purine nucleotide biosynthetic process	linkage sets don't intersect
-sterol metabolic process	linkage sets don't intersect
-methionine biosynthetic process	linkage sets don't intersect
-DNA biosynthetic process	no linkages
-nucleobase transmembrane transporter activity	linkage sets don't intersect
-transport vesicle	no linkages
-protein methylation	no linkages
-DNA-binding transcription factor activity	linkage sets don't intersect
-tRNA methylation	linkage sets don't intersect
-chromatin remodeling	linkage sets don't intersect
-mannosyltransferase activity	linkage sets don't intersect
-regulation of mRNA stability	linkage sets don't intersect
-enzyme inhibitor activity	no linkages
-calcium-mediated signaling	linkage sets don't intersect
-response to salt stress	linkage sets don't intersect
-negative regulation of transcription by RNA polymerase II	linkage sets don't intersect
-mitochondrion localization	no linkages
-transcription factor complex	linkage sets don't intersect
-phosphoprotein phosphatase activity	linkage sets don't intersect
-DNA-directed 5'-3' RNA polymerase activity	no linkages
-monocarboxylic acid transmembrane transporter activity	linkage sets don't intersect
-carboxylic ester hydrolase activity	linkage sets don't intersect
-snoRNA processing	no linkages
-cellular response to starvation	linkage sets don't intersect
-branched-chain amino acid transport	no linkages
-cellular response to salt stress	linkage sets don't intersect
-translational initiation	linkage sets don't intersect
-peptidyl-serine phosphorylation	linkage sets don't intersect
-transcription factor binding	linkage sets don't intersect
-deoxyribonucleotide biosynthetic process	no linkages
-monocarboxylic acid transport	linkage sets don't intersect
-regulation of Ras protein signal transduction	linkage sets don't intersect
-peroxisome organization	linkage sets don't intersect
-cytoplasmic microtubule	linkage sets don't intersect
-cofactor binding	no linkages
-histone deacetylase activity	no linkages
-ammonium transmembrane transport	no linkages
-peptidase activity	linkage sets don't intersect
-aromatic amino acid family biosynthetic process	linkage sets don't intersect
-DNA recombination	linkage sets don't intersect
+Rab GTPase binding	no linkages
+cellular bud neck septin structure	linkage sets don't intersect
+TRAPP complex	no linkages
+regulation of growth	linkage sets don't intersect
+transcription factor activity                                                                     ,transcription factor recruiting	linkage sets don't intersect
+cell cycle G2|M phase transition	no linkages
+exocytic process	no linkages
+general transcription initiation factor activity	linkage sets don't intersect
+DNA packaging	linkage sets don't intersect
+sister chromatid biorientation	linkage sets don't intersect
+meiotic chromosome segregation	no linkages
+DNA helicase complex	no linkages
+drug transmembrane transporter activity	linkage sets don't intersect
+activation of protein kinase activity	linkage sets don't intersect
+chromatin assembly	no linkages
+secondary active transmembrane transporter activity	linkage sets don't intersect
+protein targeting to ER	no linkages
+glycosylation	linkage sets don't intersect
+cellular protein complex disassembly	linkage sets don't intersect
+DNA conformation change	linkage sets don't intersect
+ribosome localization	no linkages
+actin cytoskeleton organization	linkage sets don't intersect
+rRNA-containing ribonucleoprotein complex export from nucleus	no linkages
+mitochondrion disassembly	linkage sets don't intersect
+positive regulation of microtubule polymerization or depolymerization	linkage sets don't intersect
+positive regulation of chromosome segregation	linkage sets don't intersect
+histone deacetylase complex	no linkages
+tRNA catabolic process	linkage sets don't intersect
+protein-DNA complex disassembly	no linkages
+microtubule organizing center part	linkage sets don't intersect
+synaptonemal complex organization	no linkages
+sister chromatid segregation	no linkages
+regulation of cell morphogenesis	linkage sets don't intersect
+actin cortical patch organization	linkage sets don't intersect
+microtubule cytoskeleton organization involved in mitosis	linkage sets don't intersect
+protein localization to chromosome                                                                ,centromeric region	linkage sets don't intersect
+regulation of biological quality	linkage sets don't intersect
+chromosome organization involved in meiotic cell cycle	no linkages
+glycolipid biosynthetic process	linkage sets don't intersect
+INO80-type complex	no linkages
+cleavage apparatus septin structure	linkage sets don't intersect
+positive regulation of MAP kinase activity	linkage sets don't intersect
+P-P-bond-hydrolysis-driven transmembrane transporter activity	linkage sets don't intersect
+mRNA cleavage factor complex	linkage sets don't intersect
+regulation of mitotic cell cycle phase transition	linkage sets don't intersect
+nucleus organization	linkage sets don't intersect
+regulation of microtubule polymerization	linkage sets don't intersect
+RNA polymerase II basal transcription factor binding	linkage sets don't intersect
+regulation of DNA recombination	linkage sets don't intersect
+regulation of gluconeogenesis	linkage sets don't intersect
+fungal-type cell wall assembly	linkage sets don't intersect
+transcription factor activity                                                                     ,protein binding	no linkages
+positive regulation of autophagy	linkage sets don't intersect
+protein deacetylase activity	no linkages
+positive regulation of cell cycle process	linkage sets don't intersect
+chromosome condensation	linkage sets don't intersect
+regulation of mitotic nuclear division	linkage sets don't intersect
+ATPase activity                                                                                   ,coupled to movement of substances	linkage sets don't intersect
+positive regulation of organelle assembly	no linkages
+spore wall assembly	linkage sets don't intersect
+protein localization to chromosome	no linkages
+translational elongation	no linkages
+regulation of cell cycle	linkage sets don't intersect
+vesicle-mediated transport to the plasma membrane	linkage sets don't intersect
+growth	linkage sets don't intersect
+small nucleolar ribonucleoprotein complex assembly	no linkages
+phosphatidylinositol 3-kinase complex                                                             ,class III	no linkages
+protein targeting to membrane	no linkages
+Golgi cisterna	linkage sets don't intersect
+positive regulation of protein kinase activity	linkage sets don't intersect
+establishment of cell polarity	linkage sets don't intersect
+inner mitochondrial membrane organization	linkage sets don't intersect
+regulation of macroautophagy	linkage sets don't intersect
+protein deacetylation	no linkages
+Ras guanyl-nucleotide exchange factor activity	no linkages
+condensed nuclear chromosome outer kinetochore	linkage sets don't intersect
+H4|H2A histone acetyltransferase complex	linkage sets don't intersect
