@@ -72,25 +72,25 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
 # args <- commandArgs(TRUE)
 
 identify_QTLs(
-  'eQTLs/fixed_genotypes.csv',
+'eQTLs/raw_genotypes.csv',
   'eQTLs/averaged_expression.csv',
-  'eQTLs/results_nodup.csv'
+'eQTLs/results.csv'
 )
 
 identify_QTLs(
-  'pQTLs/fixed_genotypes.csv',
+'pQTLs/raw_genotypes.csv',
   'pQTLs/averaged_expression.csv',
-  'pQTLs/results_nodup.csv'
+'pQTLs/results.csv'
 )
 
 library(qvalue)
 
-eQTLs_df = read.table("~/Science/eQTL_analysis/data/eQTLs/results_nodup.csv", sep='\t', stringsAsFactors = FALSE, header=TRUE)
+eQTLs_df = read.table("~/Science/eQTL_analysis/data/eQTLs/results.csv", sep = '\t', stringsAsFactors = FALSE, header = TRUE)
 eQTLs_df$q.value = qvalue(as.numeric(eQTLs_df$p.value))$qvalues
 eQTLs_df = eQTLs_df[, c(1,2,5:7)]
-write.table(eQTLs_df[eQTLs_df$q.value <= 0.05, ], "~/Science/eQTL_analysis/data/eQTLs/results_nodup.csv", sep='\t', row.names = FALSE)
+write.table(eQTLs_df[eQTLs_df$q.value <= 0.05,], "~/Science/eQTL_analysis/data/eQTLs/results.csv", sep = '\t', row.names = FALSE)
 
-pQTLs_df = read.table("~/Science/eQTL_analysis/data/pQTLs/results_nodup.csv", sep='\t', stringsAsFactors = FALSE, header=TRUE)
+pQTLs_df = read.table("~/Science/eQTL_analysis/data/pQTLs/results.csv", sep = '\t', stringsAsFactors = FALSE, header = TRUE)
 pQTLs_df$q.value = qvalue(as.numeric(pQTLs_df$p.value))$qvalues
 pQTLs_df = pQTLs_df[, c(1,2,5:7)]
-write.table(pQTLs_df[pQTLs_df$q.value <= 0.05, ], "~/Science/eQTL_analysis/data/pQTLs/results_nodup.csv", sep='\t', row.names = FALSE)
+write.table(pQTLs_df[pQTLs_df$q.value <= 0.05,], "~/Science/eQTL_analysis/data/pQTLs/results.csv", sep = '\t', row.names = FALSE)
