@@ -23,32 +23,32 @@ pQTLs_genotypes_df = pd.read_table("./data/pQTLs/genotypes_2018.csv")
 eQTLs_df = pd.read_table("./data/eQTLs/qtls.csv").query("q_value < 0.05")
 pQTLs_df = pd.read_table("./data/pQTLs/qtls.csv").query("q_value < 0.05")
 
-interactions_type = "all"
+interactions_type = "physical"
 with open("./data/interactions/{}_interactions_graph.pkl".format(interactions_type), "rb") as pickle_file:
     interactome_graph = pickle.load(pickle_file)
 
-modules_type = "thebiogrid"
+modules_type = "thecellmap"
 with open("./results/" + modules_type + "/modules_dict.pkl", "rb") as pickle_file:
     modules_dict = pickle.load(pickle_file)
 # modules_to_test.pop("all", None)
 
-# for qtl_type, qtl_df, expression_df in [("eQTLs", eQTLs_df, eQTLs_expression_df),
-#                                         ("pQTLs", pQTLs_df, pQTLs_expression_df)]:
-#     module_analyzer = qtls.LinkageSharingAnalyzer(
-#         expression_df=expression_df,
-#         interactions_type=interactions_type,
-#         interactome_graph=interactome_graph,
-#         modules_type=modules_type,
-#         modules_dict=modules_dict,
-#         qtl_type=qtl_type,
-#         qtl_df=qtl_df,
-#         q_thresholds=np.logspace(-5, -2, 10),
-#         pairwise_test_iter=200,
-#         ppi_test_iter=1024
-#     )
-#     module_analyzer.pairwise_test()
-#     module_analyzer.ppi_test()
-#
+for qtl_type, qtl_df, expression_df in [("eQTLs", eQTLs_df, eQTLs_expression_df),
+                                        ("pQTLs", pQTLs_df, pQTLs_expression_df)]:
+    module_analyzer = qtls.LinkageSharingAnalyzer(
+        expression_df=expression_df,
+        interactions_type=interactions_type,
+        interactome_graph=interactome_graph,
+        modules_type=modules_type,
+        modules_dict=modules_dict,
+        qtl_type=qtl_type,
+        qtl_df=qtl_df,
+        q_thresholds=np.logspace(-5, -2, 10),
+        pairwise_test_iter=200,
+        ppi_test_iter=1024
+    )
+    module_analyzer.pairwise_test()
+    module_analyzer.ppi_test()
+
 
 predictions_dict = {}
 for module_name, module_genes in modules_dict.items():
