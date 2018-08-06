@@ -9,8 +9,8 @@ attachment of mitotic spindle microtubules to kinetochore	linkage sets don't int
 regulation of programmed cell death	linkage sets don't intersect
 regulation of attachment of spindle microtubules to kinetochore	linkage sets don't intersect
 microtubule binding	linkage sets don't intersect
-regulation of nuclear-transcribed mRNA catabolic process                                          ,deadenylation-dependent decay	linkage sets don't intersect
-negative regulation of cellular biosynthetic process	linkage sets don't intersect
+regulation of nuclear-transcribed mRNA catabolic ppi_test_handler                                          ,deadenylation-dependent decay	linkage sets don't intersect
+negative regulation of cellular biosynthetic ppi_test_handler	linkage sets don't intersect
 establishment of sister chromatid cohesion	linkage sets don't intersect
 positive regulation of response to nutrient levels	linkage sets don't intersect
 clathrin adaptor complex	linkage sets don't intersect
@@ -25,7 +25,7 @@ TRAPP complex	no linkages
 regulation of growth	linkage sets don't intersect
 transcription factor activity                                                                     ,transcription factor recruiting	linkage sets don't intersect
 cell cycle G2|M phase transition	no linkages
-exocytic process	no linkages
+exocytic ppi_test_handler	no linkages
 general transcription initiation factor activity	linkage sets don't intersect
 DNA packaging	linkage sets don't intersect
 sister chromatid biorientation	linkage sets don't intersect
@@ -46,7 +46,7 @@ mitochondrion disassembly	linkage sets don't intersect
 positive regulation of microtubule polymerization or depolymerization	linkage sets don't intersect
 positive regulation of chromosome segregation	linkage sets don't intersect
 histone deacetylase complex	no linkages
-tRNA catabolic process	linkage sets don't intersect
+tRNA catabolic ppi_test_handler	linkage sets don't intersect
 protein-DNA complex disassembly	no linkages
 microtubule organizing center part	linkage sets don't intersect
 synaptonemal complex organization	no linkages
@@ -57,7 +57,7 @@ microtubule cytoskeleton organization involved in mitosis	linkage sets don't int
 protein localization to chromosome                                                                ,centromeric region	linkage sets don't intersect
 regulation of biological quality	linkage sets don't intersect
 chromosome organization involved in meiotic cell cycle	no linkages
-glycolipid biosynthetic process	linkage sets don't intersect
+glycolipid biosynthetic ppi_test_handler	linkage sets don't intersect
 INO80-type complex	no linkages
 cleavage apparatus septin structure	linkage sets don't intersect
 positive regulation of MAP kinase activity	linkage sets don't intersect
@@ -73,7 +73,7 @@ fungal-type cell wall assembly	linkage sets don't intersect
 transcription factor activity                                                                     ,protein binding	no linkages
 positive regulation of autophagy	linkage sets don't intersect
 protein deacetylase activity	no linkages
-positive regulation of cell cycle process	linkage sets don't intersect
+positive regulation of cell cycle ppi_test_handler	linkage sets don't intersect
 chromosome condensation	linkage sets don't intersect
 regulation of mitotic nuclear division	linkage sets don't intersect
 ATPase activity                                                                                   ,coupled to movement of substances	linkage sets don't intersect

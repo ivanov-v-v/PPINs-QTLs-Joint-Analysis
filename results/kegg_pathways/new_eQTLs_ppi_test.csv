@@ -1,0 +1,110 @@
+module_name	significant	real	random
+Lysine biosynthesis 	False	0.041666666666666664	0.0039108951965110056
+Inositol phosphate metabolism 	True	0.0	0.011126324687618346
+Amino sugar and nucleotide sugar metabolism 	False	0.03333333333333333	0.01438049097231997
+Ether lipid metabolism 	False	0.0	0.00035059596755368814
+Sulfur relay system 	False	0.0043859649122807015	0.0001775568181818182
+Purine metabolism 	False	0.014845898700065367	0.013849635965966684
+Glycolysis | Gluconeogenesis 	False	0.034052724403601596	0.022071321615046685
+Phagosome 	False	0.021831776522700793	0.008757869974158432
+Proteasome 	False	0.04760499481157202	0.0505501309737258
+ABC transporters 	False	0.017241379310344827	0.0007230128042596349
+Other glycan degradation 	False	0.0	0.0
+DNA replication 	True	0.012559226042372107	0.01960638313776102
+Basal transcription factors 	False	0.012654805511948367	0.010770837152465063
+MAPK signaling pathway - yeast 	False	0.017945618547348545	0.015513841531002335
+Ubiquitin mediated proteolysis 	False	0.006443516610980725	0.005612424391469908
+Hippo signaling pathway - multiple species 	False	0.04423076923076923	0.03587708669330112
+Oxidative phosphorylation 	True	0.04482312499288144	0.024404732068916236
+Porphyrin and chlorophyll metabolism 	False	0.05	0.001037844103349902
+Folate biosynthesis 	False	0.0	0.0
+Protein export 	False	0.01773917571789912	0.006781130382204601
+Protein processing in endoplasmic reticulum 	True	0.01501786676639931	0.010776902079115596
+Monobactam biosynthesis 	False	0.0	0.00037560096153846156
+Glutathione metabolism 	False	0.0	0.006417495569014716
+Tyrosine metabolism 	False	0.05185185185185185	0.00257513562315952
+Citrate cycle (TCA cycle) 	False	0.10866427335097412	0.022021594341971658
+Arachidonic acid metabolism 	False	0.0	0.0003968355948464912
+Longevity regulating pathway - multiple species 	True	0.03069750916730694	0.014021376744968238
+Mismatch repair 	True	0.009344115004492361	0.008531940260419982
+Galactose metabolism 	False	0.1111111111111111	0.0179734045408516
+Homologous recombination 	False	0.02455602588429913	0.018292154468625057
+RNA transport 	False	0.03364199902661441	0.035485833423355824
+Ubiquinone and other terpenoid-quinone biosynthesis 	False	0.045054945054945054	0.0007716250061723407
+Carbapenem biosynthesis 	False	0.0	0.0
+Vitamin B6 metabolism 	False	0.020000000000000004	0.0002704326923076923
+alpha-Linolenic acid metabolism 	False	0.0	0.0
+Mannose type O-glycan biosynthesis 	False	0.08928571428571429	0.004606965300324676
+mRNA surveillance pathway 	False	0.026311266285885572	0.039747564458996715
+Ribosome 	True	0.06995547614326877	0.08930060804312032
+Propanoate metabolism 	False	0.09375	0.0015832460469983448
+Valine, leucine and isoleucine biosynthesis 	False	0.0	0.002701717132997972
+Cell cycle - yeast 	False	0.012466117354177055	0.010412307895078837
+Endocytosis 	True	0.021514513759279357	0.013738243726516067
+RNA degradation 	True	0.013739546900374927	0.02039579930098752
+Lysine degradation 	False	0.13043478260869565	0.003201312395745608
+Cysteine and methionine metabolism 	False	0.047619047619047616	0.006330558674387628
+Aminoacyl-tRNA biosynthesis 	False	0.017857142857142856	0.017727336764077284
+Synthesis and degradation of ketone bodies 	False	0.0	0.0003255208333333333
+Fructose and mannose metabolism 	False	0.22179487179487178	0.020092173188872152
+Autophagy - other 	False	0.05171381648654376	0.03804300611541253
+Fatty acid elongation 	False	0.008333333333333333	0.0020518146494708993
+Alanine, aspartate and glutamate metabolism 	False	0.011764705882352941	0.0072608957231855755
+Sesquiterpenoid and triterpenoid biosynthesis 	False	0.0	0.0
+Arginine and proline metabolism 	False	0.0	0.0041742412764760916
+Cyanoamino acid metabolism 	False	0.0	0.0001376065340909091
+N-Glycan biosynthesis 	False	0.01983455820665123	0.0037221222107481303
+C5-Branched dibasic acid metabolism 	False	0.0	0.0
+Mitophagy - yeast 	False	0.02264909498516056	0.02877797166710947
+Valine, leucine and isoleucine degradation 	False	0.0	0.0021414800865938955
+Autophagy - yeast 	False	0.024285095824418075	0.02323102447335991
+Butanoate metabolism 	False	0.0	0.0008029513888888889
+Phenylalanine metabolism 	False	0.0	0.0004892386642156863
+Fatty acid biosynthesis 	False	0.041666666666666664	0.021305822084199844
+Glycerophospholipid metabolism 	False	0.0	0.007368954197892743
+Phenylalanine, tyrosine and tryptophan biosynthesis 	False	0.041666666666666664	0.004891792916808638
+Pantothenate and CoA biosynthesis 	False	0.007407407407407408	0.003439259021462606
+Fatty acid degradation 	False	0.07777777777777778	0.004404324103562506
+Other types of O-glycan biosynthesis 	False	0.08928571428571429	0.004784522118506494
+Biosynthesis of unsaturated fatty acids 	False	0.006666666666666666	0.001847362642973856
+Pentose phosphate pathway 	False	0.04251012145748988	0.017506887282317425
+Atrazine degradation 	False	0.0	0.0
+Steroid biosynthesis 	False	0.04931146351945064	0.022618700102271547
+Meiosis - yeast 	True	0.016959444394535676	0.012126749794709582
+Phosphatidylinositol signaling system 	True	0.0	0.013555753825389382
+Glyoxylate and dicarboxylate metabolism 	False	0.06349206349206349	0.007095806710290786
+Riboflavin metabolism 	False	0.0	0.00029321350250626567
+Glycosylphosphatidylinositol (GPI)-anchor biosynthesis 	False	0.01488095238095238	0.002311937736742424
+Various types of N-glycan biosynthesis 	False	0.018684039272274567	0.004152708288302263
+Starch and sucrose metabolism 	False	0.1270479673512762	0.04218955562097361
+Selenocompound metabolism 	False	0.0	0.0003255208333333333
+SNARE interactions in vesicular transport 	False	0.00907102157102157	0.008181745357997452
+Taurine and hypotaurine metabolism 	False	0.0	0.0
+Lipoic acid metabolism 	False	0.0	0.0
+AGE-RAGE signaling pathway in diabetic complications 	False	0.047619047619047616	0.00438115321989303
+beta-Alanine metabolism 	False	0.0	0.0013991991247299836
+Phosphonate and phosphinate metabolism 	False	0.0	0.0003173828125
+Sulfur metabolism 	False	0.0	0.0007333224387089518
+Nicotinate and nicotinamide metabolism 	False	0.058823529411764705	0.0018864200591321503
+RNA polymerase 	False	0.017103457058814203	0.018514624721735075
+Histidine metabolism 	False	0.0	0.00131373852621192
+Ribosome biogenesis in eukaryotes 	True	0.036964558935924575	0.025696606651541724
+Nitrogen metabolism 	False	0.0	0.00038682601544622427
+Arginine biosynthesis 	False	0.0	0.001600022510136301
+Base excision repair 	False	0.008403361344537815	0.0006975446428571428
+Pyrimidine metabolism 	False	0.014801943983243367	0.01597642508937113
+Pentose and glucuronate interconversions 	False	0.4	0.000390625
+Tryptophan metabolism 	True	0.0	0.0026213547967138206
+Glycine, serine and threonine metabolism 	False	0.0	0.006015765336264532
+Pyruvate metabolism 	False	0.015401785714285713	0.008839251999012669
+Thiamine metabolism 	False	0.0	9.533110119047619e-05
+Biotin metabolism 	False	0.0	0.0
+Spliceosome 	False	0.010899427492903025	0.006117177024335323
+Methane metabolism 	False	0.05555555555555555	0.011128652335663177
+One carbon pool by folate 	False	0.025641025641025644	0.0026732811096926807
+Non-homologous end-joining 	False	0.027777777777777773	0.002367001488095238
+Nucleotide excision repair 	False	0.010550887021475256	0.009640215812265198
+Glycerolipid metabolism 	False	0.0196078431372549	0.003857140981011933
+Terpenoid backbone biosynthesis 	False	0.0	0.005800141292084652
+Sphingolipid metabolism 	False	0.03125	0.0021320083453872517
+Peroxisome 	False	0.021307521558717735	0.011083835595531655

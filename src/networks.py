@@ -6,18 +6,24 @@ At the moment supports:
 - Display of basic information about graphs.
 """
 
+import os
 import pickle
 
 import igraph as ig
 import numpy as np
 import pandas as pd
 
+os.chdir("{}/Science/eQTL_analysis/".format(os.environ["HOME"]))
+
+with open("./data/nomenclature/sys2std.pkl", "rb") as pickle_file:
+    sys2std = pickle.load(pickle_file)
+
+with open("./data/nomenclature/std2sys.pkl", "rb") as pickle_file:
+    std2sys = pickle.load(pickle_file)
 
 # Returns a list of genes connected to gene_name in interactions_graph
 # where "connected" is interpreted as "reachable in bfs_depth steps".
 def convert_to_std(gene_name):
-    with open("./data/nomenclature/sys2std.pkl", "rb") as pickle_file:
-        sys2std = pickle.load(pickle_file)
     try:
         result = sys2std[gene_name]
     except KeyError:
@@ -26,8 +32,6 @@ def convert_to_std(gene_name):
 
 
 def convert_to_sys(gene_name):
-    with open("./data/nomenclature/std2sys.pkl", "rb") as pickle_file:
-        std2sys = pickle.load(pickle_file)
     try:
         result = std2sys[gene_name]
     except KeyError:

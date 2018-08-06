@@ -1,0 +1,422 @@
+module_name	common_pQTLs	overlap_ratio, %	old_pQTLs	predicted_pQTLs	delta
+regulation of protein dephosphorylation	2	100	2	2	0
+ATP hydrolysis coupled cation transmembrane transport	1	100	1	5	4
+protein quality control for misfolded or incompletely synthesized proteins	2	100	2	2	0
+cellular detoxification	13	100	13	52	39
+response to chemical	10	100	10	47	37
+lysosomal microautophagy	2	100	2	7	5
+transmembrane transport	30	100	30	45	15
+attachment of spindle microtubules to kinetochore	2	100	2	2	0
+proton-exporting ATPase activity	1	100	1	7	6
+energy coupled proton transmembrane transport, against electrochemical gradient	1	100	1	5	4
+regulation of phosphatase activity	2	100	2	2	0
+rRNA catabolic process	2	100	2	2	0
+autophagy of nucleus	2	100	2	7	5
+Hrd1p ubiquitin ligase complex	2	100	2	2	0
+outer mitochondrial membrane protein complex	2	100	2	8	6
+ubiquitin-like protein binding	2	100	2	3	1
+proteasome assembly	1	100	1	2	1
+intracellular pH reduction	1	100	1	7	6
+proton transmembrane transporter activity	1	100	1	6	5
+ATPase activity, coupled to transmembrane movement of ions, rotational mechanism	1	100	1	6	5
+protein processing	11	100	11	45	34
+ATP hydrolysis coupled ion transmembrane transport	1	100	1	5	4
+ribosome	11	100	11	50	39
+organelle membrane contact site	1	100	1	2	1
+phospholipid metabolic process	1	100	1	63	62
+establishment of protein localization to vacuole	2	100	2	108	106
+phosphatase regulator activity	2	100	2	2	0
+negative regulation of protein phosphorylation	26	96.2962962963	27	72	46
+regulation of autophagy	22	95.652173913	23	26	4
+cofactor binding	77	92.7710843373	83	170	93
+phytosteroid biosynthetic process	188	89.95215311	209	508	320
+cellular lipid biosynthetic process	188	89.95215311	209	508	320
+cellular alcohol biosynthetic process	188	89.95215311	209	508	320
+secondary alcohol biosynthetic process	188	89.95215311	209	508	320
+ergosterol metabolic process	188	89.95215311	209	508	320
+sterol biosynthetic process	188	89.95215311	209	508	320
+response to temperature stimulus	26	89.6551724138	29	72	46
+response to stress	26	89.6551724138	29	79	53
+aerobic electron transport chain	42	87.5	48	42	0
+DNA conformation change	6	85.7142857143	7	23	17
+lipid biosynthetic process	75	78.9473684211	95	179	104
+cellular biosynthetic process	75	78.9473684211	95	177	102
+response to osmotic stress	30	78.9473684211	38	82	52
+cofactor metabolic process	39	73.5849056604	53	94	55
+regulation of gene expression	24	70.5882352941	34	128	104
+endosomal part	28	70	40	75	47
+peroxisome organization	7	70	10	7	0
+respiratory electron transport chain	67	69.7916666667	96	136	69
+citrate metabolic process	48	69.5652173913	69	129	81
+microbody	52	68.4210526316	76	106	54
+autophagy	2	66.6666666667	3	2	0
+sulfur compound metabolic process	13	61.9047619048	21	42	29
+peptide metabolic process	13	61.9047619048	21	15	2
+organelle membrane	37	57.8125	64	46	9
+regulation of nucleic acid-templated transcription	13	56.5217391304	23	47	34
+regulation of cellular macromolecule biosynthetic process	13	56.5217391304	23	17	4
+regulation of protein kinase activity	26	54.1666666667	48	72	46
+phosphate-containing compound metabolic process	73	53.6764705882	136	144	71
+import into cell	26	50.9803921569	51	75	49
+anion binding	182	49.3224932249	369	303	121
+cytoplasmic ribonucleoprotein granule	97	49.2385786802	197	181	84
+nuclear transport	11	45.8333333333	24	58	47
+coenzyme binding	236	44.7817836812	527	432	196
+response to oxidative stress	68	44.7368421053	152	145	77
+cellular response to chemical stimulus	68	44.7368421053	152	136	68
+membrane protein complex	23	44.2307692308	52	68	45
+cell cortex part	26	39.3939393939	66	77	51
+response to heat	33	37.9310344828	87	104	71
+iron-sulfur cluster binding	28	37.8378378378	74	64	36
+glutamine family amino acid metabolic process	42	36.2068965517	116	44	2
+phosphorylation	25	35.7142857143	70	68	43
+organelle envelope lumen	69	35.2040816327	196	105	36
+primary metabolic process	48	34.7826086957	138	165	117
+vesicle-mediated transport	29	34.5238095238	84	71	42
+cellular protein-containing complex assembly	22	34.375	64	115	93
+cytoskeletal part	26	33.7662337662	77	129	103
+antioxidant activity	13	33.3333333333	39	23	10
+cellular component assembly	26	29.2134831461	89	101	75
+lytic vacuole membrane	25	28.7356321839	87	94	69
+alpha-amino acid biosynthetic process	127	26.0780287474	487	279	152
+cytoplasmic vesicle	17	25.3731343284	67	51	34
+vacuolar part	1	25	4	32	31
+nucleotide binding	59	23.7903225806	248	61	2
+metal ion binding	22	23.1578947368	95	30	8
+organonitrogen compound biosynthetic process	19	20.4301075269	93	21	2
+amide biosynthetic process	19	19	100	21	2
+negative regulation of transcription, DNA-templated	17	18.4782608696	92	76	59
+cell wall organization	17	18.2795698925	93	144	127
+membrane organization	17	17.8947368421	95	46	29
+NADP metabolic process	13	17.8082191781	73	51	38
+intracellular protein transport	14	17.5	80	53	39
+organelle organization	19	16.3793103448	116	23	4
+nucleoid	22	15.8273381295	139	37	15
+Golgi vesicle transport	9	15.7894736842	57	86	77
+catalytic complex	28	14.8936170213	188	100	72
+metabolic process	76	14.6718146718	518	579	503
+chromatin organization	6	13.6363636364	44	78	72
+fungal-type cell wall organization or biogenesis	17	13.3858267717	127	120	103
+proteasome-mediated ubiquitin-dependent protein catabolic process	2	13.3333333333	15	13	11
+ERAD pathway	2	13.3333333333	15	14	12
+cellular homeostasis	13	11.4035087719	114	17	4
+integral component of mitochondrial membrane	3	11.1111111111	27	27	24
+lytic vacuole	1	11.1111111111	9	36	35
+storage vacuole	1	11.1111111111	9	4	3
+transferase complex	16	10.9589041096	146	27	11
+signal transduction	4	9.756097561	41	15	11
+regulation of cellular process	13	9.4890510949	137	20	7
+regulation of transcription, DNA-templated	2	8.3333333333	24	33	31
+intracellular organelle lumen	16	8.2901554404	193	105	89
+organelle membrane fusion	2	8	25	2	0
+whole membrane	3	7.5	40	77	74
+organelle outer membrane	2	7.4074074074	27	22	20
+oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor	16	7.2072072072	222	90	74
+Golgi apparatus part	9	6.976744186	129	49	40
+ubiquitin-dependent protein catabolic process	2	6.4516129032	31	17	15
+proteasomal protein catabolic process	2	6.4516129032	31	2	0
+mRNA processing	3	5.7692307692	52	53	50
+protein metabolic process	1	3.0303030303	33	12	11
+ATPase regulator activity	1	2.9411764706	34	13	12
+regulation of catalytic activity	1	2.9411764706	34	14	13
+protein targeting	1	2.380952381	42	34	33
+establishment of protein localization to mitochondrion	1	2.380952381	42	3	2
+mitochondrial transport	1	2.380952381	42	6	5
+transition metal ion binding	2	1.9047619048	105	230	228
+large ribosomal subunit	2	1.0928961749	183	26	24
+organelle inner membrane	0	0	64	0	0
+cellular response to DNA damage stimulus	0	0	64	0	0
+cell aging	0	0	47	63	63
+regulation of growth	0	0	23	0	0
+positive regulation of transcription from RNA polymerase II promoter in response to stress	0	0	8	19	19
+negative regulation of exit from mitosis	0	0	15	0	0
+sporulation	0	0	9	35	35
+actin binding	0	0	20	3	3
+regulation of ATPase activity	0	0	4	0	0
+RNA helicase activity	0	0	19	7	7
+cellular component assembly involved in morphogenesis	0	0	8	0	0
+microtubule	0	0	20	78	78
+positive regulation of protein kinase activity	0	0	48	4	4
+protein kinase regulator activity	0	0	21	38	38
+sister chromatid cohesion	0	0	49	0	0
+organophosphate biosynthetic process	0	0	12	14	14
+chromosome organization	0	0	4	0	0
+protein-containing complex binding	0	0	72	0	0
+establishment of protein localization to organelle	0	0	91	4	4
+RNA-dependent ATPase activity	0	0	19	7	7
+protein import	0	0	70	4	4
+iron ion homeostasis	0	0	19	37	37
+cell wall	0	0	62	22	22
+ATPase activity, coupled to movement of substances	0	0	4	0	0
+positive regulation of transcription by RNA polymerase II	0	0	64	0	0
+cation transmembrane transporter activity	0	0	8	0	0
+RNA methylation	0	0	30	1	1
+regulation of cellular component organization	0	0	34	0	0
+establishment of cell polarity	0	0	7	52	52
+organic anion transport	0	0	14	1	1
+DNA polymerase complex	0	0	23	0	0
+import into nucleus	0	0	70	4	4
+phosphotransferase activity, alcohol group as acceptor	0	0	34	0	0
+nicotinamide nucleotide biosynthetic process	0	0	58	8	8
+positive regulation of nucleic acid-templated transcription	0	0	2	0	0
+regulation of pseudohyphal growth	0	0	28	0	0
+ribonucleoprotein complex disassembly	0	0	15	4	4
+chromatin silencing	0	0	26	5	5
+cellular localization	0	0	20	0	0
+ubiquitin-like protein transferase activity	0	0	7	0	0
+cell development	0	0	18	0	0
+chromosome organization involved in meiotic cell cycle	0	0	30	0	0
+post-Golgi vesicle-mediated transport	0	0	26	0	0
+tRNA transport	0	0	27	0	0
+positive regulation of gene expression	0	0	2	0	0
+mitochondrion organization	0	0	50	0	0
+glucose metabolic process	0	0	27	42	42
+regulation of cell wall organization or biogenesis	0	0	11	0	0
+pyruvate biosynthetic process	0	0	58	8	8
+DNA-dependent ATPase activity	0	0	7	2	2
+RNA metabolic process	0	0	42	98	98
+cation-transporting ATPase activity	0	0	1	0	0
+RNA 3'-end processing	0	0	52	0	0
+mitotic spindle checkpoint	0	0	15	0	0
+protein glycosylation	0	0	35	0	0
+RNA polymerase core enzyme binding	0	0	23	0	0
+Golgi subcompartment	0	0	28	0	0
+protein-containing complex subunit organization	0	0	12	0	0
+translation factor activity, RNA binding	0	0	89	0	0
+anatomical structure formation involved in morphogenesis	0	0	9	35	35
+DNA polymerase activity	0	0	23	0	0
+RNA polymerase II transcription factor binding	0	0	15	0	0
+DNA integrity checkpoint	0	0	18	0	0
+protein phosphorylation	0	0	60	0	0
+proximal promoter sequence-specific DNA binding	0	0	28	0	0
+peroxisomal part	0	0	29	8	8
+catalytic activity, acting on a protein	0	0	24	0	0
+organic cyclic compound binding	0	0	33	45	45
+guanyl ribonucleotide binding	0	0	76	0	0
+double-strand break repair	0	0	30	0	0
+mitochondrial transmembrane transport	0	0	25	0	0
+enzyme activator activity	0	0	32	27	27
+chromatin	0	0	41	8	8
+regulation of biological quality	0	0	77	38	38
+cytoskeleton organization	0	0	31	0	0
+intracellular protein transmembrane transport	0	0	42	0	0
+rRNA 5'-end processing	0	0	33	10	10
+DNA-binding transcription factor activity	0	0	2	0	0
+negative regulation of chromatin silencing	0	0	21	23	23
+rRNA binding	0	0	55	6	6
+protein localization to nucleus	0	0	70	4	4
+plasma membrane bounded cell projection part	0	0	17	0	0
+drug transport	0	0	14	0	0
+chromosome condensation	0	0	4	0	0
+membrane fusion	0	0	8	0	0
+vesicle organization	0	0	23	0	0
+organonitrogen compound metabolic process	0	0	61	4	4
+actin cytoskeleton organization	0	0	19	0	0
+integral component of membrane	0	0	11	42	42
+regulation of chromatin silencing at telomere	0	0	21	23	23
+small ribosomal subunit	0	0	196	0	0
+Golgi cisterna	0	0	23	0	0
+DNA strand elongation involved in DNA replication	0	0	23	0	0
+nucleic acid metabolic process	0	0	23	0	0
+regulation of translation	0	0	25	53	53
+protein dimerization activity	0	0	57	81	81
+intrinsic component of Golgi membrane	0	0	9	0	0
+cell tip	0	0	17	0	0
+protein ubiquitination	0	0	15	0	0
+DNA-templated transcription, elongation	0	0	1	1	1
+tRNA wobble base modification	0	0	1	0	0
+sequence-specific double-stranded DNA binding	0	0	59	99	99
+anatomical structure homeostasis	0	0	22	0	0
+positive regulation of hydrolase activity	0	0	54	91	91
+organic substance transport	0	0	27	0	0
+maturation of SSU-rRNA	0	0	180	0	0
+growth of unicellular organism as a thread of attached cells	0	0	41	0	0
+cellular transition metal ion homeostasis	0	0	27	83	83
+nucleotide biosynthetic process	0	0	50	63	63
+ATPase activity, coupled	0	0	26	0	0
+coenzyme biosynthetic process	0	0	23	0	0
+carboxylic acid transport	0	0	27	0	0
+ubiquitin-protein transferase activity	0	0	6	0	0
+histone modification	0	0	46	14	14
+intrinsic component of endoplasmic reticulum membrane	0	0	10	28	28
+kinase activity	0	0	29	0	0
+cellular response to heat	0	0	7	23	23
+establishment or maintenance of cell polarity	0	0	1	0	0
+cytosolic transport	0	0	28	0	0
+regulation of translational initiation	0	0	47	6	6
+cellular response to starvation	0	0	19	9	9
+regulation of protein complex assembly	0	0	36	10	10
+positive regulation of molecular function	0	0	8	13	13
+pre-replicative complex assembly involved in cell cycle DNA replication	0	0	3	0	0
+transcription by RNA polymerase I	0	0	23	15	15
+nucleotide-excision repair	0	0	1	0	0
+regulation of protein serine|threonine kinase activity	0	0	27	2	2
+monovalent inorganic cation transport	0	0	42	2	2
+regulation of cell morphogenesis	0	0	58	11	11
+tRNA-specific ribonuclease activity	0	0	30	0	0
+regulation of vesicle-mediated transport	0	0	24	0	0
+nucleus organization	0	0	12	0	0
+cellular protein metabolic process	0	0	139	5	5
+microtubule organizing center	0	0	35	76	76
+transferase activity, transferring acyl groups other than amino-acyl groups	0	0	54	0	0
+nucleoplasm part	0	0	22	0	0
+chromosome, telomeric region	0	0	26	0	0
+basal RNA polymerase II transcription machinery binding	0	0	23	0	0
+transcription coregulator activity	0	0	43	0	0
+ubiquitin-like protein ligase activity	0	0	6	0	0
+organelle disassembly	0	0	15	4	4
+rRNA metabolic process	0	0	90	0	0
+internal peptidyl-lysine acetylation	0	0	24	0	0
+protein transport	0	0	43	30	30
+secretion by cell	0	0	1	0	0
+catalytic activity, acting on DNA	0	0	20	0	0
+septin ring organization	0	0	20	26	26
+intrinsic component of plasma membrane	0	0	32	0	0
+organelle assembly	0	0	30	27	27
+ribonucleoprotein complex	0	0	87	18	18
+non-recombinational repair	0	0	30	0	0
+vesicle-mediated transport to the plasma membrane	0	0	1	0	0
+cellular_component	0	0	146	25	25
+microbody membrane	0	0	29	0	0
+inner mitochondrial membrane protein complex	0	0	48	8	8
+ncRNA processing	0	0	90	0	0
+homologous recombination	0	0	10	2	2
+organelle localization by membrane tethering	0	0	27	0	0
+vesicle coat	0	0	22	1	1
+cell growth	0	0	41	0	0
+regulation of molecular function	0	0	48	0	0
+intrinsic component of peroxisomal membrane	0	0	26	12	12
+rRNA 3'-end processing	0	0	41	0	0
+endonucleolytic cleavage of tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA)	0	0	64	20	20
+cellular developmental process	0	0	30	0	0
+protein modification by small protein conjugation	0	0	1	16	16
+RNA transport	0	0	12	0	0
+reproductive process	0	0	73	0	0
+carbohydrate catabolic process	0	0	60	8	8
+rRNA modification	0	0	30	1	1
+organelle envelope	0	0	64	0	0
+cation transport	0	0	36	0	0
+RNA polymerase II regulatory region sequence-specific DNA binding	0	0	28	0	0
+protein kinase activity	0	0	60	0	0
+cell differentiation	0	0	9	35	35
+ubiquitin-like protein ligase binding	0	0	21	0	0
+tubulin binding	0	0	20	0	0
+tRNA modification	0	0	1	0	0
+synaptonemal complex organization	0	0	4	0	0
+chromosomal region	0	0	36	62	62
+DNA recombination	0	0	23	0	0
+regulation of transcription elongation from RNA polymerase II promoter	0	0	28	0	0
+ribonucleoprotein complex biogenesis	0	0	150	46	46
+cellular bud site selection	0	0	22	0	0
+molecular function regulator	0	0	73	7	7
+endocytosis	0	0	57	0	0
+molecular_function	0	0	53	24	24
+positive regulation of translation	0	0	69	4	4
+exonucleolytic trimming involved in rRNA processing	0	0	12	4	4
+DNA repair	0	0	36	0	0
+disulfide oxidoreductase activity	0	0	66	0	0
+catalytic activity	0	0	67	0	0
+endopeptidase activity	0	0	51	0	0
+ncRNA export from nucleus	0	0	27	0	0
+integral component of organelle membrane	0	0	35	52	52
+sexual sporulation resulting in formation of a cellular spore	0	0	18	0	0
+condensed chromosome, centromeric region	0	0	9	0	0
+nuclear-transcribed mRNA catabolic process	0	0	30	0	0
+rRNA transcription	0	0	23	15	15
+mitochondrial respiratory chain complex assembly	0	0	24	0	0
+P-P-bond-hydrolysis-driven transmembrane transporter activity	0	0	1	0	0
+peptidase complex	0	0	2	0	0
+protein folding	0	0	41	13	13
+hexose metabolic process	0	0	11	20	20
+mannosyltransferase activity	0	0	1	0	0
+transcriptional activator activity, RNA polymerase II transcription regulatory region sequence-specific DNA binding	0	0	28	0	0
+SAGA-type complex	0	0	2	0	0
+developmental process involved in reproduction	0	0	36	0	0
+reproductive process in single-celled organism	0	0	40	0	0
+mitotic cell cycle process	0	0	149	12	12
+chromosomal part	0	0	68	43	43
+organelle inheritance	0	0	10	0	0
+ribonucleoprotein complex binding	0	0	88	4	4
+drug transmembrane transporter activity	0	0	8	0	0
+establishment of organelle localization	0	0	40	10	10
+RNA export from nucleus	0	0	1	2	2
+spindle pole body organization	0	0	38	0	0
+intrinsic component of mitochondrial outer membrane	0	0	27	9	9
+regulation of chromatin silencing at silent mating-type cassette	0	0	49	0	0
+DNA replication	0	0	23	0	0
+karyogamy	0	0	13	0	0
+inorganic cation transmembrane transport	0	0	43	4	4
+cellular respiration	0	0	23	7	7
+condensed chromosome kinetochore	0	0	29	48	48
+telomere maintenance	0	0	7	0	0
+preribosome	0	0	179	39	39
+electron transfer activity	0	0	48	15	15
+purine ribonucleoside binding	0	0	76	0	0
+cellular protein localization	0	0	36	0	0
+peptidyl-lysine modification	0	0	1	79	79
+activating transcription factor binding	0	0	15	0	0
+transcription factor activity, RNA polymerase II proximal promoter sequence-specific DNA binding	0	0	28	0	0
+protein localization	0	0	7	4	4
+phospholipid binding	0	0	47	9	9
+phospholipid transport	0	0	3	0	0
+translesion synthesis	0	0	23	0	0
+DNA-dependent DNA replication maintenance of fidelity	0	0	23	0	0
+modification-dependent protein catabolic process	0	0	1	20	20
+intracellular signal transduction	0	0	40	113	113
+glycosylation	0	0	1	0	0
+ATP biosynthetic process	0	0	58	9	9
+tRNA metabolic process	0	0	30	26	26
+nucleotide catabolic process	0	0	58	8	8
+vacuole fusion	0	0	8	0	0
+membrane microdomain	0	0	9	6	6
+transcription factor activity, transcription factor recruiting	0	0	2	0	0
+telomere localization	0	0	26	0	0
+meiotic cell cycle process	0	0	58	27	27
+nucleolar part	0	0	57	23	23
+peptide biosynthetic process	0	0	139	0	0
+phosphatidylinositol phosphate binding	0	0	11	0	0
+establishment of sister chromatid cohesion	0	0	26	0	0
+endoplasmic reticulum organization	0	0	10	0	0
+regulation of vacuole organization	0	0	11	0	0
+negative regulation of transcription by RNA polymerase II	0	0	49	58	58
+Ras GTPase binding	0	0	1	27	27
+cell budding	0	0	22	0	0
+RNA phosphodiester bond hydrolysis	0	0	30	0	0
+TOR complex	0	0	23	0	0
+cullin-RING ubiquitin ligase complex	0	0	1	0	0
+mitotic DNA damage checkpoint	0	0	23	0	0
+actin filament bundle organization	0	0	20	10	10
+telomere organization	0	0	22	0	0
+double-strand break repair via homologous recombination	0	0	43	0	0
+actin filament-based process	0	0	31	0	0
+mitochondrial protein complex	0	0	23	6	6
+regulation of mitotic cell cycle phase transition	0	0	5	0	0
+cellular metabolic process	0	0	187	215	215
+mRNA export from nucleus	0	0	1	0	0
+cellular chemical homeostasis	0	0	8	11	11
+regulation of localization	0	0	11	0	0
+endoribonuclease activity, producing 5'-phosphomonoesters	0	0	30	0	0
+regulation of mitotic nuclear division	0	0	5	0	0
+transcription elongation factor complex	0	0	1	102	102
+supramolecular fiber organization	0	0	40	0	0
+mitotic recombination	0	0	7	0	0
+endosomal transport	0	0	3	0	0
+rRNA processing	0	0	19	0	0
+nitrogen compound transport	0	0	36	24	24
+endocytic patch	0	0	41	0	0
+chaperone complex	0	0	29	0	0
+GTPase regulator activity	0	0	32	27	27
+protein maturation	0	0	1	0	0
+respiratory chain complex III	0	0	48	15	15
+maturation of LSU-rRNA	0	0	82	7	7
+ATP-dependent helicase activity	0	0	19	7	7
+mitochondrial membrane part	0	0	25	0	0
+transcription-dependent tethering of RNA polymerase II gene DNA at nuclear periphery	0	0	1	0	0
+growth	0	0	54	25	25
+regulation of GTPase activity	0	0	54	27	27
+mRNA transport	0	0	1	2	2
+heterocyclic compound binding	0	0	33	45	45
+cell cycle	0	0	25	0	0
+ATP generation from ADP	0	0	58	8	8
+plasma membrane protein complex	0	0	32	13	13
+regulation of macromolecule metabolic process	0	0	27	0	0

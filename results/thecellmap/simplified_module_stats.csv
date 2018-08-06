@@ -1,0 +1,18 @@
+module_name	genes_count	genes_with_interactions	interactions_count
+rDNA & ncDNA processing	90	68	424
+Nuclear-cytoplasmic transport	39	32	137
+tRNA wobble modification	16	13	33
+Cell polarity & morphogenesis	102	60	225
+Vesicle traffic	95	73	169
+Respiration, oxidative phosphorylation, mitochondrial targeting	138	88	165
+Mitosis & chromosome segregation	199	145	667
+DNA replication & repair	95	71	183
+Peroxisome	24	16	65
+Protein degradation|turnover	59	40	253
+MVB sorting and pH depending signaling	21	19	32
+Cytokinesis	13	4	6
+Glycosylation, protein folding|targeting, cell wall biosynthesis	160	96	185
+Ribosome biogenesis	74	35	45
+mRNA & tRNA processing	96	80	456
+Transcription & chromatin organization	110	81	303
+Metabolism	11	0	0

@@ -8,8 +8,15 @@
 setwd("~/Science/eQTL_analysis/data/pQTLs/")
 library(qvalue)
 pobj = read.table("./pvalues.csv", stringsAsFactors=FALSE, col.names=c("pvalues"))
-qobj = qvalue(as.numeric(pobj$pvalues[-1]))
+pvalues = as.numeric(pobj$pvalues[- 1])
+qobj = try(qvalue(pvalues));
+if (class(qobj) == "try-error") {
+    qvalues = p.adjust(pvalues, method = "BH")
+} else {
+    qvalues = qobj$qvalues
+}
+
 write.table(
-    qobj$qvalues, file="./qvalues.csv",
-    col.names=c("qvalue"), row.names=FALSE
+qvalues, file = "./qvalues.csv",
+col.names = c("qvalue"), row.names = FALSE
 )

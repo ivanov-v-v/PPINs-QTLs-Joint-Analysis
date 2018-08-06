@@ -11,7 +11,7 @@ positive regulation of protein polymerization	no linkages
 tRNA modification	linkage sets don't intersect
 chromatin	linkage sets don't intersect
 catalytic activity	linkage sets don't intersect
-membrane lipid biosynthetic process	no linkages
+membrane lipid biosynthetic ppi_test_handler	no linkages
 phospholipid transport	linkage sets don't intersect
 protein import into nucleus	linkage sets don't intersect
 TOR complex	linkage sets don't intersect
@@ -32,15 +32,15 @@ regulation of attachment of spindle microtubules to kinetochore	no linkages
 core promoter sequence-specific DNA binding	no linkages
 nucleotide-excision repair complex	no linkages
 microtubule binding	no linkages
-mRNA metabolic process	linkage sets don't intersect
+mRNA metabolic ppi_test_handler	linkage sets don't intersect
 mannosyltransferase activity	linkage sets don't intersect
 maintenance of protein location in cell	no linkages
 protein modification by small protein removal	no linkages
-regulation of nuclear-transcribed mRNA catabolic process                                                                        ,deadenylation-dependent decay	no linkages
-negative regulation of cellular biosynthetic process	linkage sets don't intersect
+regulation of nuclear-transcribed mRNA catabolic ppi_test_handler                                                                        ,deadenylation-dependent decay	no linkages
+negative regulation of cellular biosynthetic ppi_test_handler	linkage sets don't intersect
 regulation of mitochondrial translation	no linkages
 retrograde transport                                                                                                            ,endosome to Golgi	no linkages
-nuclear polyadenylation-dependent ncRNA catabolic process	linkage sets don't intersect
+nuclear polyadenylation-dependent ncRNA catabolic ppi_test_handler	linkage sets don't intersect
 positive regulation of response to nutrient levels	no linkages
 telomere maintenance	linkage sets don't intersect
 clathrin adaptor complex	no linkages
@@ -62,7 +62,7 @@ endosome membrane	no linkages
 polymeric cytoskeletal fiber	no linkages
 ATP-dependent DNA helicase activity	linkage sets don't intersect
 endosome	no linkages
-CUT catabolic process	no linkages
+CUT catabolic ppi_test_handler	no linkages
 catalytic step 1 spliceosome	no linkages
 cellular bud neck septin structure	linkage sets don't intersect
 spliceosomal snRNP complex	no linkages
@@ -73,7 +73,7 @@ cellular response to osmotic stress	no linkages
 DNA secondary structure binding	no linkages
 basal RNA polymerase II transcription machinery binding	linkage sets don't intersect
 establishment of protein localization to mitochondrial membrane	no linkages
-exocytic process	linkage sets don't intersect
+exocytic ppi_test_handler	linkage sets don't intersect
 general transcription initiation factor activity	no linkages
 cytoplasmic vesicle part	linkage sets don't intersect
 protein dephosphorylation	no linkages
@@ -96,15 +96,15 @@ activation of protein kinase activity	no linkages
 secondary active transmembrane transporter activity	linkage sets don't intersect
 glycosylation	linkage sets don't intersect
 regulation of pseudohyphal growth	no linkages
-exonucleolytic nuclear-transcribed mRNA catabolic process involved in deadenylation-dependent decay	linkage sets don't intersect
+exonucleolytic nuclear-transcribed mRNA catabolic ppi_test_handler involved in deadenylation-dependent decay	linkage sets don't intersect
 histone modification	linkage sets don't intersect
 transcription-dependent tethering of RNA polymerase II gene DNA at nuclear periphery	linkage sets don't intersect
-negative regulation of cellular protein metabolic process	no linkages
+negative regulation of cellular protein metabolic ppi_test_handler	no linkages
 endosomal transport	linkage sets don't intersect
 enzyme activator activity	linkage sets don't intersect
 snoRNA binding	linkage sets don't intersect
 tethering complex	no linkages
-nuclear-transcribed mRNA catabolic process                                                                                      ,exonucleolytic	linkage sets don't intersect
+nuclear-transcribed mRNA catabolic ppi_test_handler                                                                                      ,exonucleolytic	linkage sets don't intersect
 ATP-dependent chromatin remodeling	no linkages
 peptide-lysine-N-acetyltransferase activity	no linkages
 GTPase regulator activity	linkage sets don't intersect
@@ -119,13 +119,13 @@ establishment of spindle orientation	no linkages
 DNA replication preinitiation complex	linkage sets don't intersect
 positive regulation of chromosome segregation	no linkages
 histone deacetylase complex	linkage sets don't intersect
-tRNA catabolic process	linkage sets don't intersect
+tRNA catabolic ppi_test_handler	linkage sets don't intersect
 regulation of transcription by RNA polymerase I	linkage sets don't intersect
 cation transmembrane transporter activity	linkage sets don't intersect
 vesicle coat	linkage sets don't intersect
 storage vacuole	linkage sets don't intersect
 regulation of cyclin-dependent protein kinase activity	no linkages
-amide biosynthetic process	linkage sets don't intersect
+amide biosynthetic ppi_test_handler	linkage sets don't intersect
 negative regulation of gene expression	linkage sets don't intersect
 tRNA transcription	no linkages
 energy coupled proton transport                                                                                                 ,down electrochemical gradient	linkage sets don't intersect
@@ -141,9 +141,9 @@ intrinsic component of mitochondrial inner membrane	linkage sets don't intersect
 regulation of TORC1 signaling	linkage sets don't intersect
 mitotic recombination	linkage sets don't intersect
 transcription elongation factor complex	linkage sets don't intersect
-negative regulation of cellular amide metabolic process	no linkages
+negative regulation of cellular amide metabolic ppi_test_handler	no linkages
 Pex17p-Pex14p docking complex	no linkages
-regulation of cell cycle process	no linkages
+regulation of cell cycle ppi_test_handler	no linkages
 stress-activated MAPK cascade	no linkages
 ribosomal subunit export from nucleus	linkage sets don't intersect
 peptidase activity                                                                                                              ,acting on L-amino acid peptides	no linkages
@@ -151,15 +151,15 @@ nuclear export	no linkages
 peptidyl-lysine modification	linkage sets don't intersect
 regulation of protein phosphorylation	linkage sets don't intersect
 transporter complex	no linkages
-organonitrogen compound biosynthetic process	linkage sets don't intersect
-glycolipid biosynthetic process	no linkages
+organonitrogen compound biosynthetic ppi_test_handler	linkage sets don't intersect
+glycolipid biosynthetic ppi_test_handler	no linkages
 organellar large ribosomal subunit	no linkages
 INO80-type complex	no linkages
 phosphatase activity	no linkages
 cleavage apparatus septin structure	linkage sets don't intersect
 positive regulation of MAP kinase activity	no linkages
 RNA polymerase core enzyme binding	linkage sets don't intersect
-mRNA catabolic process	no linkages
+mRNA catabolic ppi_test_handler	no linkages
 ion homeostasis	no linkages
 peptidase complex	linkage sets don't intersect
 organelle fission	no linkages
@@ -180,8 +180,8 @@ heterochromatin	linkage sets don't intersect
 snoRNA processing	no linkages
 transcription factor binding	no linkages
 regulation of microtubule polymerization	no linkages
-RNA-dependent DNA biosynthetic process	no linkages
-sphingolipid metabolic process	no linkages
+RNA-dependent DNA biosynthetic ppi_test_handler	no linkages
+sphingolipid metabolic ppi_test_handler	no linkages
 RNA polymerase II basal transcription factor binding	no linkages
 transcription factor activity                                                                                                   ,RNA polymerase II core promoter sequence-specific DNA binding	no linkages
 positive regulation of cytoskeleton organization	no linkages
@@ -192,7 +192,7 @@ regulation of DNA recombination	no linkages
 regulation of gluconeogenesis	linkage sets don't intersect
 fungal-type cell wall assembly	linkage sets don't intersect
 Golgi-associated vesicle	linkage sets don't intersect
-nuclear-transcribed mRNA catabolic process                                                                                      ,nonsense-mediated decay	linkage sets don't intersect
+nuclear-transcribed mRNA catabolic ppi_test_handler                                                                                      ,nonsense-mediated decay	linkage sets don't intersect
 cellular bud site selection	no linkages
 positive regulation of hydrolase activity	linkage sets don't intersect
 transcription factor activity                                                                                                   ,protein binding	no linkages
@@ -210,7 +210,7 @@ cellular component organization	no linkages
 Ras GTPase binding	linkage sets don't intersect
 regulation of protein serine|threonine kinase activity	linkage sets don't intersect
 histone lysine methylation	linkage sets don't intersect
-meiosis I cell cycle process	no linkages
+meiosis I cell cycle ppi_test_handler	no linkages
 budding cell bud growth	no linkages
 regulation of cellular component organization	linkage sets don't intersect
 positive regulation of growth of unicellular organism as a thread of attached cells	no linkages
@@ -243,8 +243,8 @@ protein processing	linkage sets don't intersect
 protein maturation	linkage sets don't intersect
 maintenance of DNA repeat elements	no linkages
 protein localization to chromosome	no linkages
-polyadenylation-dependent mRNA catabolic process	linkage sets don't intersect
-nuclear-transcribed mRNA catabolic process                                                                                      ,exonucleolytic                                                           ,3'-5'	linkage sets don't intersect
+polyadenylation-dependent mRNA catabolic ppi_test_handler	linkage sets don't intersect
+nuclear-transcribed mRNA catabolic ppi_test_handler                                                                                      ,exonucleolytic                                                           ,3'-5'	linkage sets don't intersect
 regulation of cell cycle	no linkages
 snoRNA 3'-end processing	linkage sets don't intersect
 nuclear RNA surveillance	linkage sets don't intersect
@@ -254,7 +254,7 @@ phosphatidylinositol 3-kinase complex                                           
 DNA helicase activity	linkage sets don't intersect
 ATPase complex	no linkages
 cell budding	no linkages
-negative regulation of cellular macromolecule biosynthetic process	no linkages
+negative regulation of cellular macromolecule biosynthetic ppi_test_handler	no linkages
 transcription by RNA polymerase I	linkage sets don't intersect
 intrinsic component of peroxisomal membrane	linkage sets don't intersect
 inner mitochondrial membrane organization	no linkages
