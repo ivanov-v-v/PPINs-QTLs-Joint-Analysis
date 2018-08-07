@@ -767,113 +767,115 @@ def qtl_overlap_by_module_test(eqtl_df, pqtl_df, gene_pool, modules_dict, randit
     return qtl_intersection_j, randomized_qtl_intersection_j
 
 
-########################################################################################################################
-#                                             PREDICTING PQTLS FROM EQTLS                                              #
-########################################################################################################################
-
-"""
-TODO: 
-- Refactor interface!
-- Reimplement plotting 
-- Add more statistics to returned string
-"""
+#########################################################################################################################
+#                                              PREDICTING PQTLS FROM EQTLS                                              #
+#########################################################################################################################
 
 
 class PqtlPredictor:
+    """
+    Predicts pQTLs from eQTLs using PPI networks.
+    Rationale:
+        1. Good prediction quality indicates hidden relationship between eQTLs and pQTLs.
+        2. Less candidates implies more pQTLs for the same FDR-cutoff in this context.
+    Algorithm:
+        1. Form a set of candidate linkages — (marker, gene) pairs.
+            For each gene g, markers = eQTLs(g) U eQTLs(N(g)),
+            where N(g) is a neighborhood of g in the PPI graph.
+        2. Test for linkage naively, using MWU test and q-values (for FDR correction).
+    """
     # [-------------------------------------------------PUBLIC METHODS-------------------------------------------------]
     def __init__(self, eqtls_df, pqtls_df,
-                 eqtls_expression_df, eqtls_genotypes_df,
                  pqtls_expression_df, pqtls_genotypes_df,
-                 full_genotypes_df,
-                 module_name, module_graph):
+                 module_name, module_genes,
+                 interactome_graph):
+        self.pqtls_expr_df = pqtls_expression_df
+        self.pqtls_gen_df = pqtls_genotypes_df
+
+        # To parallelize p-value computation we must filter out genes
+        # with no protein abundance data and markers not present in yeast
+        self.possible_pQTL_markers = pqtls_genotypes_df["SNP"].values
+        self.genes_with_protein_abundance = pqtls_expression_df["gene"].values
 
         self.eqtls_df = eqtls_df
         self.pqtls_df = pqtls_df
 
-        self.eqtls_expr_df = eqtls_expression_df
-        self.eqtls_gen_df = eqtls_genotypes_df
-        self.pqtls_expr_df = pqtls_expression_df
-        self.pqtls_gen_df = pqtls_genotypes_df
-
-        self.possible_markers = set(pqtls_genotypes_df["SNP"].values)
-        self.possible_genes = set(pqtls_expression_df["gene"].values)
-
+        # These are frequently queried during p-value calculations.
+        # Conversion pandas.DataFrame to np.matrix allows to achieve twofold speed-up
         self.pqtls_expr_mx = \
-            self.pqtls_expr_df.as_matrix(
-                columns=self.pqtls_expr_df.columns[1:]
+            pqtls_expression_df.as_matrix(
+                columns=pqtls_expression_df.columns[1:]
             )
         self.pqtls_gen_mx = \
-            self.pqtls_gen_df.as_matrix(
-                columns=self.pqtls_gen_df.columns[1:]
+            pqtls_genotypes_df.as_matrix(
+                columns=pqtls_genotypes_df.columns[1:]
             )
 
-        self.full_gen_df = full_genotypes_df
         self.module_name = module_name
-        self.module_graph = module_graph
+        self.module_genes = module_genes
+        self.interactome_graph = interactome_graph
 
-    # TO BE REFACTORED
-    def predict(self):
-        results = Parallel(n_jobs=mp.cpu_count())(
-            delayed(self._get_possible_linkages)(gene_name)
-            for gene_name in set(self.module_graph.vs["name"]) & self.possible_genes
-        )
-        possible_linkages = list(set(sum(results, [])))
+    def predict(self, fdr_cutoff=0.05):
+        """
+        Predicts pQTLs from eQTLs and returns analysis summary.
 
-        p_values = Parallel(n_jobs=mp.cpu_count())(
-            delayed(self._compute_p_value)(linkage) for linkage in possible_linkages
+        :param fdr_cutoff: q-value threshold for predicted pQTLs
+        :return: 5-tuple of a kind:
+            (number of common_pQTLs,
+            fraction of common pQTLs,
+            number of initial pQTLs,
+            number of predicted pQTLs,
+            number of new pQTLs)
+        """
+        # 1. Construct a set of candidate linkages.
+        results = [
+            chunk for chunk in
+            Parallel(n_jobs=mp.cpu_count())(
+                delayed(self._get_possible_linkages)(gene_name)
+                for gene_name in np.intersect1d(self.module_genes, self.genes_with_protein_abundance)
+            ) if len(chunk) > 0
+        ]
+
+        if len(results) == 0:
+            return (0, 0, self.pqtls_df.shape[0], 0, 0)
+
+        # 2. Do QTL-mapping naively: MWU test with q-values.
+        possible_linkages = np.vstack(results)
+        p_values = np.array(
+            Parallel(n_jobs=mp.cpu_count())(
+                delayed(self._compute_p_value)(linkage) for linkage in possible_linkages
+            )
         )
 
         pd.DataFrame(p_values, columns=["pvalue"]).to_csv("./data/pQTLs/pvalues.csv", sep='\t', index=False)
-        subprocess.check_call(['Rscript', './src/p-values_to_q-values.R'], shell=False)
+        subprocess.call(['Rscript', './src/p-values_to_q-values.R'], shell=False)
         q_values = pd.read_table("./data/pQTLs/qvalues.csv").values
-        reject = q_values <= 0.05
+        reject = q_values <= fdr_cutoff
 
-        new_pqtls_list = [
-            (*possible_linkages[i], p_values[i], q_values[i], reject[i])
-            for i in range(len(possible_linkages))
-        ]
-
-        # Original and new results comparison via plots
         new_pqtls_df = pd.DataFrame(
-            new_pqtls_list,
+            np.column_stack((possible_linkages, p_values, q_values, reject)),
             columns=["SNP", "gene", "pvalue", "qvalue", "reject"]
         ).query("reject == True")
-        new_pqtls_df.to_csv("./data/pQTLs/new_results.csv", sep='\t', index=False, na_rep='NA')
 
         common = len(set(map(tuple, self.pqtls_df[["SNP", "gene"]].values))
                      & set(map(tuple, new_pqtls_df[["SNP", "gene"]].values)))
 
-        return (common, 100 * common / self.pqtls_df.shape[0], self.pqtls_df.shape[0],
+        old_pqtls_count = self.pqtls_df[self.pqtls_df["gene"].isin(self.module_genes)].shape[0]
+        return (common, 100 * common / old_pqtls_count, old_pqtls_count,
                 new_pqtls_df.shape[0], new_pqtls_df.shape[0] - common)
 
-    # [--------------------------------------------------PRIVATE METHODS--------------------------------------------------]
+    # [------------------------------------------------PRIVATE METHODS------------------------------------------------]
 
-    def _get_interacting_genes(self, gene_name, bfs_depth=1):
-        try:
-            return set(self.module_graph.vs[
-                           self.module_graph.neighborhood(gene_name, order=bfs_depth)
-                       ]["name"])
-        except ValueError:
-            return set()
-
-    def _get_linked_markers(self, gene_name, QTL_df):
-        return set(QTL_df[QTL_df["gene"] == gene_name]["SNP"].values)
-
-    def _get_linked_genes(self, marker_name, QTL_df):
-        return set(QTL_df[QTL_df["SNP"] == marker_name]["gene"].values)
-
-    def _get_linked_to_adjacent(self, gene_name):
-        interacting_genes = set(gene_name) | self._get_interacting_genes(gene_name)
-        linked = set()
-        for neighbor in interacting_genes:
-            linked |= self._get_linked_markers(neighbor, self.eqtls_df)
-            if neighbor != gene_name:
-                linked |= set(neighbor)
-        return linked
+    def _get_markers_linked_to_neighbors(self, gene_name):
+        neighborhood = np.append(
+            np.array(gene_name),
+            self.interactome_graph.vs[self.interactome_graph.neighborhood(gene_name)]["name"]
+        )
+        return linked_markers(qtl_df=self.eqtls_df, gene_list=neighborhood)
 
     def _get_possible_linkages(self, gene_name):
-        return [(marker_name, gene_name) for marker_name in
-                self._get_linked_to_adjacent(gene_name) & self.possible_markers]
+        linked_markers = self._get_markers_linked_to_neighbors(gene_name)
+        return np.column_stack((linked_markers, np.full(len(linked_markers), gene_name)))
 
     def _compute_p_value(self, candidate_linkage):
         marker_name, gene_name = candidate_linkage
@@ -881,6 +883,7 @@ class PqtlPredictor:
         genotype_row = self.pqtls_gen_mx[genotype_rowmask]
         expression_rowmask = self.pqtls_expr_df["gene"] == gene_name
         expression_row = self.pqtls_expr_mx[expression_rowmask]
+        # Divide expression data by inherited marker variant
         from_BY = expression_row[genotype_row == 0]
         from_RM = expression_row[genotype_row == 2]
         _, p_value = stats.mannwhitneyu(from_BY, from_RM, alternative="two-sided")
