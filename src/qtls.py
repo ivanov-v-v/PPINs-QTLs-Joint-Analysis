@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
-from joblib import Parallel, delayed
 from tqdm import *
 
 import networks
@@ -38,7 +37,7 @@ def linked_genes(qtl_df, marker_list):
 #                                                  VISUALIZATIONS                                                      #
 ########################################################################################################################
 
-def linkages2gencoords(qtl_df, markers_type="old"):
+def linkages2gencoords(qtl_df):
     '''
     Given a dataframe of estimated QTL linkages and
     full strain genotype lookup table, plot the number
@@ -771,6 +770,9 @@ def qtl_overlap_by_module_test(eqtl_df, pqtl_df, gene_pool, modules_dict, randit
 #                                              PREDICTING PQTLS FROM EQTLS                                              #
 #########################################################################################################################
 
+import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class PqtlPredictor:
     """
@@ -811,7 +813,7 @@ class PqtlPredictor:
                 columns=pqtls_genotypes_df.columns[1:]
             )
 
-        self.module_name = module_name
+        self.module_name = module_name.replace(' ', '_')
         self.module_genes = module_genes
         self.interactome_graph = interactome_graph
 
@@ -830,10 +832,9 @@ class PqtlPredictor:
         # 1. Construct a set of candidate linkages.
         results = [
             chunk for chunk in
-            Parallel(n_jobs=mp.cpu_count())(
-                delayed(self._get_possible_linkages)(gene_name)
-                for gene_name in np.intersect1d(self.module_genes, self.genes_with_protein_abundance)
-            ) if len(chunk) > 0
+            [self._get_possible_linkages(gene_name) for gene_name
+             in np.intersect1d(self.module_genes, self.genes_with_protein_abundance)]
+            if len(chunk) > 0
         ]
 
         if len(results) == 0:
@@ -841,15 +842,13 @@ class PqtlPredictor:
 
         # 2. Do QTL-mapping naively: MWU test with q-values.
         possible_linkages = np.vstack(results)
-        p_values = np.array(
-            Parallel(n_jobs=mp.cpu_count())(
-                delayed(self._compute_p_value)(linkage) for linkage in possible_linkages
-            )
-        )
+        p_values = np.array([self._compute_p_value(linkage) for linkage in possible_linkages])
 
-        pd.DataFrame(p_values, columns=["pvalue"]).to_csv("./data/pQTLs/pvalues.csv", sep='\t', index=False)
-        subprocess.call(['Rscript', './src/p-values_to_q-values.R'], shell=False)
-        q_values = pd.read_table("./data/pQTLs/qvalues.csv").values
+        pd.DataFrame(p_values, columns=["pvalue"]).to_csv("./data/pQTLs/temp/pvalues_{}.csv".format(self.module_name),
+                                                          sep='\t', index=False)
+        path_to_rscript = "Rscript" if os.environ["HOME"] == "/home/ivanov_vv" else "/home/vvi/anaconda3/bin/Rscript"
+        subprocess.call([path_to_rscript, './src/p-values_to_q-values.R', self.module_name], shell=False)
+        q_values = pd.read_table("./data/pQTLs/temp/qvalues_{}.csv".format(self.module_name)).values
         reject = q_values <= fdr_cutoff
 
         new_pqtls_df = pd.DataFrame(
@@ -867,11 +866,11 @@ class PqtlPredictor:
     # [------------------------------------------------PRIVATE METHODS------------------------------------------------]
 
     def _get_markers_linked_to_neighbors(self, gene_name):
-        neighborhood = np.append(
-            np.array(gene_name),
-            self.interactome_graph.vs[self.interactome_graph.neighborhood(gene_name)]["name"]
-        )
-        return linked_markers(qtl_df=self.eqtls_df, gene_list=neighborhood)
+        try:
+            neighborhood = self.interactome_graph.vs[self.interactome_graph.neighborhood(gene_name)]["name"]
+        except ValueError:
+            neighborhood = []
+        return linked_markers(qtl_df=self.eqtls_df, gene_list=np.append(np.array(gene_name), neighborhood))
 
     def _get_possible_linkages(self, gene_name):
         linked_markers = self._get_markers_linked_to_neighbors(gene_name)

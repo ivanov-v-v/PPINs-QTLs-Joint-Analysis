@@ -45,7 +45,7 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
   gene$fileOmitCharacters = "NA"; # denote missing values;
   gene$fileSkipRows = 1;          # one row of column labels
   gene$fileSkipColumns = 1;       # one column of row labels
-  gene$fileSliceSize = 5000;      # read file in slices of 2,000 rows
+  gene$fileSliceSize = 5000;      # read file in slices of 5,000 rows
   gene$LoadFile(full_expression_filename);
   
   ## Run the analysis
@@ -72,14 +72,18 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
 # args <- commandArgs(TRUE)
 
 identify_QTLs(
-'eQTLs/interpolated_genotypes.csv',
+'eQTLs/genotypes_2018.csv',
 'eQTLs/expression_2018.csv',
-'eQTLs/interpolated_qtls.csv'
+'eQTLs/new_qtls_from_scratch.csv',
+ 0.05
 )
 
 library(qvalue)
 
-QTLs_df = read.table("~/Science/eQTL_analysis/data/eQTLs/interpolated_qtls.csv", sep = '\t', stringsAsFactors = FALSE, header = TRUE)
-QTLs_df$q.value = qvalue(as.numeric(QTLs_df$p.value))$qvalues
-QTLs_df = QTLs_df[, c(1, 2, 5 : 7)]
-write.table(QTLs_df[QTLs_df$q.value <= 0.05,], "~/Science/eQTL_analysis/data/eQTLs/interpolated_qtls.csv", sep = '\t', row.names = FALSE)
+QTLs_df = na.omit(read.table("~/Science/eQTL_analysis/data/eQTLs/new_qtls_from_scratch.csv", sep = '\t', stringsAsFactors = FALSE, header = TRUE))
+QTLs_df$q.value = qvalue(
+  p=as.numeric(QTLs_df$p.value),
+  lambda=seq(from=0, to=max(QTLs_df$p.value), 0.05)
+)$qvalues
+#QTLs_df = QTLs_df[, c(1, 2, 5 : 7)]
+write.table(QTLs_df[QTLs_df$q.value <= 0.05,], "~/Science/eQTL_analysis/data/eQTLs/new_qtls_from_scratch_recomputed.csv", sep = '\t', row.names = FALSE)
