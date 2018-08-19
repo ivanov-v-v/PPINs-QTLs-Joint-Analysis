@@ -47,20 +47,21 @@ def linkages2gencoords(qtl_df):
     :param full_genotypes_df: a list o genes sorted by genetic coordinate in ascending order
     :return: a list of linkages sorted in the same order
     '''
+    with open("./data/genotypes/order_of_markers.pkl", "rb") as pickle_file:
+        marker2location = pickle.load(pickle_file)
+
     qtl_graph = networks.graph_from_edges(
         edges=qtl_df[["SNP", "gene"]].values,
         directed=True
     )
     # Select only the marker vertices
-    left_part = qtl_graph.vs.select(part=False)
+    marker_vertices = qtl_graph.vs.select(part=False)
     # And map them to their absolute genome location
-    with open("./data/genotypes/order_of_markers.pkl", "rb") as pickle_file:
-        marker2location = pickle.load(pickle_file)
     # Add the available linkage data
     qtl_marker_to_linkages = dict(
         zip(
-            left_part["name"],
-            left_part.outdegree()
+            marker_vertices["name"],
+            marker_vertices.outdegree()
         )
     )
     # Sort the dictionary accordingly to the marker position on the chromosome
