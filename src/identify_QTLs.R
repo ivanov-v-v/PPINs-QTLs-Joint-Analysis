@@ -72,18 +72,18 @@ identify_QTLs <- function(genotypes_filename, expression_filename, output_filena
 # args <- commandArgs(TRUE)
 
 identify_QTLs(
-'eQTLs/genotypes_2018.csv',
+'eQTLs/genotypes_2018_filtered.csv',
 'eQTLs/expression_2018.csv',
-'eQTLs/new_qtls_from_scratch.csv',
+'eQTLs/qtls_interpolated_MatrixEQTL.csv',
  0.05
 )
 
 library(qvalue)
 
-QTLs_df = na.omit(read.table("~/Science/eQTL_analysis/data/eQTLs/new_qtls_from_scratch.csv", sep = '\t', stringsAsFactors = FALSE, header = TRUE))
+QTLs_df = na.omit(read.table("~/Science/eQTL_analysis/data/eQTLs/qtls_interpolated_MatrixEQTL.csv", sep = '\t', stringsAsFactors = FALSE, header = TRUE))
 QTLs_df$q.value = qvalue(
   p=as.numeric(QTLs_df$p.value),
   lambda=seq(from=0, to=max(QTLs_df$p.value), 0.05)
 )$qvalues
 #QTLs_df = QTLs_df[, c(1, 2, 5 : 7)]
-write.table(QTLs_df[QTLs_df$q.value <= 0.05,], "~/Science/eQTL_analysis/data/eQTLs/new_qtls_from_scratch_recomputed.csv", sep = '\t', row.names = FALSE)
+write.table(QTLs_df[QTLs_df$q.value <= 0.05,], "~/Science/eQTL_analysis/data/eQTLs/qtls_interpolated_MatrixEQTL.csv", sep = '\t', row.names = FALSE)
