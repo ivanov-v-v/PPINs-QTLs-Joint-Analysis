@@ -47,7 +47,7 @@ def linkages2gencoords(qtl_df):
     :param full_genotypes_df: a list o genes sorted by genetic coordinate in ascending order
     :return: a list of linkages sorted in the same order
     '''
-    with open("./data/genotypes/order_of_markers.pkl", "rb") as pickle_file:
+    with open("./data/genomic_features/order_of_markers.pkl", "rb") as pickle_file:
         marker2location = pickle.load(pickle_file)
 
     qtl_graph = networks.graph_from_edges(
@@ -217,7 +217,7 @@ def qtl_overlap_hist(overlap_data, modules_type):
     sdata_ax.set_title("Sorted Jaccard coefficient values", fontsize=25)
     sdata_ax.legend(loc=2, fontsize=20)
 
-    plt.savefig("img/linkages/" + modules_type + "_linkage_overlap.png", dpi=300)
+    plt.savefig("img/eqtl_pqtl_intersection" + modules_type + "_linkage_overlap.png", dpi=300)
     plt.show()
     plt.close("all")
     gc.collect()
