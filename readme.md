@@ -1,6 +1,11 @@
 # Mutual analysis of interaction networks and quantitative trait loci for budding yeast
+<!-- toc -->
+* [Description](#description)
+* [Motivation](#motivation)
+* [How to use this?](#how-to-use-this)
 
 ---
+## Description
 ![Saccharomyces cerevisiae, the budding yeast](http://ppdictionary.com/mycology/budding_yeast.jpg)
 This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
 Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех").  
@@ -33,7 +38,6 @@ It may be, that to bridge the gap between eQTLs and pQTLs we should look at them
 significance of our observations.
  
 ---
-
 ## How to use this?
 
 This is my first medium-scale project as well as the first research project, so please just bear with me and be patient.
@@ -45,4 +49,6 @@ will get wrapped in a Docker container in the future.
 2. Description of directory structure.
 3. Driver scripts that recompute certain parts of the project together with the order in which they
 are supposed to be ran.
-4. Link to documentation (Doxygen?)  
+4. Link to documentation (Doxygen?)
+  
+---
