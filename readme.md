@@ -1,4 +1,4 @@
-#Mutual analysis of interaction networks and quantitative trait loci for budding yeast
+# Mutual analysis of interaction networks and quantitative trait loci for budding yeast
 
 ---
 ![Saccharomyces cerevisiae, the budding yeast](http://ppdictionary.com/mycology/budding_yeast.jpg)
@@ -8,7 +8,7 @@ Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia
 This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate).
 
 ---
-##Motivation
+## Motivation
 
 * **Why QTLs?** Quantitative trait loci or QTLs are a hot topic in contemporary biological research. The link between 
 genotype and phenotype, they attracted increasing attention in recent years due to developments of high-throughouput 
