@@ -8,13 +8,15 @@
 
 ---
 ## Description
-
 ![Saccharomyces cerevisiae, the budding yeast](http://ppdictionary.com/mycology/budding_yeast.jpg)
+
 This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
 Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех").  
 
 This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate).
+
 This GitHub is aimed to ensure the reproducibility of our results.
+
 
 [↥ back to top](#table-of-contents)
 
