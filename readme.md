@@ -1,7 +1,7 @@
 # Mutual analysis of interaction networks and quantitative trait loci for budding yeast
 
 ---
-## Table of contents
+## [Table of contents](#toc)
 * [Description](#description)
 * [Motivation](#motivation)
 * [How to use this?](#how-to-use-this)
@@ -18,7 +18,7 @@ This GitHub is aimed to ensure the reproducibility of our results.
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#toc">↥ back to top</a></b>
 </div>
 <br/>
 
@@ -48,7 +48,7 @@ significance of our observations.
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#toc">↥ back to top</a></b>
 </div>
 <br/>
 
@@ -68,7 +68,7 @@ are supposed to be ran.
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#toc">↥ back to top</a></b>
 </div>
 <br/>
 
