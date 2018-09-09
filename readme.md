@@ -1,7 +1,7 @@
 # Mutual analysis of interaction networks and quantitative trait loci for budding yeast
 
 ---
-## [Table of contents](#toc)
+## Table of contents
 * [Description](#description)
 * [Motivation](#motivation)
 * [How to use this?](#how-to-use-this)
@@ -16,11 +16,7 @@ Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia
 This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate).
 This GitHub is aimed to ensure the reproducibility of our results.
 
-<br/>
-<div align="right">
-    <b><a href="#toc">↥ back to top</a></b>
-</div>
-<br/>
+[↥ back to top](#table-of-contents)
 
 ---
 ## Motivation
@@ -46,11 +42,7 @@ It may be, that to bridge the gap between eQTLs and pQTLs we should look at them
 * **Why us?** We have an unusually rich protein expression dataset. It drastically increases the statistical 
 significance of our observations.
 
-<br/>
-<div align="right">
-    <b><a href="#toc">↥ back to top</a></b>
-</div>
-<br/>
+[↥ back to top](#table-of-contents)
 
 ---
 ## How to use this?
@@ -66,10 +58,5 @@ will get wrapped in a Docker container in the future.
 are supposed to be ran.
 4. Link to documentation (Doxygen?)
 
-<br/>
-<div align="right">
-    <b><a href="#toc">↥ back to top</a></b>
-</div>
-<br/>
-
+[↥ back to top](#table-of-contents)
 ---
