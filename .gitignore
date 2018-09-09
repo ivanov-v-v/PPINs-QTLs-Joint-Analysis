@@ -50,13 +50,12 @@ fabric.properties
 
 .ipynb_checkpoints
 
-# R auxiliary files
-.Rhistory
-/src/initial_data_cleanup.ipynb
-/.gitignore
-src/.RData
+# R supplementary and temporary files
+.R*
+
+# Python supplementary and temporary files
+__init__.py
+
+
 /data/randomized_interactome_copies
 /data/interactions/BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-3.4.152.mitab.csv
-/data/kruglyak_2018/
-/data/pQTLs/qvalues.csv
-/data/pQTLs/pvalues.csv
