@@ -1,17 +1,26 @@
 # Mutual analysis of interaction networks and quantitative trait loci for budding yeast
-<!-- toc -->
+
+---
+## Table of contents
 * [Description](#description)
 * [Motivation](#motivation)
 * [How to use this?](#how-to-use-this)
 
 ---
 ## Description
+
 ![Saccharomyces cerevisiae, the budding yeast](http://ppdictionary.com/mycology/budding_yeast.jpg)
 This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
 Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех").  
 
 This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate).
 This GitHub is aimed to ensure the reproducibility of our results.
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
 
 ---
 ## Motivation
@@ -36,7 +45,13 @@ of noise. Introduction of additional structure — the interactome — helps us 
 It may be, that to bridge the gap between eQTLs and pQTLs we should look at them on a bigger scale.             
 * **Why us?** We have an unusually rich protein expression dataset. It drastically increases the statistical 
 significance of our observations.
- 
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
+
 ---
 ## How to use this?
 
@@ -50,5 +65,11 @@ will get wrapped in a Docker container in the future.
 3. Driver scripts that recompute certain parts of the project together with the order in which they
 are supposed to be ran.
 4. Link to documentation (Doxygen?)
-  
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
+
 ---
