@@ -6,6 +6,7 @@ This is my first project in systems biology. I started it during the second year
 Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех").  
 
 This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate).
+This GitHub is aimed to ensure the reproducibility of our results.
 
 ---
 ## Motivation
@@ -32,3 +33,16 @@ It may be, that to bridge the gap between eQTLs and pQTLs we should look at them
 significance of our observations.
  
 ---
+
+## How to use this?
+
+This is my first medium-scale project as well as the first research project, so please just bear with me and be patient.
+Major refactoring is scheduled for the following month, it will get better soon.
+
+This section will be subdivided into:
+1. Instructions on how to pull this repository and how to configure the right conda environment. Maybe, this repository
+will get wrapped in a Docker container in the future.
+2. Description of directory structure.
+3. Driver scripts that recompute certain parts of the project together with the order in which they
+are supposed to be ran.
+4. Link to documentation (Doxygen?)  
