@@ -53,12 +53,11 @@ This is my first medium-scale project as well as the first research project, so 
 Major refactoring is scheduled for the following month, it will get better soon.
 
 This section will be subdivided into:
-1. Instructions on how to pull this repository and how to configure the right conda environment. Maybe, this repository
-will get wrapped in a Docker container in the future.
+1. Instructions on how to pull this repository and how to configure the right conda environment. Later everything will be incapsulated into docker container. 
 2. Description of directory structure.
 3. Driver scripts that recompute certain parts of the project together with the order in which they
 are supposed to be ran.
-4. Link to documentation (Doxygen?)
+4. Documentation
 
 [↥ back to top](#table-of-contents)
 
