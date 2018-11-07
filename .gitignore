@@ -55,7 +55,7 @@ fabric.properties
 
 # Python supplementary and temporary files
 __init__.py
-
+__pycache__
 
 /data/randomized_interactome_copies
 /data/interactions/BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-3.4.152.mitab.csv
