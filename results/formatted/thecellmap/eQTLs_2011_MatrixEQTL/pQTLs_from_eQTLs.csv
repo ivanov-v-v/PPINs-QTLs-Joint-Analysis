@@ -1,0 +1,15 @@
+module_name	common_pQTLs	overlap_ratio	old_pQTLs	predicted_pQTLs	delta
+Respiration, oxidative phosphorylation, mitochondrial targeting	135	56.962025316455694	237	234	99
+Cell polarity & morphogenesis	43	49.42528735632184	87	48	5
+DNA replication & repair	120	48.582995951417004	247	194	74
+Mitosis & chromosome segregation	102	47.22222222222222	216	370	268
+rDNA & ncDNA processing	111	45.86776859504132	242	200	89
+Nuclear-cytoplasmic transport	53	43.80165289256198	121	56	3
+Metabolism	26	41.935483870967744	62	30	4
+Glycosylation, protein folding|targeting, cell wall biosynthesis	160	40.100250626566414	399	432	272
+mRNA & tRNA processing	52	31.901840490797547	163	106	54
+Vesicle traffic	19	17.59259259259259	108	21	2
+Ribosome biogenesis	88	14.715719063545151	598	186	98
+Protein degradation|turnover	2	2.7777777777777777	72	2	0
+MVB sorting and pH depending signaling	0	0.0	36	0	0
+Transcription & chromatin organization	0	0.0	37	37	37

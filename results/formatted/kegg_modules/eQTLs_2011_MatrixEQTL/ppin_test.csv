@@ -1,0 +1,109 @@
+module_name	real	random	significant
+SCF-GRR1 complex	0.0	0.0	False
+Assimilatory sulfate reduction, sulfate to H2S	0.0	0.0009716303661616162	False
+Polyamine biosynthesis, arginine to ornithine to putrescine	0.0	0.0	False
+ESCRT-III complex	0.0	0.0	False
+Fatty acid biosynthesis, elongation	0.0	0.0	False
+COPII complex	0.0	0.0	False
+Uridine monophosphate biosynthesis, glutamine (+ PRPP) to UMP	0.0	0.002079133064516129	False
+Fatty acid biosynthesis, initiation	0.0	2.8722426470588235e-05	False
+RNA polymerase II, eukaryotes	0.0	0.0	False
+H|ACA ribonucleoprotein complex	0.0	0.0	False
+MRX complex	0.0	0.0	False
+Cytochrome bc1 complex respiratory unit	0.0	0.0	False
+beta-Oxidation, acyl-CoA synthesis	0.0	0.0	False
+Cell cycle - G1|S transition	0.0	0.0	False
+RNA polymerase III, eukaryotes	0.005059464652487908	0.0010920175076356946	False
+Aminoacyl-tRNA biosynthesis, eukaryotes	0.03125	0.05007111662498601	False
+ESCRT-0 complex	0.46153846153846156	0.004056490384615384	False
+Glycolysis, core module involving three-carbon compounds	0.0	0.0012227376302083332	False
+PRPP biosynthesis, ribose 5P to PRPP	0.035	0.00109375	False
+Methionine salvage pathway	0.0	6.103515625e-05	False
+Lsm 1-7 complex	0.0	0.0	False
+Phenylalanine biosynthesis, chorismate to phenylalanine	0.0	0.0	False
+Decapping complex	0.03417022792022792	0.027251478523044277	False
+Citrate cycle, second carbon oxidation, 2-oxoglutarate to oxaloacetate	0.0	2.712673611111111e-05	False
+Proteasome, 19S regulatory particle (PA700)	0.0	0.0	False
+Shikimate pathway, phosphoenolpyruvate + erythrose-4P to chorismate	0.0	7.512019230769231e-05	False
+C5 isoprenoid biosynthesis, mevalonate pathway	0.0	0.0014022435897435897	False
+MCM complex	0.0	0.0	False
+TRAMP complex	0.0	0.0	False
+Cytochrome bc1 complex	0.06188439011968423	0.011221570403978977	False
+cAMP signaling	0.0	0.0	False
+Arginine biosynthesis, ornithine to arginine	0.0	0.0	False
+ESCRT-II complex	0.0	0.0	False
+Ribosome, eukaryotes	0.07261029411764706	0.046180878985441536	True
+Inosine monophosphate biosynthesis, PRPP + glutamine to IMP	0.0	0.005549846970408662	False
+SCF-CDC4 complex	0.0	0.0	False
+DNA damage-induced cell cycle checkpoints	0.0	0.0	False
+Glycolysis (Embden-Meyerhof pathway), glucose to pyruvate	0.0	0.0020968482607886902	False
+Ubiquinone biosynthesis, eukaryotes, 4-hydroxybenzoate to ubiquinone	0.04666666666666667	0.00068359375	False
+Tetrahydrofolate biosynthesis, GTP to THF	0.0	0.00017233455882352942	False
+N-glycan biosynthesis, high-mannose type	0.0	0.00048828125	False
+Cysteine biosynthesis, homocysteine + serine to cysteine	0.0	0.0	False
+Pentose phosphate pathway, oxidative phase, glucose 6P to ribulose 5P	0.0	0.0	False
+Lysine biosynthesis, AAA pathway, 2-oxoglutarate to 2-aminoadipate to lysine	0.0	0.0	False
+Lysine biosynthesis, 2-oxoglutarate to 2-oxoadipate	0.0	0.0	False
+DNA polymerase epsilon complex	0.017857142857142856	0.0018310546875	False
+Lsm 2-8 complex	0.0	0.0	False
+Proteasome, 20S core particle	0.0	0.0	False
+Isoleucine biosynthesis, threonine to 2-oxobutanoate to isoleucine	0.0	0.0	False
+p97-Ufd1-Npl4 complex	0.0	0.0	False
+Nucleotide sugar biosynthesis, glucose to UDP-glucose	0.0	0.01669921875	False
+Succinate dehydrogenase (ubiquinone)	0.0	0.0	False
+Phosphatidylethanolamine (PE) biosynthesis, ethanolamine to PE	0.0	0.0	False
+Fatty acid biosynthesis, elongation, endoplasmic reticulum	0.0	0.0	False
+APC|C complex	0.0	0.0	False
+Nucleotide sugar biosynthesis, galactose to UDP-galactose	0.0	0.0	False
+C1-unit interconversion, eukaryotes	0.0	0.0	False
+Gluconeogenesis, oxaloacetate to fructose-6P	0.0	0.0001220703125	False
+SCF-MET30 complex	0.0	0.0	False
+Pyruvate oxidation, pyruvate to acetyl-CoA	0.0	0.0	False
+Ergocalciferol biosynthesis	0.15466666666666667	0.010572916666666666	False
+C10-C20 isoprenoid biosynthesis, non-plant eukaryotes	0.0	0.0	False
+N-glycosylation by oligosaccharyltransferase	0.0	0.0	False
+Serine biosynthesis, glycerate-3P to serine	0.9642857142857143	0.004708426339285714	False
+Pentose phosphate pathway, non-oxidative phase, fructose 6P to ribose 5P	0.006944444444444444	0.0	False
+Adenine ribonucleotide biosynthesis, IMP to ADP,ATP	0.0	0.0	True
+Citrate cycle (TCA cycle, Krebs cycle)	0.0	0.00745189417064417	False
+Ornithine biosynthesis, glutamate to ornithine	0.0	0.0	False
+GABA (gamma-Aminobutyrate) shunt	0.0	0.0	False
+Valine|isoleucine biosynthesis, pyruvate to valine | 2-oxobutanoate to isoleucine	0.0	0.0	False
+Origin recognition complex	0.0	0.0	False
+RNA polymerase I, eukaryotes	0.024295753632279468	0.0194529452566957	False
+Sec61 complex	0.0	0.0	False
+GINS complex	0.0	0.0	False
+Acylglycerol degradation	0.0	0.0	False
+Exosome, archaea	0.018518518518518517	0.0	False
+F-type ATPase, eukaryotes	0.10405552551837381	0.04462279489036697	False
+Sphingosine degradation	0.0	0.0	False
+Cap binding complex	0.0	0.0	False
+Pentose phosphate pathway (Pentose phosphate cycle)	0.003472222222222222	0.00048828125	False
+Proline biosynthesis, glutamate to proline	0.0	0.0	False
+Galactose degradation, Leloir pathway, galactose to alpha-D-glucose-1P	0.0	0.0	False
+Pyrimidine ribonucleotide biosynthesis, UMP to UDP|UTP,CDP|CTP	0.0	0.0	False
+GPI-anchor biosynthesis, core oligosaccharide	0.0	0.0	False
+N-glycan precursor biosynthesis	0.0	0.0	False
+N-glycan precursor trimming	0.0	0.0	False
+Holo-TFIIH complex	0.0	0.0	False
+Spliceosome, U1-snRNP	0.0	0.0	False
+Sm core complex	0.0	0.0	False
+Exosome, eukaryotes	0.0032921810699588477	7.233796296296296e-05	False
+RF-C complex	0.0	0.0	False
+DNA polymerase zeta complex	0.0	0.0	False
+Phosphatidylcholine (PC) biosynthesis, PE to PC	0.0	0.0	False
+Citrate cycle, first carbon oxidation, oxaloacetate to 2-oxoglutarate	0.0	0.010296989889705883	False
+Guanine ribonucleotide biosynthesis IMP to GDP,GTP	0.13603821346992773	0.01447045648118159	False
+Phosphatidylcholine (PC) biosynthesis, choline to PC	0.0	0.0	False
+Histidine biosynthesis, PRPP to histidine	0.0	0.0	False
+Coenzyme A biosynthesis, pantothenate to CoA	0.0	0.0	False
+Phosphatidylethanolamine (PE) biosynthesis, PA to PS to PE	0.0	0.0	False
+Cell cycle - G2|M transition	0.0	0.0	False
+eIF4F complex	0.03	0.009765625	False
+Tryptophan biosynthesis, chorismate to tryptophan	0.0	0.001220703125	False
+SLN1-YPD1-SSK1|SKN7 (osmosensing) two-component regulatory system	0.0	0.0	False
+Glyoxylate cycle	0.0	0.0	False
+Ski complex	0.0	0.0	False
+Leucine biosynthesis, 2-oxoisovalerate to 2-oxoisocaproate	0.0	0.008526515825035563	False
+Threonine biosynthesis, aspartate to homoserine to threonine	0.0	7.70970394736842e-05	False
+DNA polymerase alpha | primase complex	0.0	0.0	False
