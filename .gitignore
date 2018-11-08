@@ -52,6 +52,7 @@ fabric.properties
 
 # R supplementary and temporary files
 .R*
+.RData
 
 # Python supplementary and temporary files
 __init__.py
