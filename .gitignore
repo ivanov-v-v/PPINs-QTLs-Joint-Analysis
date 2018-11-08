@@ -60,8 +60,9 @@ __pycache__
 
 # Sensitive information
 credentials.json
+supplementary_information
 
 # Heavy folders and files
 /data/raw/randomized_interactome_copies
 /data/raw/interactions/BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-3.4.152.mitab.csv
-supplementary_materials
+/results/raw/
