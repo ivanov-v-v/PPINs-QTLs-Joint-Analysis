@@ -1,5 +1,0 @@
-source	real_J	simulated_J	significant
-geneontology	0.0142911546	0.0077123311	TRUE
-kegg_modules	0.0914928133	0.0076513126	TRUE
-kegg_pathways	0.0160096567	0.0075608467	TRUE
-thecellmap	0.0169513572	0.0075174807	TRUE
