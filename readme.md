@@ -13,7 +13,7 @@
 This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
 Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех").  
 
-This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate).
+This research was carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate), PhD (Princeton), Research Scholar at MSKCC.
 
 This GitHub is aimed to ensure the reproducibility of our results.
 
@@ -49,8 +49,8 @@ significance of our observations.
 ---
 ## How to use this?
 
-This is my first medium-scale project as well as the first research project, so please just bear with me and be patient.
-Major refactoring is scheduled for the following month, it will get better soon.
+This is my first medium-scale project as well as the first research project, so, please, be patient.
+Major refactoring is scheduled for the following month, as I am currently migrating on cluster. 
 
 This section will be subdivided into:
 1. Instructions on how to pull this repository and how to configure the right conda environment. Later everything will be incapsulated into docker container. 
