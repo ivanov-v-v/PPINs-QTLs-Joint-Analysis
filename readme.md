@@ -11,11 +11,12 @@
 ![Saccharomyces cerevisiae, the budding yeast](http://ppdictionary.com/mycology/budding_yeast.jpg)
 
 This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
-Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех").  
+Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех"). It's a work-in-progress, because workload at our university is really intense. It will eventually become my bachelor's thesis and will be thoroughly documented and tested by that time. It's my first experience in maintaining big, long-term projects, thereby I still have much to learn, but gradually I will adopt and start following software engineering best practices. Moreover, as it usually happens in scientific programming, the code is often being rewritten or thrown away. As a result, most of the work is done behind the curtain in the form of weekly reports I use to communicate new results and ideas to by supervisor. 
 
 This research is carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate), PhD (Princeton), Research Scholar at MSKCC.
 
 This repository is maintained to ensure the reproducibility of our results.
+Project's main language is Python. We use Jupyter Notebook for exploratory data analysis. We utilize MIPT supercomputing capabilities to carry out computational experiments. Implementation of most of the of the statistical tests is efficiently parallelized to fully expolit their embrassingly parallel nature. 
 
 
 [↥ back to top](#table-of-contents)
@@ -27,8 +28,8 @@ This repository is maintained to ensure the reproducibility of our results.
 genotype and phenotype, they attracted increasing attention in recent years due to developments of high-throughouput 
 technologies like RNA-seq. This research deals with eQTLs — with mRNA expression as quantitative trait — and pQTLs — 
 same for protein expression. Genetic architectures of eQTLs and pQTLs are very different, despite the obvious 
-relationship between transcription and translation of the genes. There is an ongoing debate on this matter in science.
-We decided to make a contribution by comparing genetic architectures underlying eQTL and pQTL sets linked to functional
+relationship between transcription and translation of the genes. There is an ongoing debate on this matter in contemporary research.
+We decided to make a contribution by comparing genetic architectures underlying eQTLs and pQTLs linked to functional
 modules — sets of interacting genes participating in a particular cell process. Our approach is the possible solution 
 that reduces eQTL/pQTL discrepancy via protein-protein interaction networks.          
 * **Why yeast?** Despite our hypothesis isn't specific to this species, we concentrated on *Saccharomyces cerevisiae* 
@@ -42,7 +43,7 @@ pQTLs are a different matter, because protein expression measurements are still 
 of noise. Introduction of additional structure — the interactome — helps us to make the most out of limited data. 
 It may be, that to bridge the gap between eQTLs and pQTLs we should look at them on a bigger scale.             
 * **Why us?** We have an unusually rich protein expression dataset. It drastically increases the statistical 
-significance of our observations.
+power of our observations. We will also try using the latest algorithms for QTL mapping to improve precision of our results.
 
 [↥ back to top](#table-of-contents)
 
