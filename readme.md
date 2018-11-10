@@ -8,7 +8,7 @@
 
 ---
 ## Description
-![Saccharomyces cerevisiae, the budding yeast](../img/qtl_distributions/eQTLs_2011_vs_2018.png)
+![Saccharomyces cerevisiae, the budding yeast](https://raw.githubusercontent.com/ivanov-v-v/PPINs-QTLs-Joint-Analysis/master/img/qtl_distributions/eQTLs_2011_vs_2018.png)
 
 This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
 Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех"). It's a work-in-progress, because workload at our university is really intense. It will eventually become my bachelor's thesis and will be thoroughly documented and tested by that time. It's my first experience in maintaining big, long-term projects, thereby I still have much to learn, but gradually I will adopt and start following software engineering best practices. Moreover, as it usually happens in scientific programming, the code is often being rewritten or thrown away. As a result, most of the work is done behind the curtain in the form of weekly reports I use to communicate new results and ideas to by supervisor. 
