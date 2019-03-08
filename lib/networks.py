@@ -13,12 +13,10 @@ import igraph as ig
 import numpy as np
 import pandas as pd
 
-os.chdir("{}/Science/eQTL_analysis/".format(os.environ["HOME"]))
-
-with open("./data/nomenclature/sys2std.pkl", "rb") as pickle_file:
+with open("./data/raw/nomenclature/sys2std.pkl", "rb") as pickle_file:
     sys2std = pickle.load(pickle_file)
 
-with open("./data/nomenclature/std2sys.pkl", "rb") as pickle_file:
+with open("./data/raw/nomenclature/std2sys.pkl", "rb") as pickle_file:
     std2sys = pickle.load(pickle_file)
 
 

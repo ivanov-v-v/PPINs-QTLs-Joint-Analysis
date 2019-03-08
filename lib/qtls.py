@@ -18,8 +18,6 @@ from tqdm import *
 import networks
 import util
 
-os.chdir("{}/Science/eQTL_analysis/".format(os.environ["HOME"]))
-
 
 ########################################################################################################################
 #                                                     UTILITIES                                                        #
@@ -27,11 +25,11 @@ os.chdir("{}/Science/eQTL_analysis/".format(os.environ["HOME"]))
 
 
 def linked_markers(qtl_df, gene_list):
-    return np.unique(qtl_df[qtl_df["gene"].isin(gene_list)]["SNP"].values)
+    return np.unique(qtl_df[qtl_df["gene"].isin(np.atleast_1d(gene_list))]["SNP"].values)
 
 
 def linked_genes(qtl_df, marker_list):
-    return np.unique(qtl_df[qtl_df["SNP"].isin(marker_list)]["gene"].values)
+    return np.unique(qtl_df[qtl_df["SNP"].isin(np.atleast_1d(marker_list))]["gene"].values)
 
 
 ########################################################################################################################
@@ -358,7 +356,7 @@ def full_graph_test(module_genes, gene_pool, RANDITER_COUNT, qtl_df):
     return real_avg_link_sim, random_avg_link_sim, significant, ci[0], ci[1]
 
 
-def ppin_test(module_genes, interactions_type, interactome_graph, RANDITER_COUNT, qtl_df):
+def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, max_iter, path_to_randomized):
     qtl_graph = networks.graph_from_edges(qtl_df[["SNP", "gene"]].values, directed=True)
     real_linksimvec = linkage_similarity(
         interactome_graph.subgraph(
@@ -370,10 +368,10 @@ def ppin_test(module_genes, interactions_type, interactome_graph, RANDITER_COUNT
     )
     randomized_j_means = []
     p_values = []
-    for iter_num in range(RANDITER_COUNT):
+    for iter_num in range(max_iter):
         randomized_interactome_graph = ig.Graph().Read_Pickle(
-            "./data/randomized_interactome_copies/{0}/{1}.pkl"
-                .format(interactions_type, iter_num)
+            os.path.join(path_to_randomized, 
+                         "{0}/{1}.pkl".format(interactions_type, iter_num))
         ).simplify()
         randomized_interactome_graph.vs.select(_degree=0).delete()
         randomized_linksimvec = linkage_similarity(

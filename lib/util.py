@@ -5,6 +5,23 @@ import imageio
 import numpy as np
 import scipy as sp
 
+# general-purpose python utilities
+
+def profile_memory_usage(scope_names, scope_globals):
+    """ Display variable names along with their memory consumption 
+        Expected usage: scope_named=dir(), scope_globals=globals()
+    """
+    # These are the usual ipython objects, including this one you are creating
+    ipython_vars = ['In', 'Out', 'exit', 'quit', 'get_ipython', 'ipython_vars']
+    # Get a sorted list of the objects and their sizes
+    print(sorted([(x, sys.getsizeof(scope_globals.get(x))) 
+                  for x in scope_names
+                  if not x.startswith('_') 
+                  and x not in sys.modules 
+                  and x not in ipython_vars], key=lambda x: x[1], reverse=True))
+
+# project-specific
+
 roman2arabic = {
     "I": 1,
     "II": 2,
@@ -93,6 +110,6 @@ def bincount_scott(data):
 
 
 def sample_combinations(dims, nsamp):
-    """ TODO """
+    """ Get nsamp random combinations of indices aligned with dims """
     idx = np.random.RandomState().choice(np.prod(dims), nsamp, replace=False)
     return np.vstack(np.unravel_index(idx, dims)).T
