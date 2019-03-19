@@ -12,7 +12,7 @@ import igraph as ig
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import scipy.stats as stats
+import scipy.stats as sps
 from tqdm import *
 
 import networks
@@ -46,7 +46,7 @@ def linkages2gencoords(qtl_df):
     :param full_genotypes_df: a list o genes sorted by genetic coordinate in ascending order
     :return: a list of linkages sorted in the same order
     '''
-    with open("./data/genomic_features/order_of_markers.pkl", "rb") as pickle_file:
+    with open("./data/raw/genomic_features/order_of_markers.pkl", "rb") as pickle_file:
         marker2location = pickle.load(pickle_file)
 
     qtl_graph = networks.graph_from_edges(
@@ -115,6 +115,7 @@ def plot_module_graph(destdir, module_graph, qtl_df, filename="module_graph", fo
 
 
 def plot_q_hist(destdir, module_graph, module_name, module_type, qtl_df, qtl_type):
+    """ ??? """
     fig, ax = plt.subplots(figsize=(20, 10))
     plt.xscale("log")
     counts, bins, patches = plt.hist(
@@ -153,6 +154,7 @@ def plot_q_hist(destdir, module_graph, module_name, module_type, qtl_df, qtl_typ
 
 
 def plot_test_results(module_name, module_type, test_results_df, test_type, q_thresholds, qtl_type):
+    """ ??? """
     # for the plot to be informative, don't show the range
     # where there are no linkage with such q-values at all
     fig, ax = plt.subplots(figsize=(20, 10))
@@ -242,12 +244,7 @@ def plot_vignettes(module_type, module_names):
         del q_hist, pairwise_test, interactome_test, network, vignette_side_parts, combined_plot
         plt.close("all")
         gc.collect()
-
-
-########################################################################################################################
-#                                            LINKAGE SHARING ESTIMATION                                                #
-########################################################################################################################
-
+        
 def jaccard(s1, s2):
     """
     Notice: due to interpretation, similarity between empty sets is redefined to be 0 instead of 1.
@@ -284,8 +281,22 @@ def linkage_similarity(module_graph, qtl_graph, mode="mean"):
 
     return results.mean() if mode == "mean" else results
 
+########################################################################################################################
+#                                            LINKAGE SHARING ESTIMATION                                                #
+########################################################################################################################
+#----------------------------------------------------------------------------------------------------------------------#
+#                                                    SIMPLE TESTS                                                      #     
+#----------------------------------------------------------------------------------------------------------------------#
 
 def community_graph_test(modules_dict, gene_pool, RANDITER_COUNT, qtl_df):
+    """
+    Каждый модуль преобразуется в полный граф, потом аналогичное "созвездие"
+    симулируется из случайных наборов генов тех же размеров, измеряется
+    среднее подобие и возвращается в качестве ответа.
+    Вроде мы хотели этим тестом проверять на осмысленность наши наборы модулей,
+    причём это был самый первый, предварительный тест в соотв. разделе.
+    При этом я не уверен, что мы в итоге не отказались от этого теста вообще.
+    """
     qtl_graph = networks.graph_from_edges(
         qtl_df[["SNP", "gene"]].values,
         directed=True
@@ -295,10 +306,11 @@ def community_graph_test(modules_dict, gene_pool, RANDITER_COUNT, qtl_df):
     vertex_names = np.unique(np.hstack(modules_dict.values()))
     community_graph.add_vertices(vertex_names)
     community_graph.vs["name"] = vertex_names
-    for module_name, module_genes in modules_dict.items():
+    for module_name, module_genes in modules_dict.items(): # dafuq
         community_graph.add_edges(itertools.product(module_genes, repeat=2))
     community_graph.simplify()
     community_graph.vs.select(_degree=0).delete()
+    
     real_avg_link_sim = linkage_similarity(community_graph, qtl_graph, mode='mean')
 
     rand_link_sim = []
@@ -309,6 +321,7 @@ def community_graph_test(modules_dict, gene_pool, RANDITER_COUNT, qtl_df):
             gene_samples.append(random_state.choice(
                 gene_pool, size=len(module_genes), replace=False
             ))
+            
         community_graph = ig.Graph()
         vertex_names = np.unique(np.hstack(gene_samples))
         community_graph.add_vertices(vertex_names)
@@ -317,9 +330,11 @@ def community_graph_test(modules_dict, gene_pool, RANDITER_COUNT, qtl_df):
             community_graph.add_edges(itertools.product(sample, repeat=2))
         community_graph.simplify()
         community_graph.vs.select(_degree=0).delete()
+        
         rand_link_sim.append(linkage_similarity(community_graph, qtl_graph, mode='mean'))
+        
     rand_link_sim = np.array(rand_link_sim)
-    rv = stats.rv_discrete(values=(rand_link_sim, np.full(RANDITER_COUNT, 1. / RANDITER_COUNT)))
+    rv = sps.rv_discrete(values=(rand_link_sim, np.full(RANDITER_COUNT, 1. / RANDITER_COUNT)))
     ci = rv.interval(0.95)
 
     empirical_p_value = np.mean(rand_link_sim >= real_avg_link_sim)
@@ -330,6 +345,31 @@ def community_graph_test(modules_dict, gene_pool, RANDITER_COUNT, qtl_df):
 
 
 def full_graph_test(module_genes, gene_pool, RANDITER_COUNT, qtl_df):
+    """
+    Compare linkage similarity averaged over all possible edges in a functional
+    module and in random gene sets of the same size taken from gene pool.
+    ---------------------------------------------------------------------------
+    :param module_genes — iterable —
+        names of genes the make up the functional module
+    :param gene_pool — iterable — 
+        set of genes used for sampling (usually the set of expressed genes)
+    :param RANDITER_COUNT — uint —
+        number of randomization iterations to carry out
+    :param qtl_df — pd.DataFrame —
+        pandas DataFrame that must contain such columns as "SNP" and "gene"
+        "SNP" is a silly name choice, it actually means "marker"
+    ---------------------------------------------------------------------------
+    :returns (float, float, bool, float, float) —
+        -   linkage similarity averaged over all possible pairs of nodes from
+            the real functional module
+        -   same, but for random samples of the same size, taken from the 
+            gene_pool, and then averaged across randomization iterations
+        -   whether the empirical p-value is smaller than 0.05 or not
+        -   confidence interval
+    ---------------------------------------------------------------------------
+    :note   this test makes no sense for broad interaction categories
+            don't run it on large chunks of the interactome graph
+    """
     qtl_graph = networks.graph_from_edges(
         qtl_df[["SNP", "gene"]].values,
         directed=True
@@ -346,7 +386,7 @@ def full_graph_test(module_genes, gene_pool, RANDITER_COUNT, qtl_df):
         rand_link_sim.append(linkage_similarity(full_graph, qtl_graph, mode='mean'))
 
     rand_link_sim = np.array(rand_link_sim)
-    rv = stats.rv_discrete(values=(rand_link_sim, np.full(RANDITER_COUNT, 1. / RANDITER_COUNT)))
+    rv = sps.rv_discrete(values=(rand_link_sim, np.full(RANDITER_COUNT, 1. / RANDITER_COUNT)))
     ci = rv.interval(0.95)
 
     empirical_p_value = np.mean(rand_link_sim >= real_avg_link_sim)
@@ -356,7 +396,44 @@ def full_graph_test(module_genes, gene_pool, RANDITER_COUNT, qtl_df):
     return real_avg_link_sim, random_avg_link_sim, significant, ci[0], ci[1]
 
 
-def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, max_iter, path_to_randomized):
+def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, 
+              n_iters, path_to_randomized, return_pvalues=False):
+    """
+    Compute average linkage similiary for each edge of the function module.
+    Repeat the same computation, but substitute the real interactome graph
+    with its simulation obtained through structure-preserving randomization
+    of the original graph.
+    ---------------------------------------------------------------------------
+    :param module_genes — iterable —
+        names of genes the make up the functional module
+    :param interactions_type — str —
+        graphs of all, genetic and physical interactions were randomized
+        in advance; this parameter is used to conclude which versions to use
+    :param interactome_graph — ig.Graph — 
+        original real interactome graph (note: edge type mustn't be the 
+        one specified by interactions_type, but must align with the latter: 
+        the passed graph must be a subgraph of interactions_type-specified
+        interactome graph
+    :param qtl_df — pd.DataFrame —
+        pandas DataFrame that must contain such columns as "SNP" and "gene"
+        "SNP" is a silly name choice, it actually means "marker"
+    :param n_iters — uint —
+        number of randomized graph to process
+    :param path_to_randomized — str —
+        path to the directory with the randomized graphs
+    :param return_pvalues — bool —
+        when set to True forces the function to return the vector of p-values
+        instead of the aggregate
+    ---------------------------------------------------------------------------
+    :returns 
+        -   linkage similarity averaged over edges of the real functional module
+        -   same, but for randomized versions of the interactome graph
+        -   aggregated
+    ---------------------------------------------------------------------------
+    :note   this test can be used both with the broad interaction categories
+            like "all", "physical", "genetic" and with the functional modules
+            
+    """
     qtl_graph = networks.graph_from_edges(qtl_df[["SNP", "gene"]].values, directed=True)
     real_linksimvec = linkage_similarity(
         interactome_graph.subgraph(
@@ -368,7 +445,7 @@ def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, max_it
     )
     randomized_j_means = []
     p_values = []
-    for iter_num in range(max_iter):
+    for iter_num in range(n_iters):
         randomized_interactome_graph = ig.Graph().Read_Pickle(
             os.path.join(path_to_randomized, 
                          "{0}/{1}.pkl".format(interactions_type, iter_num))
@@ -385,19 +462,22 @@ def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, max_it
         if len(randomized_linksimvec) == 0:
             p_values.append(1)
         else:
-            try:
-                p_values.append(stats.mannwhitneyu(real_linksimvec, randomized_linksimvec, alternative="two-sided")[1])
-            except ValueError:
+            try: 
+                p_values.append(sps.mannwhitneyu(real_linksimvec, randomized_linksimvec, alternative="two-sided")[1])
+            except ValueError: # "all numbers are identical in mannwhitneyu"
                 p_values.append(1)
-        randomized_j_means.append(np.mean(randomized_linksimvec) if len(randomized_linksimvec) != 0 else 0)
+        randomized_j_means.append(np.mean(randomized_linksimvec) 
+                                  if len(randomized_linksimvec) != 0 else 0)
 
     real_avg_linksim = np.mean(real_linksimvec) if len(real_linksimvec) != 0 else 0
     randomized_avg_linksim = np.mean(randomized_j_means)
     significant = np.count_nonzero(np.array(p_values) < 0.05) > (0.1 * len(p_values))
 
-    return real_avg_linksim, randomized_avg_linksim, significant
+    return real_avg_linksim, randomized_avg_linksim, (p_values if return_pvalues else significant)
 
-
+#----------------------------------------------------------------------------------------------------------------------#
+#                                          LINKAGE SHARING ANALYZER (OBSOLETE)                                         #     
+#----------------------------------------------------------------------------------------------------------------------#
 class LinkageSharingStatistics:
     """Storage class for analysis results produced by the LinkageSharingAnalyzer class"""
 
@@ -475,7 +555,10 @@ def plot_analysis_results(expression_df, interactions_type, interactome_graph,
 
 class LinkageSharingAnalyzer:
     """
-    Used to analyze to which extent interacting genes tend to share linkages.
+    This class was designed for bulk processing of functional modules.
+    It's an early prototype of map-reduce classes used to generate figures.
+    
+    It is used to analyze to which extent interacting genes tend to share linkages.
     Given a datafame of linkages, a functional module graph and a list of q-value thresholds,
     this class perturbs the graph ~100 times and each time calculates averaged Jaccard coefficient
     for each threshold. Then, to ensure robustness of conclusions, simulation results are averaged and
@@ -590,7 +673,7 @@ class LinkageSharingAnalyzer:
         ci_mx = {}
         for module_name in results_dict.keys():
             ci_mx[module_name] = np.apply_along_axis(
-                func1d=lambda l: stats.rv_discrete(values=(l, np.full(len(l), 1 / len(l)))).interval(0.95),
+                func1d=lambda l: sps.rv_discrete(values=(l, np.full(len(l), 1 / len(l)))).interval(0.95),
                 arr=results_dict[module_name][:, :, 1], axis=0).T
 
             j_columns = np.mean(results_dict[module_name], axis=0)
@@ -646,7 +729,7 @@ class LinkageSharingAnalyzer:
                 rand_link_sim.append(linkage_similarity(full_g, qtl_graph, mode='mean'))
 
             rand_link_sim = np.array(rand_link_sim)
-            rv = stats.rv_discrete(values=(rand_link_sim, np.full(len(rand_link_sim), 1. / len(rand_link_sim))))
+            rv = sps.rv_discrete(values=(rand_link_sim, np.full(len(rand_link_sim), 1. / len(rand_link_sim))))
             ci = rv.interval(0.95)
 
             lo_cis.append(ci[0])
@@ -691,7 +774,7 @@ class LinkageSharingAnalyzer:
         p_value = 0.
         if len(randomized_stats) != 0:
             try:
-                _, p_value = stats.mannwhitneyu(real_stats, randomized_stats, alternative="two-sided")
+                _, p_value = sps.mannwhitneyu(real_stats, randomized_stats, alternative="two-sided")
             except ValueError:
                 # prevents "all numbers are equal" error that is thrown when,
                 # for example, [1, 1, 1] and [1, 1] are passed to MWU
@@ -723,6 +806,17 @@ class LinkageSharingAnalyzer:
                 )
         return results_dict
 
+
+#########################################################################################################################
+#                                              JOINT EQTL/PQTL ANALYSIS                                                 #
+#########################################################################################################################
+
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+#----------------------------------------------------------------------------------------------------------------------#
+#                                                    SIMPLE TESTS                                                      #     
+#----------------------------------------------------------------------------------------------------------------------#
 
 def qtl_overlap_test(eqtl_df, pqtl_df, gene_pool, modules_dict, randiter_count=100):
     linked_eQTLs, linked_pQTLs = set(), set()
@@ -764,16 +858,9 @@ def qtl_overlap_by_module_test(eqtl_df, pqtl_df, gene_pool, modules_dict, randit
         randomized_qtl_intersection_j.append(np.median(buffer))
     return qtl_intersection_j, randomized_qtl_intersection_j
 
-
-#########################################################################################################################
-#                                              PREDICTING PQTLS FROM EQTLS                                              #
-#########################################################################################################################
-
-import warnings
-
-warnings.simplefilter(action='ignore', category=FutureWarning)
-
-
+"""
+WARNING: Inconsistent with the current directory structure!
+"""
 class PqtlPredictor:
     """
     Predicts pQTLs from eQTLs using PPI networks.
