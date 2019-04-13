@@ -395,7 +395,7 @@ def full_graph_test(module_genes, gene_pool, RANDITER_COUNT, qtl_df):
 
     return real_avg_link_sim, random_avg_link_sim, significant, ci[0], ci[1]
 
-
+from tqdm import tqdm, tqdm_notebook
 def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, 
               n_iters, path_to_randomized, return_pvalues=False):
     """
@@ -445,7 +445,7 @@ def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df,
     )
     randomized_j_means = []
     p_values = []
-    for iter_num in range(n_iters):
+    for iter_num in tqdm(range(n_iters), "n_iters"):
         randomized_interactome_graph = ig.Graph().Read_Pickle(
             os.path.join(path_to_randomized, 
                          "{0}/{1}.pkl".format(interactions_type, iter_num))
@@ -470,10 +470,9 @@ def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df,
                                   if len(randomized_linksimvec) != 0 else 0)
 
     real_avg_linksim = np.mean(real_linksimvec) if len(real_linksimvec) != 0 else 0
-    randomized_avg_linksim = np.mean(randomized_j_means)
     significant = np.count_nonzero(np.array(p_values) < 0.05) > (0.1 * len(p_values))
 
-    return real_avg_linksim, randomized_avg_linksim, (p_values if return_pvalues else significant)
+    return real_avg_linksim, randomized_j_means, (p_values if return_pvalues else significant)
 
 #----------------------------------------------------------------------------------------------------------------------#
 #                                          LINKAGE SHARING ANALYZER (OBSOLETE)                                         #     
