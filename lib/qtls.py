@@ -3,6 +3,7 @@ from __future__ import print_function
 import collections
 import gc
 import itertools
+from joblib import Parallel, delayed
 import multiprocessing as mp
 import os
 import pickle
@@ -13,6 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as sps
+from statsmodels.stats.multitest import multipletests
 from tqdm import *
 
 import networks
@@ -288,6 +290,189 @@ def linkage_similarity(module_graph, qtl_graph, mode="mean"):
 #                                                    SIMPLE TESTS                                                      #     
 #----------------------------------------------------------------------------------------------------------------------#
 
+# Было бы очень неплохо добавить автоматические дампы.
+# Скажем, с каким-то шагом пиклить целиком весь класс.
+# Это реализовано из коробки в каком-нибудь пакете?
+
+class RandomizedInteractomeTest:
+    """
+    Given a list of QTLs as (marker, gene) pairs and a graph of interactions,
+    traverses all of its edges and calculates on the way the Jaccard similarity between
+    sets of markers linked to edge's endpoints. When done, replaces the real interactome
+    with random graphs obtained from it using structure-preserving randomization, and 
+    repeats the computation. Two distributions — from actual and random edges — 
+    are then compared by test statistics (mean value, confidence intervals etc).
+    -----------------------------------------------------------------------------------
+    This class was designed with map-reduce paradigm in mind. 
+    """
+    def __init__(self, interactome, interactions_type, qtls_df, score_thresholds, 
+                 path_to_randomized, max_iter, n_jobs=-1):
+        
+        assert "SNP" in qtls_df.columns, "provided QTLs don't have marker column"
+        assert "gene" in qtls_df.columns, "provided QTLs don't have gene column"
+        assert "score" in qtls_df.columns, "provided QTLs don't have associated scores"
+        assert np.all((0 <= qtls_df["score"]) & (qtls_df["score"] <= 1)),\
+                "scores must be scaled to fit into (0, 1) range"
+        assert np.all((0 <= score_thresholds) & (score_thresholds <= 1)),\
+                "some thresholds are outside (0, 1) range"
+        
+        self.interactome = interactome
+        self.interactions_type = interactions_type
+        self.qtls_df = qtls_df
+        self.score_thresholds = score_thresholds
+        self.max_iter = max_iter
+        
+        self.n_edges = self.interactome.ecount()
+        self.n_nodes = self.interactome.vcount()
+        self.node_names = self.interactome.vs["name"]
+        
+        self.n_jobs = n_jobs if n_jobs > 0 else mp.cpu_count()
+        self.simulation_results = collections.defaultdict(list)
+        self.path_to_randomized = os.path.abspath(path_to_randomized)
+            
+    def aggregate_jaccard_distributions(self, threshold, n_iter=10, agg_f=None):
+        signif_qtls_df = self.qtls_df[self.qtls_df["score"] <= threshold]
+        qtls_graph = networks.graph_from_edges(signif_qtls_df[["SNP", "gene"]].values, 
+                                              directed=True)
+
+        j_distr_dct = OrderedDict()
+        real_linksim = np.array(
+            qtls.linkage_similarity(
+                self.interactome,
+                qtls_graph,
+                mode='full'
+            )
+        )
+        j_distr_dct["real"] = (real_linksim 
+                               if agg_f is None 
+                               else agg_f(real_linksim))
+        
+        for iter_num in tqdm_notebook(range(n_iter), "randomized copy"):
+            randomized_interactome = ig.Graph().Read_Pickle(
+                os.path.join(self.path_to_randomized, 
+                             "{0}/{1}.pkl".format(self.interactions_type, iter_num))
+            ).simplify()
+            randomized_interactome.vs.select(_degree=0).delete()
+            randomized_linksim = np.array(
+                qtls.linkage_similarity(
+                    randomized_interactome,
+                    qtls_graph,
+                    mode='full'
+                )
+            )
+            j_distr_dct["random_{}".format(iter_num)] = (randomized_linksim 
+                                                         if agg_f is None 
+                                                         else agg_f(randomized_linksim))
+
+        return j_distr_dct
+    
+    @staticmethod
+    def process_threshold(thresh, interactome, interactions_type, 
+                          node_names, qtls_df, max_iter, path_to_randomized):
+        """
+        QTL filtering and Jaccard coefficient computation.
+        ----------------------------------------------------------
+        @param thresh — float — score cutoff
+        @param edges_list — list(str)
+            list of edges given as pairs of gene names
+        @param node_names — list(str)
+            list of gene names corresponding to the 
+            nodes of the interactome graph
+        @param qtls_df — pd.DataFrame
+            must contain such columns as ["SNP", "gene", "score"]
+        @param max_iter — int — number of randomization iterations
+        ----------------------------------------------------------
+        @returns    a dictionary with:
+                    — mean jaccard similarity 
+                      (for real interactome and for each simulation)
+                    — list of p-values obtained through;
+                      MWU test that compared the actual Jaccard 
+                      coefficient distribution with those arising
+                      during simulation runs;
+                    — number of edges with at least one linked 
+                      marker with score below current threshold.
+        ----------------------------------------------------------
+        @note   staticmethod decorator makes this method 
+                compatible with joblib (or multiprocessing module)
+        """
+        
+        signif_qtls_df = qtls_df[qtls_df["score"] <= thresh]
+        linksim = {}
+        linksim["actual"], linksim["random"], p_values = \
+            ppin_test( # attention! old codebase
+                module_genes=node_names,
+                interactions_type=interactions_type, 
+                interactome_graph=interactome,
+                qtl_df=signif_qtls_df,
+                n_iters=max_iter,
+                path_to_randomized=path_to_randomized,
+                return_pvalues=True
+            )
+        
+        simulation_results = {
+            "actual-mean-linksim" : linksim["actual"],
+            "random-mean-linksim" : linksim["random"],
+            "p-value" : sps.combine_pvalues(p_values)[1]
+        }
+        return simulation_results
+
+    def map(self):
+        """
+        Computes the averaged Jaccard similarity for real interactome.
+        Then simulates self.max_iter random lists of edges and 
+        repeats the computations with those. 
+        
+        Method's name comes form the fact that it distributes the
+        simulation iterations among workers on cluster.
+        --------------------------------------------------------------
+        @returns None (results are stored at self.simulation_results)
+        """
+        mapped = \
+            Parallel(n_jobs=self.n_jobs)(
+                delayed(RandomizedInteractomeTest.process_threshold)(
+                    thresh, self.interactome, self.interactions_type,
+                    self.node_names, self.qtls_df, self.max_iter, self.path_to_randomized
+                )
+                for thresh in self.score_thresholds
+            )
+        
+        for test_stat in ["actual-mean-linksim", "p-value"]:
+            self.simulation_results[test_stat] = np.concatenate([np.atleast_1d(run[test_stat]) 
+                                                                 for run in mapped])
+            
+        self.simulation_results["random-mean-linksim"] = np.vstack([run["random-mean-linksim"] 
+                                                                    for run in mapped])
+        
+    def reduce(self, summarize=True):
+        """
+        Summarizes the self.simulation_results when asked to do so
+        """
+        if summarize:
+            mapped = self.simulation_results # for brevity
+            simulation_summary = {
+                "linksim" : {
+                    key : 
+                    np.quantile(mapped["random-mean-linksim"], val, axis=1)
+                    for key, val in zip(["25%", "50%", "75%"], 
+                                        [0.25, 0.5, 0.75])
+                }
+            }
+            actual_summary = {
+                "linksim" : { "mean" : mapped["actual-mean-linksim"] }
+            }
+            return {"actual" : actual_summary, 
+                    "p-value" : multipletests(mapped["p-value"])[1],
+                    "random" : simulation_summary}
+        return self.simulation_results
+    
+    def map_reduce(self, summarize=True):
+        """
+        Master-function that initiates the pipeline.
+        """
+        self.map()
+        return self.reduce(summarize)
+    
+    
 def community_graph_test(modules_dict, gene_pool, RANDITER_COUNT, qtl_df):
     """
     Каждый модуль преобразуется в полный граф, потом аналогичное "созвездие"
@@ -445,7 +630,7 @@ def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df,
     )
     randomized_j_means = []
     p_values = []
-    for iter_num in tqdm(range(n_iters), "n_iters"):
+    for iter_num in tqdm_notebook(range(n_iters), "n_iters"):
         randomized_interactome_graph = ig.Graph().Read_Pickle(
             os.path.join(path_to_randomized, 
                          "{0}/{1}.pkl".format(interactions_type, iter_num))
