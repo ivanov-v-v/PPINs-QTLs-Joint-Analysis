@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as sps
+import seaborn as sns
 from statsmodels.stats.multitest import multipletests
 from tqdm import *
 
@@ -225,7 +226,6 @@ def qtl_overlap_hist(overlap_data, modules_type):
     plt.close("all")
     gc.collect()
 
-
 def plot_vignettes(module_type, module_names):
     for module_name in tqdm(module_names, desc="vignettes plotted"):
         plots = []
@@ -246,6 +246,68 @@ def plot_vignettes(module_type, module_names):
         del q_hist, pairwise_test, interactome_test, network, vignette_side_parts, combined_plot
         plt.close("all")
         gc.collect()
+
+        
+class QTLDistPlotter:
+    def __init__(self, qtl_df, qtl_type, figsize, title, font_scale, fig=None, ax=None):
+        sns.set(style="whitegrid", font_scale=font_scale)
+        if fig is None or ax is None:
+            self.fig, self.ax = plt.subplots(figsize=figsize)
+        else: 
+            self.fig, self.ax = fig, ax
+        self.ax.set_title(title)        
+        self.ax.set_xlabel("marker position (chromosome)")
+        self.ax.set_ylabel("number of affected genes")
+        
+        self.qtl_df = qtl_df
+        self.qtl_type = qtl_type
+        
+        with open("data/raw/genomic_features/order_of_markers.pkl", "rb") as pickle_file:
+            self.marker2location = pickle.load(pickle_file)
+        with open("data/raw/genomic_features/chromosome_endpoints.pkl","rb") as pickle_file:
+            self.chromosome_endpoints = pickle.load(pickle_file)
+        self.chromosome_labels = [util.as_roman(n) for n in np.arange(1, 17)]
+        
+        self.ax.set_xticks(self.chromosome_endpoints)
+        self.ax.set_xticklabels(self.chromosome_labels)
+        self.ax.tick_params(axis='both', which='major')
+        self.ax.tick_params(axis='both', which='minor')
+        self.ax.grid(linestyle="dotted")
+        
+        self._base_plot()
+        
+        # plt.savefig("img/qtl_distributions/corrected_limix_vs_A&B_2018.png", dpi=300)
+#         plt.show()
+#         plt.close()
+        
+    def _base_plot(self):
+        for i in range(1, 17):
+            self.ax.axvline(
+                x=self.chromosome_endpoints[i - 1], 
+                linestyle='--', 
+                color='grey', 
+                alpha=0.8
+            )
+            
+        QTL_markers, self.QTL_y = linkages2gencoords(self.qtl_df)
+        self.QTL_x = [self.marker2location[m] for m in QTL_markers]
+        
+        self.ax.plot(
+            self.QTL_x,
+            self.QTL_y,
+            label="{}, {} QTLs".format(self.qtl_type, self.qtl_df.shape[0]),
+            alpha=1,
+            color="green",
+            zorder=1
+        )
+
+        self.ax.fill_between(
+            self.QTL_x, 0, 
+            self.QTL_y, 
+            alpha=0.7, 
+            color="green"
+        )        
+        
         
 def jaccard(s1, s2):
     """
@@ -331,13 +393,17 @@ class RandomizedInteractomeTest:
         self.path_to_randomized = os.path.abspath(path_to_randomized)
             
     def aggregate_jaccard_distributions(self, threshold, n_iter=10, agg_f=None):
+        """
+        Helper function that computes the jaccard distribution and then 
+        aggregates information about them using agg_f. 
+        """
         signif_qtls_df = self.qtls_df[self.qtls_df["score"] <= threshold]
         qtls_graph = networks.graph_from_edges(signif_qtls_df[["SNP", "gene"]].values, 
-                                              directed=True)
+                                               directed=True)
 
-        j_distr_dct = OrderedDict()
+        j_distr_dct = collections.OrderedDict()
         real_linksim = np.array(
-            qtls.linkage_similarity(
+            linkage_similarity(
                 self.interactome,
                 qtls_graph,
                 mode='full'
@@ -354,7 +420,7 @@ class RandomizedInteractomeTest:
             ).simplify()
             randomized_interactome.vs.select(_degree=0).delete()
             randomized_linksim = np.array(
-                qtls.linkage_similarity(
+                linkage_similarity(
                     randomized_interactome,
                     qtls_graph,
                     mode='full'
@@ -399,8 +465,13 @@ class RandomizedInteractomeTest:
         signif_qtls_df = qtls_df[qtls_df["score"] <= thresh]
         linksim = {}
         linksim["actual"], linksim["random"], p_values = \
-            ppin_test( # attention! old codebase
-                module_genes=node_names,
+            ppin_test( 
+                # по module_genes происходит фильтрация
+                # следовательно, нужно убрать из рассмотрения те гены,
+                # которые ни с кем не слинкованы
+                # у меня складывается впечатление, что я этого не делаю
+                # а какого чёрта я тогда делаю?
+                module_genes=signif_qtls_df["gene"],
                 interactions_type=interactions_type, 
                 interactome_graph=interactome,
                 qtl_df=signif_qtls_df,
@@ -439,9 +510,10 @@ class RandomizedInteractomeTest:
         for test_stat in ["actual-mean-linksim", "p-value"]:
             self.simulation_results[test_stat] = np.concatenate([np.atleast_1d(run[test_stat]) 
                                                                  for run in mapped])
-            
-        self.simulation_results["random-mean-linksim"] = np.vstack([run["random-mean-linksim"] 
-                                                                    for run in mapped])
+        # какого вообще чёрта тут происходит
+        # почему у всех случайных графов одинаковое число рёбер???
+        # т.е. я отдавал себе отчёт в том, что делаю, когда писал это
+        self.simulation_results["random-mean-linksim"] = [run["random-mean-linksim"] for run in mapped]
         
     def reduce(self, summarize=True):
         """
@@ -452,7 +524,8 @@ class RandomizedInteractomeTest:
             simulation_summary = {
                 "linksim" : {
                     key : 
-                    np.quantile(mapped["random-mean-linksim"], val, axis=1)
+                    np.array([np.quantile(row, val) 
+                              for row in mapped["random-mean-linksim"]])
                     for key, val in zip(["25%", "50%", "75%"], 
                                         [0.25, 0.5, 0.75])
                 }
@@ -580,7 +653,6 @@ def full_graph_test(module_genes, gene_pool, RANDITER_COUNT, qtl_df):
 
     return real_avg_link_sim, random_avg_link_sim, significant, ci[0], ci[1]
 
-from tqdm import tqdm, tqdm_notebook
 def ppin_test(module_genes, interactions_type, interactome_graph, qtl_df, 
               n_iters, path_to_randomized, return_pvalues=False):
     """
