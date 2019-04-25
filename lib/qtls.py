@@ -35,6 +35,44 @@ def linked_genes(qtl_df, marker_list):
     return np.unique(qtl_df[qtl_df["SNP"].isin(np.atleast_1d(marker_list))]["gene"].values)
 
 
+        
+def jaccard(s1, s2):
+    """
+    Notice: due to interpretation, similarity between empty sets is redefined to be 0 instead of 1.
+    :return: Jaccard coefficient for sets s1 and s2
+    """
+    if len(s1) == 0 and len(s2) == 0:
+        return 0
+    return len(s1 & s2) / len(s1 | s2)
+
+
+def linkage_similarity(module_graph, qtl_graph, mode="mean"):
+    """
+    :param module_graph: simple graph of some functional module
+    :param qtl_graph: bipartite graph of linkages
+    :param mode: 'full' — return vector of Jaccard coefficients representing all edges
+                 'mean' — return only average linkage similarity
+    :return: some statistics about linkage similarity specified by "mode"
+    """
+    if module_graph.ecount() == 0:
+        return 0. if mode == "mean" else np.array([])
+
+    results = np.zeros(shape=module_graph.ecount())
+    for i, edge in enumerate(module_graph.es):
+        source = module_graph.vs[edge.source]
+        target = module_graph.vs[edge.target]
+
+        try:
+            s_neigh = set(qtl_graph.neighbors(source["name"], mode="IN"))
+            t_neigh = set(qtl_graph.neighbors(target["name"], mode="IN"))
+            results[i] = jaccard(s_neigh, t_neigh)
+        except ValueError:
+            '''Sometimes there is no such vertex in qtl graph'''
+            pass
+
+    return results.mean() if mode == "mean" else results
+
+
 ########################################################################################################################
 #                                                  VISUALIZATIONS                                                      #
 ########################################################################################################################
@@ -308,42 +346,6 @@ class QTLDistPlotter:
             color="green"
         )        
         
-        
-def jaccard(s1, s2):
-    """
-    Notice: due to interpretation, similarity between empty sets is redefined to be 0 instead of 1.
-    :return: Jaccard coefficient for sets s1 and s2
-    """
-    if len(s1) == 0 and len(s2) == 0:
-        return 0
-    return len(s1 & s2) / len(s1 | s2)
-
-
-def linkage_similarity(module_graph, qtl_graph, mode="mean"):
-    """
-    :param module_graph: simple graph of some functional module
-    :param qtl_graph: bipartite graph of linkages
-    :param mode: 'full' — return vector of Jaccard coefficients representing all edges
-                 'mean' — return only average linkage similarity
-    :return: some statistics about linkage similarity specified by "mode"
-    """
-    if module_graph.ecount() == 0:
-        return 0. if mode == "mean" else np.array([])
-
-    results = np.zeros(shape=module_graph.ecount())
-    for i, edge in enumerate(module_graph.es):
-        source = module_graph.vs[edge.source]
-        target = module_graph.vs[edge.target]
-
-        try:
-            s_neigh = set(qtl_graph.neighbors(source["name"], mode="IN"))
-            t_neigh = set(qtl_graph.neighbors(target["name"], mode="IN"))
-            results[i] = jaccard(s_neigh, t_neigh)
-        except ValueError:
-            '''Sometimes there is no such vertex in qtl graph'''
-            pass
-
-    return results.mean() if mode == "mean" else results
 
 ########################################################################################################################
 #                                            LINKAGE SHARING ESTIMATION                                                #
