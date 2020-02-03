@@ -10,13 +10,11 @@
 ## Description
 ![Saccharomyces cerevisiae, the budding yeast](https://raw.githubusercontent.com/ivanov-v-v/PPINs-QTLs-Joint-Analysis/master/img/qtl_distributions/eQTLs_2011_vs_2018.png)
 
-This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow 
-Institute of Physics and Technology ([MIPT](https://mipt.ru/english/), in Russia better known as "Физтех"). It's a work-in-progress, because workload at our university is really intense. It will eventually become my bachelor's thesis and will be thoroughly documented and tested by that time. It's my first experience in maintaining big, long-term projects, thereby I still have much to learn, but gradually I will adopt and start following software engineering best practices. Moreover, as it usually happens in scientific programming, the code is often being rewritten or thrown away. As a result, most of the work is done behind the curtain in the form of weekly reports I use to communicate new results and ideas to by supervisor. 
+“This is my first project in systems biology. I started it during the second year of my undergraduate studies in Moscow Institute of Physics and Technology (MIPT, in Russia, better known as "Физтех"). It's my first experience in maintaining big, long-term projects. Moreover, as it usually happens in scientific programming, the code is often being rewritten or thrown away. As a result, most of the work is done behind the curtain in the form of weekly reports I use to communicate new results and ideas to by supervisor.
 
-This research is carried out under supervision of [Yuri Pritykin](https://scholar.google.com/citations?hl=en&user=Arx56RkJBrYC&view_op=list_works&sortby=pubdate), PhD (Princeton), Research Scholar at MSKCC.
+This research is carried out under supervision of Yuri Pritykin, PhD (Princeton), Research Scholar at MSKCC.
 
-This repository is maintained to ensure the reproducibility of our results.
-Project's main language is Python. We use Jupyter Notebook for exploratory data analysis. We utilize MIPT supercomputing capabilities to carry out computational experiments. Implementation of most of the of the statistical tests is efficiently parallelized to fully expolit their embrassingly parallel nature. 
+This repository is maintained to ensure the reproducibility of our results. Project's main language is Python. I use Jupyter Notebook for exploratory data analysis. I utilize MIPT supercomputing capabilities to carry out computational experiments.”
 
 
 [↥ back to top](#table-of-contents)
